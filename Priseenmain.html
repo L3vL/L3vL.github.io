@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 2 Prise en main de R | Introduction à R et aux statistiques en sciences sociales</title>
+  <meta name="description" content="Ceci est une introduction au language de programmation R et à l’analyse statistique en sciences sociales." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 2 Prise en main de R | Introduction à R et aux statistiques en sciences sociales" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Ceci est une introduction au language de programmation R et à l’analyse statistique en sciences sociales." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 2 Prise en main de R | Introduction à R et aux statistiques en sciences sociales" />
+  
+  <meta name="twitter:description" content="Ceci est une introduction au language de programmation R et à l’analyse statistique en sciences sociales." />
+  
+
+<meta name="author" content="Lev Lhommeau" />
+
+
+<meta name="date" content="2023-02-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="charge_code_filtrer.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.27/datatables.js"></script>
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introduction à R et aux statistiques en sciences sociales</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Remarques préliminaires</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#installer-r"><i class="fa fa-check"></i><b>1.1</b> Installer R</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#se-retrouver-à-lintérieur-de-ce-syllabus"><i class="fa fa-check"></i><b>1.2</b> Se retrouver à l’intérieur de ce syllabus</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="Priseenmain.html"><a href="Priseenmain.html"><i class="fa fa-check"></i><b>2</b> Prise en main de R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="Priseenmain.html"><a href="Priseenmain.html#Commandes"><i class="fa fa-check"></i><b>2.1</b> Commandes dans R</a></li>
+<li class="chapter" data-level="2.2" data-path="Priseenmain.html"><a href="Priseenmain.html#Fonctions_aides"><i class="fa fa-check"></i><b>2.2</b> Fonctions et aide dans R</a></li>
+<li class="chapter" data-level="2.3" data-path="Priseenmain.html"><a href="Priseenmain.html#working_directory"><i class="fa fa-check"></i><b>2.3</b> Espace de travail (<em>working directory</em>)</a></li>
+<li class="chapter" data-level="2.4" data-path="Priseenmain.html"><a href="Priseenmain.html#packages"><i class="fa fa-check"></i><b>2.4</b> Installer et lancer des <em>packages</em> (bibliothèques)</a></li>
+<li class="chapter" data-level="2.5" data-path="Priseenmain.html"><a href="Priseenmain.html#objets_envir"><i class="fa fa-check"></i><b>2.5</b> Objets et environnement dans R</a></li>
+<li class="chapter" data-level="2.6" data-path="Priseenmain.html"><a href="Priseenmain.html#import_donnees"><i class="fa fa-check"></i><b>2.6</b> Importer et enregistrer des données</a></li>
+<li class="chapter" data-level="2.7" data-path="Priseenmain.html"><a href="Priseenmain.html#close_R"><i class="fa fa-check"></i><b>2.7</b> Fermer R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="charge_code_filtrer.html"><a href="charge_code_filtrer.html"><i class="fa fa-check"></i><b>3</b> Charger des bases de données et les filtrer</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="charge_code_filtrer.html"><a href="charge_code_filtrer.html#charger-des-données-au-format-r-.rds"><i class="fa fa-check"></i><b>3.1</b> Charger des données au format R (<em>.RDS</em>)</a></li>
+<li class="chapter" data-level="3.2" data-path="charge_code_filtrer.html"><a href="charge_code_filtrer.html#explorer-les-données-créer-un-codebook-interactif"><i class="fa fa-check"></i><b>3.2</b> Explorer les données: créer un <em>codebook</em> interactif</a></li>
+<li class="chapter" data-level="3.3" data-path="charge_code_filtrer.html"><a href="charge_code_filtrer.html#filtrer-les-données"><i class="fa fa-check"></i><b>3.3</b> Filtrer les données</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="salaire_belge_stat_desc.html"><a href="salaire_belge_stat_desc.html"><i class="fa fa-check"></i><b>4</b> Le salaire de Belges</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="salaire_belge_stat_desc.html"><a href="salaire_belge_stat_desc.html#statistiques-descriptives-et-simples-graphiques-des-salaires-des-belges"><i class="fa fa-check"></i><b>4.1</b> Statistiques descriptives et simples graphiques des salaires des Belges</a></li>
+<li class="chapter" data-level="4.2" data-path="salaire_belge_stat_desc.html"><a href="salaire_belge_stat_desc.html#comparer-une-distribution-à-une-distributioon-normale"><i class="fa fa-check"></i><b>4.2</b> Comparer une distribution à une distributioon normale</a></li>
+<li class="chapter" data-level="4.3" data-path="salaire_belge_stat_desc.html"><a href="salaire_belge_stat_desc.html#trans_log_grspnum"><i class="fa fa-check"></i><b>4.3</b> Distribution normale et transformation logarithmique</a></li>
+<li class="chapter" data-level="4.4" data-path="salaire_belge_stat_desc.html"><a href="salaire_belge_stat_desc.html#distribution_normale_proba"><i class="fa fa-check"></i><b>4.4</b> Distribution normale et probabilités</a></li>
+<li class="chapter" data-level="4.5" data-path="salaire_belge_stat_desc.html"><a href="salaire_belge_stat_desc.html#connaître-la-probabilité-des-salaire"><i class="fa fa-check"></i><b>4.5</b> Connaître la probabilité des salaire</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction à R et aux statistiques en sciences sociales</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Priseenmain" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapitre 2</span> Prise en main de R<a href="Priseenmain.html#Priseenmain" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="Commandes" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Commandes dans R<a href="Priseenmain.html#Commandes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Vous vous demandez peut-être comment exécuter des commandes dans R. Si vous utilisez <a href="https://posit.co/"><em>RStudio</em></a>, vous avez deux possibilités. Vous pouvez indiquer le code directement dans la console qui se trauve dans l’onglet “Console”. une fois que la commande est introduite, appuyez sur la touche <em>Entré</em> de votre clavier pour la soumettre à l’<a href="https://fr.wikipedia.org/wiki/Interpr%C3%A8te_(informatique)">interpréteur</a> de R. Cependant, cette manière ne sera pas votre moyen principal de soumettre des commandes à R. Vous allez plutôt utiliser des fichiers <em>R Script</em> dans lesquels vous noterez votre code: pour créer un nouveau fichier <em>R Script</em>, cliquez en haut à gauche dans <a href="https://posit.co/"><em>RStudio</em></a> sur l’icône représentant une feuille blanche avec un signe plus (+) sur fond vert et choisissez <em>R Script</em> dans le menu déroulant.</p>
+<p>Un fichier <em>R Script</em> est un document texte rassemblant l’ensemble des commandes que vous souhaitez soumettre à R. C’est un peu comme une “recette” où chaque commande correspond à un ingrédient ou une manipulation à faire pour obtenir le plat désiré. Sauf, bien entendu, que le plat désiré ne sera pas une mousse au chocolat ou un rôti de bœuf, mais le résultat d’un calcul, d’une manipulation de données, d’une analyse statistique ou une représentation graphique. Ce fichier <em>R Script</em> peut être enregistré sous un nom de votre choix suivie du suffixe “.R” (par exemple: “Analyse.R”). Cela vous permet de commenter et de reproduire les commandes que vous avez faites: si vous indiquiez vos commandes uniquement dans la console, vous pourriez que difficilement reproduire vos manipulations et analyses. Or, la reproductibilité est un critère essentiel de la scientificité. Par ailleurs, le code que vous avez écrit peut être réutilisé lors d’analyses futures. Cela vous fera gagner du temps!</p>
+<p>Mais comment exécuter les commandes que vous avez noté dans votre fichier de <em>R Script</em>? Il suffit de placer le curseur sur une commande et d’appuyer sur la flèche verte “Run” qui se situe au dessus à droite de l’onglet où se trouve votre code. Vous pouvez aussi appuyer sur les touches “<em>Contrôle + Entrée</em>”. Par ailleurs, vous pouvez sélectionner une partie de votre code, puis exécuter cette partie du code de la même manière.</p>
+</div>
+<div id="Fonctions_aides" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Fonctions et aide dans R<a href="Priseenmain.html#Fonctions_aides" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Comme <a href="https://www.microsoft.com/fr-be/microsoft-365/excel"><em>Excel</em></a> (ou d’autres langues de programmation tels que <a href="https://www.python.org/"><em>Python</em></a> ou <em>C</em>), R dispose de fonctions que vous allez pouvoir utiliser pour mener vos analyses statistiques et manipuler vos données. En informatique, une fonction est un programme qui exécute une (suite de) commande(s) dont elle retourne un résultat et que l’on peut réutiliser dans d’autres programmes. Les fonctions en R sont composées de leur nom, suivi d’une parenthèse dans laquelle vous pourrez indiquer, le cas échéant, les arguments séparés par des virgules. Ainsi, si vous voulez connaitre la moyenne de la suite <span class="math inline">\(A=\{0,1,2,3,4,5,6,7,8,9,10\}\)</span>, vous pouvez utiliser la fonction <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/mean"><em>mean()</em></a>. Avant il faut créer le <em>vecteur</em><a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> <em>suite_a</em>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="Priseenmain.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Nous créons la suite A allant de 0 à 10 et la nommons suite_a dans R:</span></span>
+<span id="cb4-2"><a href="Priseenmain.html#cb4-2" aria-hidden="true" tabindex="-1"></a>suite_a<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)</span>
+<span id="cb4-3"><a href="Priseenmain.html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="Priseenmain.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#À l&#39;aide de la fonction mean(), nous calculons la moyenne de cette suite:</span></span>
+<span id="cb4-5"><a href="Priseenmain.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(suite_a)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>L’<a href="Priseenmain.html#objets_envir">objet</a> suite_a contenant la suite <span class="math inline">\(A\)</span> est l’argument de la fonction <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/mean"><em>mean()</em></a> que l’on note dans la parenthèse de la fonction. Comme vous pouvez le voir, la moyenne de cette suite <span class="math inline">\(A\)</span> est de 5.</p>
+<p>Si vous avez besoin d’aide concernant une fonction dans R, écrivez la fonction précédée de “?”. Par exemple:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="Priseenmain.html#cb6-1" aria-hidden="true" tabindex="-1"></a>?setwd</span></code></pre></div>
+<p>Dans RStudio, dans l’onglet “<em>Help</em>” en bas à droite, s’affiche alors l’aide. Vous pouvez également sélectionner une fonction et appuyer sur la touche “<em>F1</em>” de votre clavier.</p>
+<p>Outre les fonctions déjà existantes dans R et ses <a href="Priseenmain.html#packages"><em>packages</em></a>, vous pouvez définir vos propres fonctions. Celle-ci vous permettent de réaliser ce dont vous avez besoin sur mesure (analyse statistique, transformation de données, etc.). Cela peut être réalisé de manière assez simple dans R<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>.</p>
+</div>
+<div id="working_directory" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Espace de travail (<em>working directory</em>)<a href="Priseenmain.html#working_directory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Lorsque l’on travaille avec R, il faut définir un espace de travail. C’est le dossier où R sauvegardera et charge les fichiers et bases de données avec les quelles vous travaillez. Si vous ne le déterminez pas, R choisi un dossier par défaut. Sur un ordinateur Windows, cela sera bien souvent le dossier “Documents”. Nous vous conseillons de créer un dossier dédié à votre travail en R et de définir celui-ci comme répertoire de travail. Si vous aviez créé un dossier “Espace_R” dans un dossier “Revisions” sur votre disque dur C, vous soumettrez le code suivant à R pour en faire votre espace de travail:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="Priseenmain.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Revisions/Espace_R&quot;</span>) <span class="co"># Indiquez le chemin du dossier qui doit être votre répertoire de travail</span></span></code></pre></div>
+<p>Vous aurez remarqué que le chemin d’accès et les dossiers sont entre guillemets. Par ailleurs, dans R, les chemins d’accès entre dossiers (“Revision”) et sous-dossiers (“Espace_R”) sont séparés par des barres obliques (/), comme pour une division. Dans Windows, les chemins d’accès sont notés par des barres obliques inversées (\). Il faut donc corriger cela lorsque vous copiez des chemin d’accès dans R.</p>
+<p>Sous Windows vous pouvez aussi choisir manuellement le dossier dans lequel se trouve votre espace de travail:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="Priseenmain.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">choose.dir</span>()) <span class="co"># Indiquez le chemin du dossier qui doit être votre répertoire de travail</span></span></code></pre></div>
+<p>Si vous lancez ce code, une fenêtre s’ouvre dans laquelle vous pourrez cliquer sur le dossier que vous souhaitez déterminer en tant que dossier de travail. Malheureusement, cela fonctionne uniquement sous Windows et pas sous Linux et macOS.</p>
+<p>Que votre système d’exploitation soit Linux, macOS ou Windows, vous pouvez définir votre espace de travail grâce aux menus de <a href="https://posit.co/"><em>RStudio</em></a>. Allez sur le menu “Session” puis choisissez “<em>Set Working Directory</em>” dans le menu déroulant. Parmi les options disponibles cliquez sur “<em>Choose Directory</em>”. Une fenêtre s’ouvre alors dans laquelle vous pourrez choisir le fichier de votre choix pour déterminer l’emplacement de votre espace de travail.</p>
+</div>
+<div id="packages" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Installer et lancer des <em>packages</em> (bibliothèques)<a href="Priseenmain.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Comme d’autres langues de programmation, R dispose d’un grand nombre de <em>packages</em><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>. Ceux-ci enrichissent le langage de nouvelles fonctions qui n’étaient pas encore présentes dans sa version initiale. R est particulièrement riche en <em>packages.</em> Sur <a href="https://cran.r-project.org/"><em>CRAN</em></a>, le répertoire “officiel” de R, <span class="math inline">\(19136\)</span> <em>packages</em> étaient répertoriés en janvier 2023.</p>
+<p>Pour installer un <em>package</em>, il y a la commande générique <em>install.packages()</em>. Lors de cette formation, nous allons beaucoup utiliser des <em>packages</em> issues du <a href="https://www.tidyverse.org/"><em>tydiverse</em></a>, un ensemble de <em>packages</em>, permettant de manipuler les données et de les représenter graphiquement. Cette suite de <em>packages</em> est particulièrement populaire et très largment utilisée. Nous allons donc installer cet ensemble de <em>packages</em> avec la commande <a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/install.packages"><em>install.packages()</em></a>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="Priseenmain.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(tidyverse, <span class="at">dependencies=</span>T) <span class="co">#l&#39;argument &quot;dependencies=T&quot; permet</span></span>
+<span id="cb9-2"><a href="Priseenmain.html#cb9-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">#d&#39;installer automatiquement tous les packages dont à besoin le package</span></span>
+<span id="cb9-3"><a href="Priseenmain.html#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">#que l&#39;on installe pour fonctionner correctement.</span></span></code></pre></div>
+<p>Installer un <em>package</em> ne suffit pas pour l’utiliser. Il doit être chargé à chaque fois que R est fermé puis redémarré. Cela se fait avec la commande <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/library"><em>library()</em></a>. Lançons donc le package <em>tidyverse</em>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="Priseenmain.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>Le <em>package</em> est à présent chargé et peut être utilisé. Si R vous retourne une erreur lorsque vous chargez un <em>package</em>, cela est souvent dû au fait que le <em>package</em> demandé n’est pas (correctement) installé (vérifiez aussi de l’avoir orthographié correctement). Si vous lancez une fonction et que celle-ci ne s’exécute pas (et renvoie une erreur), vérifiez que le <em>package</em> à laquelle elle appartient est bien chargée. Vours verrez cela dans l’onglet “<em>Packages</em>” en bas à droite de <a href="https://posit.co/"><em>RStudio</em></a>: si le <em>package</em> apparaît dans la liste, c’est qu’il est installé. S’il est coché, c’est qu’il est chargé. S’il n’apparaît pas dans la liste, installez-le. S’il n’est pas coché, lancez-le. Vous pouvez le lancer avec la commande <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/library"><em>library()</em></a>, mais vous pouvez aussi la lancer en cochant le <em>package</em> dans l’onglet.</p>
+<p>Une façon plus simple d’installer et de charger les <em>packages</em> est le package <a href="http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html"><em>pacman</em></a>. Celui-ci permet d’installer les <em>packages</em> et de les lancer en une seule commande: <a href="https://www.rdocumentation.org/packages/pacman/versions/0.5.1/topics/p_load"><em>p_load</em></a>. Cette commande vérifie si un <em>package</em> est installé: s’il est installé, il le lance, s’il ne l’est pas, il l’installe, puis le lance. Cela peut rendre le lancement de <em>packages</em> plus facile et rapide. Par ailleurs, cela permet de plus facilement partager son code: l’interlocuteur peut exécuter votre code sans devoir vérifier s’il a installé les <em>packages</em> que vous utilisez:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="Priseenmain.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>) <span class="co">#Cela vérifie</span></span>
+<span id="cb11-2"><a href="Priseenmain.html#cb11-2" aria-hidden="true" tabindex="-1"></a>                             <span class="co">#si le package pacman est installé.</span></span>
+<span id="cb11-3"><a href="Priseenmain.html#cb11-3" aria-hidden="true" tabindex="-1"></a>                             <span class="co">#S&#39;il ne l&#39;est pas, il est installé.</span></span>
+<span id="cb11-4"><a href="Priseenmain.html#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="Priseenmain.html#cb11-5" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse) <span class="co">#On lance le package tidyverse s&#39;il est installé,</span></span>
+<span id="cb11-6"><a href="Priseenmain.html#cb11-6" aria-hidden="true" tabindex="-1"></a>                          <span class="co">#sinon on l&#39;installe puis le lance automatiquement.</span></span></code></pre></div>
+<p>Si vous voulez lancer plusieurs <em>packages</em> en même temps, il suffit de les ajouter à la suite, séparé par des virgules, entre les parenthèses suivant la fonction <a href="https://www.rdocumentation.org/packages/pacman/versions/0.5.1/topics/p_load"><em>p_load</em></a>. Ainsi, si nous voulions charger les <em>packages</em> du <a href="https://www.tidyverse.org/"><em>tydiverse</em></a>, ainsi que le <em>package</em> <a href="https://rstudio.github.io/DT/"><em>DT</em></a><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="Priseenmain.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>) <span class="co">#Cela vérifie</span></span>
+<span id="cb12-2"><a href="Priseenmain.html#cb12-2" aria-hidden="true" tabindex="-1"></a>                             <span class="co">#si le package pacman est installé.</span></span>
+<span id="cb12-3"><a href="Priseenmain.html#cb12-3" aria-hidden="true" tabindex="-1"></a>                             <span class="co">#S&#39;il ne l&#39;est pas, il est installé.</span></span>
+<span id="cb12-4"><a href="Priseenmain.html#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="Priseenmain.html#cb12-5" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, DT) <span class="co">#La liste des packages, séparés</span></span>
+<span id="cb12-6"><a href="Priseenmain.html#cb12-6" aria-hidden="true" tabindex="-1"></a>                      <span class="co">#par des virgules, que l&#39;on souhaite</span></span>
+<span id="cb12-7"><a href="Priseenmain.html#cb12-7" aria-hidden="true" tabindex="-1"></a>                      <span class="co">#charger et, si nécessaire, installer.</span></span></code></pre></div>
+<p>Vous pouvez aligner à la suite autant de <em>packages</em> que vous le souhaiter en les séparant par des virgules.</p>
+<p>Dans ce syllabus ous allons utiliser cette méthode avec <a href="http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html"><em>pacman</em></a> pour éviter de devoir vérifier si certains <em>packages</em> sont installés avant de les lancer.</p>
+</div>
+<div id="objets_envir" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Objets et environnement dans R<a href="Priseenmain.html#objets_envir" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R est une langue de programmation orientée objet. Cela signifie que l’on défini des objets (bases de données, valeurs, fonctions, etc.) que l’on fait interagir les uns avec les autres pour obtenir le résultat escompté<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>. Vous pouvez vous imaginer cela un peut comme différentes pièces de “Légo” que vous assemblez pour construire un château à votre goût.</p>
+<p>Dans R, l’on crée un objet avec le symbole “&lt;-”, une flèche montrant vers la gauche. La flèche montre vers le nom de l’objet à créer à gauche et à droite l’on définit le contenu de cet objet (valeur, vecteur, matrice, etc.).</p>
+<p>L’on peut ainsi créer l’objet <em>bombe_atomique</em> qui contient la valeur <span class="math inline">\(1000^2\)</span>:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="Priseenmain.html#cb13-1" aria-hidden="true" tabindex="-1"></a>bombe_atomique <span class="ot">&lt;-</span> <span class="dv">1000</span><span class="sc">^</span><span class="dv">2</span> <span class="co"># À gauche: le nom de l&#39;objet (bombe_atomique), à droite la valeur</span></span>
+<span id="cb13-2"><a href="Priseenmain.html#cb13-2" aria-hidden="true" tabindex="-1"></a>                         <span class="co">#qu&#39;elle contient (1000^2)</span></span>
+<span id="cb13-3"><a href="Priseenmain.html#cb13-3" aria-hidden="true" tabindex="-1"></a>bombe_atomique           <span class="co">#Maintenant, on se fait afficher le contenu de cet objet dans la console.</span></span></code></pre></div>
+<pre><code>## [1] 1000000</code></pre>
+<p>La valeur de l’objet <em>bombe_atomique</em> apparaît dans la console. Par ailleurs, le nom de l’objet apparaît en haut à droite dans l’onglet “<em>Environement</em>” de <em>RStudio</em>. Si vous avez calculé la moyenne de la suite <span class="math inline">\(A\)</span> dans la section <a href="Priseenmain.html#Fonctions_aides">Fonctions et aide dans R</a>, vous y verrez aussi l’objet <em>suite_a</em>. Dans R un environnement<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> est un espace où les objets sont enregistrés vous permettant de les analyser et de les manipuler.</p>
+<p>Vous aurez peut-être remarqué que la valeur de l’objet <em>bombe_atomique</em> est affiché en notation scientifique:</p>
+<pre><code>## [1] 1000000</code></pre>
+<p>Vous pouvez désactiver cet affichage avec la commande suivante:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="Priseenmain.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>)</span></code></pre></div>
+<p>Vérifiez à nouveau la valeur de l’objet <em>bombe_atomique</em>:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="Priseenmain.html#cb17-1" aria-hidden="true" tabindex="-1"></a>bombe_atomique</span></code></pre></div>
+<pre><code>## [1] 1000000</code></pre>
+<p>Comme vous pouvez le voir, la notation scientifique à disparue. Cela peut vous faciliter la lecture des résultats de vos analyses!</p>
+</div>
+<div id="import_donnees" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Importer et enregistrer des données<a href="Priseenmain.html#import_donnees" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R dispose de nombreuses fonctions intégrées pour importer des données sous différents formats (<em>read.table</em>, <em>read.delim</em>, <em>read.csv</em>, etc.). Il y a, par ailleurs, un certain nombre de <em>packages</em> qui ajoutent de nouvelles fonctions et d’autres formats de données que l’on peut intégrer.</p>
+<p>Ainsi, le package <a href="https://readr.tidyverse.org/"><em>readr</em></a>, appartenant à “l’univers” <a href="https://www.tidyverse.org/"><em>tydiverse</em></a> étant ainsi automatiquement chargé si vous chargez le <a href="https://www.tidyverse.org/"><em>tydiverse</em></a> (voir <a href="Priseenmain.html#packages">ici</a>), ajoute des fonctions assez intéressantes pour charger des données au format texte (<em>csv</em>, <em>txt</em>): <em>read_delim</em>, <em>read_csv</em>, <em>read_csv2</em>, etc. De même, le <em>package</em> <a href="https://readxl.tidyverse.org/"><em>readxl</em></a> permet de charger des fichiers au format Excel dans R. Bien que ce <em>package</em> appartienne également à “l’univers” <a href="https://www.tidyverse.org/"><em>tydiverse</em></a>, le <em>package</em> <a href="https://readr.tidyverse.org/"><em>readr</em></a> doit être chargé séparément. Un troisième <em>package</em> issu de cet “univers” est le <em>package</em> <a href="https://haven.tidyverse.org/"><em>haven</em></a>: il permet de charger des bases de données enregistrés au format des logiciels statistiques payants <a href="https://www.sas.com/"><em>SAS</em></a>, <a href="https://www.stata.com/"><em>Stata</em></a> et <a href="https://www.ibm.com/fr-fr/products/spss-statistics"><em>SPSS</em></a>. En effet, beaucoup de bases de données sont enregistrés dans l’un de ces formats qui ont l’avantage, contrairement aux format <em>CSV</em> et <em>Excel</em>, de pouvoir notamment enregistrer des libellées des variables et des valeurs. Le <em>package</em> <a href="https://haven.tidyverse.org/"><em>haven</em></a> permet de préserver ces avantages lorsque l’on importe les données dans R:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="Priseenmain.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>) <span class="co">#Cela vérifie</span></span>
+<span id="cb19-2"><a href="Priseenmain.html#cb19-2" aria-hidden="true" tabindex="-1"></a>                             <span class="co">#si le package pacman est installé.</span></span>
+<span id="cb19-3"><a href="Priseenmain.html#cb19-3" aria-hidden="true" tabindex="-1"></a>                             <span class="co">#S&#39;il ne l&#39;est pas, il est installé.</span></span>
+<span id="cb19-4"><a href="Priseenmain.html#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="Priseenmain.html#cb19-5" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(readxl,haven) <span class="co">#On lance les packages readxl et haven.</span></span></code></pre></div>
+<p>Lors de cette introduction nous allons utiliser les données issues de l’Enquête sociale européenne/<a href="https://www.europeansocialsurvey.org/"><em>European social survey (ESS)</em></a><a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>. Nous allons utiliser la version 9 de l’<a href="https://www.europeansocialsurvey.org/"><em>ESS</em></a> (ESS 9), contenant des données récoltées en 2018. Les données de l’<a href="https://www.europeansocialsurvey.org/"><em>ESS</em></a> sont mises à disposition aux formats <a href="https://www.ibm.com/fr-fr/products/spss-statistics"><em>SPSS</em></a> (avec le suffixe “.sav”), <a href="https://www.stata.com/"><em>Stata</em></a> (avec le suffixe “.dta”) et <a href="https://www.sas.com/"><em>SAS</em></a> (avec le suffixe “.sas”). Nous allons télécharger les données de l’<a href="https://www.europeansocialsurvey.org/"><em>ESS</em></a> au format <a href="https://www.ibm.com/fr-fr/products/spss-statistics"><em>SPSS</em></a> (fichiers terminants par “.sav”).</p>
+<p>Pour pouvoir télécharger les données, il faut s’inscrire sur le site de l’<a href="https://www.europeansocialsurvey.org/"><em>ESS</em></a>. Cette inscription est entièrement gratuites. Les données de l’<a href="https://www.europeansocialsurvey.org/"><em>ESS</em></a> peuvent être librement utilisées à des fins non commerciales, notamment pour la recherche et l’enseignement. Nous vous demanderons de vous inscrire sur le le <a href="https://www.europeansocialsurvey.org/">site</a> de l’<a href="https://www.europeansocialsurvey.org/"><em>ESS</em></a> et de télécharger les données: téléchargez les données de l’<a href="https://www.europeansocialsurvey.org/"><em>ESS</em></a> 9 (<em>ESS Round 9</em>) pour tous les pays au format <a href="https://www.ibm.com/fr-fr/products/spss-statistics"><em>SPSS</em></a> (fichier se terminant par “.sav”).</p>
+<p>Nous vous laissons suivre les indications sur le site (en anglais) pour vous inscrire et télécharger les données<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>. Il existe le <em>package</em> <a href="https://cran.r-project.org/web/packages/essurvey/vignettes/intro_ess.html"><em>esssurvey</em></a> qui permettait de télécharger directement les données de l’<a href="https://www.europeansocialsurvey.org/"><em>ESS</em></a> dans R. Malheureusement, en raison de changements concernant l’accès aux données de l’<a href="https://www.europeansocialsurvey.org/"><em>ESS</em></a> au cours de 2022, ce <em>package</em> ne fonctionne plus (janvier 2023).</p>
+<p>Une fois que vous avez téléchargé le fichier de l’<a href="https://www.europeansocialsurvey.org/"><em>ESS</em></a> 9 (2018) au format <a href="https://www.ibm.com/fr-fr/products/spss-statistics"><em>SPSS</em></a> (fichier se terminant par “.sav”), il faudra charger la base de données dans R. Pour cela, copiez le fichier dans le dossier dans lequel se trouve votre <a href="Priseenmain.html#working_directory">espace de travail</a> R<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>. Notre fichier se nomme “ESS9e03_1.sav”. Adapter le nom du fichier, s’il porte un autre nom chez vous. Une fois que le fichier de l’<a href="https://www.europeansocialsurvey.org/"><em>ESS</em></a> 9 se trouve dans votre espace de travail, indiquez le code suivant<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="Priseenmain.html#cb20-1" aria-hidden="true" tabindex="-1"></a>ESS9<span class="ot">&lt;-</span><span class="fu">read_sav</span>(<span class="st">&quot;ESS9e03_1.sav&quot;</span>) <span class="co">#Vous indiquez le nom de votre fichier</span></span>
+<span id="cb20-2"><a href="Priseenmain.html#cb20-2" aria-hidden="true" tabindex="-1"></a>                      <span class="co">#entre guillemets (&quot;&quot;). Si le fichier ne se</span></span>
+<span id="cb20-3"><a href="Priseenmain.html#cb20-3" aria-hidden="true" tabindex="-1"></a>                      <span class="co">#trouve pas dans votre espace de travail, vous</span></span>
+<span id="cb20-4"><a href="Priseenmain.html#cb20-4" aria-hidden="true" tabindex="-1"></a>                      <span class="co">#devrez indiquer tout le chemin d&#39;accès.</span></span></code></pre></div>
+<p>Avec cette commande, vous avez chargé la base de données dans l’environnement de R. Vous l’avez nommé “ESS9”<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>. Elle apparaît dans l’onglet “<em>Environement</em>” en haut à droite de <a href="https://posit.co/"><em>RStudio</em></a>. Si vous utilisez le système d’exploitation Windows, vous pouvez aussi utiliser la commande <em>choose.files</em> à l’intérieur de la fonction <em>read_sav</em>. Lorsque vous exécutez cette commande, une fenêtre s’ouvre vous permettant de choisir manuellement le fichier à charger:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="Priseenmain.html#cb21-1" aria-hidden="true" tabindex="-1"></a>ESS9<span class="ot">&lt;-</span><span class="fu">read_sav</span>(<span class="fu">choose.files</span>())</span></code></pre></div>
+<p>Le fichier étant chargé dans l’environnement, vous pouvez l’étudier et le manipuler dans R. Sélectionnez l’objet et exécuter-le:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="Priseenmain.html#cb22-1" aria-hidden="true" tabindex="-1"></a>ESS9</span></code></pre></div>
+<p>Dans votre console s’affichera alors un extrait de la base de données:</p>
+<pre><code>## # A tibble: 49,519 × 572
+##    name  essro…¹ edition prodd…²  idno cntry    dweight pspwght pweight anwei…³ nwspol netus…⁴ netustm ppltrst pplfair pplhlp polintr pspps…⁵ actro…⁶ psppi…⁷ cptpp…⁸ trstprl
+##    &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;chr+lb&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;
+##  1 ESS9…       9 3.1     17.02.…    27 AT [Aus…   0.581   0.218   0.302  0.0659 60     5 [Eve… 180     2 [2]   2 [2]   2 [2]  3 [Har… 3 [Som… 2 [A l… 2 [Ver… 2 [A l… 5 [5]  
+##  2 ESS9…       9 3.1     17.02.…   137 AT [Aus…   1.06    0.413   0.302  0.125  10     5 [Eve…  20     7 [7]   8 [8]   7 [7]  2 [Qui… 3 [Som… 2 [A l… 3 [Som… 2 [A l… 7 [7]  
+##  3 ESS9…       9 3.1     17.02.…   194 AT [Aus…   1.38    2.27    0.302  0.686  60     4 [Mos… 180     5 [5]   7 [7]   7 [7]  4 [Not… 2 [Ver… 1 [Not… 3 [Som… 2 [A l… 6 [6]  
+##  4 ESS9…       9 3.1     17.02.…   208 AT [Aus…   0.993   0.386   0.302  0.117  45     5 [Eve… 120     3 [3]   9 [9]   5 [5]  3 [Har… 2 [Ver… 2 [A l… 3 [Som… 1 [Not… 0 [No …
+##  5 ESS9…       9 3.1     17.02.…   220 AT [Aus…   0.377   1.03    0.302  0.312  30     1 [Nev…  NA     5 [5]   8 [8]   4 [4]  2 [Qui… 1 [Not… 1 [Not… 1 [Not… 3 [Qui… 7 [7]  
+##  6 ESS9…       9 3.1     17.02.…   254 AT [Aus…   1.48    0.576   0.302  0.174  45     2 [Onl…  NA     8 [8]   7 [7]   6 [6]  2 [Qui… 2 [Ver… 2 [A l… 3 [Som… 2 [A l… 6 [6]  
+##  7 ESS9…       9 3.1     17.02.…   290 AT [Aus…   0.992   0.721   0.302  0.218  60     1 [Nev…  NA     6 [6]   1 [1]   3 [3]  4 [Not… 2 [Ver… 2 [A l… 3 [Som… 2 [A l… 0 [No …
+##  8 ESS9…       9 3.1     17.02.…   301 AT [Aus…   0.310   0.130   0.302  0.0393 30     1 [Nev…  NA     7 [7]   7 [7]   7 [7]  3 [Har… 1 [Not… 1 [Not… 1 [Not… 2 [A l… 5 [5]  
+##  9 ESS9…       9 3.1     17.02.…   305 AT [Aus…   1.23    1.77    0.302  0.535  30     5 [Eve… 120     2 [2]   9 [9]   9 [9]  3 [Har… 1 [Not… 1 [Not… 1 [Not… 4 [Ver… 1 [1]  
+## 10 ESS9…       9 3.1     17.02.…   400 AT [Aus…   0.459   0.743   0.302  0.224  25     4 [Mos… 360     7 [7]   4 [4]   4 [4]  4 [Not… 2 [Ver… 2 [A l… 2 [Ver… 1 [Not… 3 [3]  
+## # … with 49,509 more rows, 550 more variables: trstlgl &lt;dbl+lbl&gt;, trstplc &lt;dbl+lbl&gt;, trstplt &lt;dbl+lbl&gt;, trstprt &lt;dbl+lbl&gt;, trstep &lt;dbl+lbl&gt;, trstun &lt;dbl+lbl&gt;,
+## #   vote &lt;dbl+lbl&gt;, prtvtcat &lt;dbl+lbl&gt;, prtvtdbe &lt;dbl+lbl&gt;, prtvtdbg &lt;dbl+lbl&gt;, prtvtgch &lt;dbl+lbl&gt;, prtvtbcy &lt;dbl+lbl&gt;, prtvtecz &lt;dbl+lbl&gt;, prtvede1 &lt;dbl+lbl&gt;,
+## #   prtvede2 &lt;dbl+lbl&gt;, prtvtddk &lt;dbl+lbl&gt;, prtvtgee &lt;dbl+lbl&gt;, prtvtees &lt;dbl+lbl&gt;, prtvtdfi &lt;dbl+lbl&gt;, prtvtdfr &lt;dbl+lbl&gt;, prtvtcgb &lt;dbl+lbl&gt;, prtvtahr &lt;dbl+lbl&gt;,
+## #   prtvtfhu &lt;dbl+lbl&gt;, prtvtcie &lt;dbl+lbl&gt;, prtvtcis &lt;dbl+lbl&gt;, prtvtcit &lt;dbl+lbl&gt;, prtvblt1 &lt;dbl+lbl&gt;, prtvblt2 &lt;dbl+lbl&gt;, prtvblt3 &lt;dbl+lbl&gt;, prtvtalv &lt;dbl+lbl&gt;,
+## #   prtvtme &lt;dbl+lbl&gt;, prtvtgnl &lt;dbl+lbl&gt;, prtvtbno &lt;dbl+lbl&gt;, prtvtdpl &lt;dbl+lbl&gt;, prtvtcpt &lt;dbl+lbl&gt;, prtvtrs &lt;dbl+lbl&gt;, prtvtcse &lt;dbl+lbl&gt;, prtvtfsi &lt;dbl+lbl&gt;,
+## #   prtvtdsk &lt;dbl+lbl&gt;, contplt &lt;dbl+lbl&gt;, wrkprty &lt;dbl+lbl&gt;, wrkorg &lt;dbl+lbl&gt;, badge &lt;dbl+lbl&gt;, sgnptit &lt;dbl+lbl&gt;, pbldmn &lt;dbl+lbl&gt;, bctprd &lt;dbl+lbl&gt;, pstplonl &lt;dbl+lbl&gt;,
+## #   clsprty &lt;dbl+lbl&gt;, prtcldat &lt;dbl+lbl&gt;, prtcldbe &lt;dbl+lbl&gt;, prtcldbg &lt;dbl+lbl&gt;, prtclgch &lt;dbl+lbl&gt;, prtclbcy &lt;dbl+lbl&gt;, prtclecz &lt;dbl+lbl&gt;, prtclede &lt;dbl+lbl&gt;, …</code></pre>
+<p>Comme pour d’autres logiciels statistiques, les colonnes représentent les variables et les lignes les observations. Ici, une vingtaine de variables sont affichées (sur <span class="math inline">\(572\)</span>). De même les dix premières observations (sur <span class="math inline">\(49519\)</span>) sont affichées<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>. Si vous voulez voir l’ensemble de la base de données, vous pouvez utiliser la fonction <em>View()</em><a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="Priseenmain.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(ESS9)</span></code></pre></div>
+<p>Si vous voulez enrengistrer la base de données sous un format R, utilisez le format <em>RDS</em>. Celui-ci vous permet d’enregistrer un objet R. La base de données de l’<a href="https://www.europeansocialsurvey.org/"><em>ESS</em></a> étant chargé sous le nom “<em>ESS9</em>” comme objet R dans l’<a href="Priseenmain.html#objets_envir">environnement global</a> il vous suffira d’exécuter la commande <em>saveRDS()</em> pour l’enregistrer. Dans cette commande vous indiquez le nom de l’objet R à enregistrer en tant que premier argument. Ensuite, vous indiquez, séparé par une virgule, comme seocond argument, le nom sous lequel vous voulez enregistrer l’objet. Ce nom doit être indiqué entre guillemets. Ici, nous voulons enregistrer l’objet “<em>ESS9</em>” sous le nom “ESS9.RDS”, afin de le réutiliser lors du prochain chapitre. Exécutez donc le code suivant:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="Priseenmain.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(ESS9,<span class="st">&quot;ESS9.RDS&quot;</span>)</span></code></pre></div>
+<p>Le fichier “ESS9.RDS” contenant votre base de données est alors enregistré dans votre <a href="Priseenmain.html#working_directory">espace de travail</a>. Vous pourrez la charger ensuite pour continuer à travailler avec. C’est ce que nous allons faire dans le prochain chapitre portant sur les distributions.</p>
+</div>
+<div id="close_R" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Fermer R<a href="Priseenmain.html#close_R" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Lorsque vous fermez R, <a href="https://posit.co/"><em>RStudio</em></a> va vous proposer d’enregistrer l’<a href="Priseenmain.html#objets_envir">environnement global</a>. Si vous l’acceptez, un fichier contenant tous les objets se trouvant dans votre <a href="Priseenmain.html#objets_envir">environnement global</a> sera enregistré dans votre <a href="Priseenmain.html#working_directory">espace de travail</a>. Lorsque vous rouvrez R plusn tard, tous les objets que vous aviez dans votre espace de travail au moment de la fermeture de R seront à nouveau accessibles. Cela vous permettra de reprendre votre travail où vous en étiez avant de fermer R. Si vous n’enregistrez pas l’<a href="Priseenmain.html#working_directory">espace de travail</a>, il sera vierge lorsque vous ouvrez R à nouveau. Il faudra exécuter les commandes de la dernière session pour arriver au même stade qu’avant la fermeture. <strong>Attention:</strong> même si vous enregistrez l’<a href="Priseenmain.html#working_directory">espace de travail</a>, il faudra relancer les <a href="Priseenmain.html#packages"><em>packages</em></a> que vous souhaitez utiliser lorsque vous rouvrez R. Lorsque vous ouvrez <a href="https://posit.co/"><em>RStudio</em></a> les fichier <a href="Priseenmain.html#Commandes"><em>R Script</em></a> qui étaient ouverts lorsque vous avez fermé <a href="https://posit.co/"><em>RStudio</em></a> s’ouvrent automatiquement.</p>
+<!-- Si vous voulez explorer cette base de données de manière interactive, vous pouvez le fair avec la fonction *datatable()* du package [*DT*](https://rstudio.github.io/DT/), chargé précédemment: -->
+<!-- ```{r echo=T} -->
+<!-- datatable(ESS9) -->
+<!-- ``` -->
+<!-- Ue fois que vous avez chargé le fichier  -->
+<!-- #Téléchargez le fichier au format [*SPSS*](https://www.ibm.com/fr-fr/products/spss-statistics) (fichier se terminant par ".sav") sur le site de l'ESS  -->
+<!-- #ou sur le student corner: "ESS9e03_1.sav". -->
+<!-- #Commencez l'importation: -->
+<!-- ESS9<- read_sav("C:/Users/JeanLuc/Downloads/ESS9e03_1.sav") -->
+<!-- #...à gauche de la flêche (<-), indiquez le nom que vous voulez donner à la base de données dans R. -->
+<!-- #Indiquez, à doite de celle-ci, le fichier ainsi que le chemin d'accès vers le fichier SPSS, le cas échéant... -->
+<!-- #Attention, dans le chemin d'accés les barres "/" doivent aller vers l'avant et pas vers l'arriére ("\"). -->
+<!-- #Sous Windows s'est simple également, vous pouvez choisir le fichier manuellement: -->
+<!-- ESS9<- read_sav(choose.files()) -->
+<!-- View(ESS9) #Affiche la base de données importée -->
+<!-- #Pour la Belgique: -->
+<!-- ESS9_BE<- ESS9 %>% filter(cntry=="BE") -->
+<!-- View(ESS9_BE) -->
+<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
+<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
+<!-- ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'} -->
+<!-- par(mar = c(4, 4, .1, .1)) -->
+<!-- plot(pressure, type = 'b', pch = 19) -->
+<!-- ``` -->
+<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
+<!-- ```{r nice-tab, tidy=FALSE} -->
+<!-- knitr::kable( -->
+<!--   head(iris, 20), caption = 'Here is a nice table!', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="5">
+<li id="fn5"><p>Pour savoir comment créer des vecteurs en R, nous renvoyons à la page suivante: <a href="http://www.sthda.com/french/wiki/les-vecteurs-vector">http://www.sthda.com/french/wiki/les-vecteurs-vector</a>.<a href="Priseenmain.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Ce syllabus contient des exemples de fonctions créés, cependant cela ne fait pas partie de ses objets principaux. Nous renvoyons donc à d’autres ouvrages à ce sujet.<a href="Priseenmain.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>En français, l’on parle de bibliothèques. Nous alignons cependant ce syllabus sur l’usage en anglais que l’on retrouve dans R. Nous parlerons donc de <em>package(s)</em>.<a href="Priseenmain.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Le <em>package</em> <em>DT</em> permet de créer des tableaux interactif assez pratiques pour se faire une idée des données. Attention cependant que des bases de données avec un nombre trop important de lignes (des dizaines de milliers) qui peut faire “crasher” R.<a href="Priseenmain.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>Une introduction un peu technique à la programmation orientée objet (POO) se trouve ici: <a href="https://hdd34.developpez.com/cours/artpoo/">https://hdd34.developpez.com/cours/artpoo/</a><a href="Priseenmain.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>R connaît plusieurs environnements. L’environnement où est enregistré l’objet définit sa portée, c’est-à-dire dans quelles circonstances les objets sont accessibles. Dans ce syllabus, nous utiliserons consciemment (pratiquement) exclusivement l’environnement global dénommé “<em>.GlobalEnv</em>”. Vu qu’il s’agit d’une introduction, nous ne nous attardons pas sur ce point.<a href="Priseenmain.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>Davantage d’informations sur l’Enquête sociale européenne peuvent être trouvés sur son site: <a href="https://www.europeansocialsurvey.org/about/">https://www.europeansocialsurvey.org/about/</a><a href="Priseenmain.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>Si vous suivez un enseignement avec <a href="mailto:lhommeau@gmail.com">Lev Lhommeau</a>, il se peut que ces données vous soient mises à disposition dans ce cadre.<a href="Priseenmain.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>Il est possible de charger des fichiers ne se trouvant pas dans votre <a href="Priseenmain.html#working_directory">espace de travail</a>. Cela nécessite cependant d’indiquer l’ensemble du chemin d’accès dans R, ce qui peut être laborieux.<a href="Priseenmain.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>L’exécution de cette commande nécessite le chargement préalable du <em>package</em> “<em>haven</em>”, come indiqué plus haut.<a href="Priseenmain.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>Vous aurez aussi pu la nommer différemment. Pour cela il suffit de changer le nom à gauche de la flèche (&lt;-).<a href="Priseenmain.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>Cet affichage est le réglage par défaut d’un <a href="https://tibble.tidyverse.org/"><em>tibble</em></a>, une forme spéciale de base données dans R. Si vous avez une base de données par défaut (<em>data.frame</em>) de R, cela s’affichera un peu différemment. Pour plus de détails en français: <a href="https://juba.github.io/tidyverse/06-tidyverse.html">https://juba.github.io/tidyverse/06-tidyverse.html</a><a href="Priseenmain.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn17"><p>Mais attention, la base de données étant grande avec près de <span class="math inline">\(500000\)</span> observations, cela peut prendre un certain temps.<a href="Priseenmain.html#fnref17" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="charge_code_filtrer.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

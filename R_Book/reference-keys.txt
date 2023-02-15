@@ -15,7 +15,7 @@ explorer-les-données-créer-un-codebook-interactif
 filtrer-les-données
 salaire_belge_stat_desc
 statistiques-descriptives-et-simples-graphiques-des-salaires-des-belges
-comparer-une-distribution-à-une-distributioon-normale
+comparer-une-distribution-à-une-distribution-normale
 trans_log_grspnum
 distribution_normale_proba
-connaître-la-probabilité-des-salaire
+connaître-la-probabilité-des-salaires

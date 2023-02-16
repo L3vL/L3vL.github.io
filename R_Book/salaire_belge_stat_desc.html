@@ -12,7 +12,7 @@
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Ceci est une introduction au langage de programmation R et à l’analyse statistique en sciences sociales." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="https://github.com/L3vL/intro_r_code" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapitre 4 Le salaire de Belges | Introduction à R et aux statistiques en sciences sociales" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Lev Lhommeau" />
 
 
-<meta name="date" content="2023-02-15" />
+<meta name="date" content="2023-02-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -213,21 +213,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>On voit que la valeur minimale est de <span class="math inline">\(0€\)</span>, la valeur maximale de <span class="math inline">\(40000€\)</span>. La moyenne s’élève à <span class="math inline">\(3148€\)</span> tandis que la médiane est sensiblement plus basse à <span class="math inline">\(2800€\)</span>. Cela suggère qu’un nombre restreint de valeurs très élevées tirent la moyenne vers le haut. Il est à noter qu’il y a un nombre important de valeurs manquantes: <span class="math inline">\(1068\)</span>, soit <span class="math inline">\(60\%\)</span> sur les <span class="math inline">\(1767\)</span>.</p>
 <p>Faisons-nous une image de cette distribution. Vu qu’il s’agit d’une variable continue, nous représentons ceci sous forme d’histogramme avec la fonction de base <a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/hist"><em>hist()</em></a> et la fonction un peu plus avancée <a href="https://www.rdocumentation.org/packages/rcompanion/versions/2.4.21/topics/plotNormalHistogram"><em>plotNormalHistogram</em></a> du <em>package</em> <a href="https://rcompanion.org/handbook/">rcompanion</a> y ajoutant une courbe de distribution normale (“cloche”)<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>:</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="salaire_belge_stat_desc.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(ESS9_BE<span class="sc">$</span>grspnum, <span class="at">breaks =</span> <span class="dv">50</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="salaire_belge_stat_desc.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotNormalHistogram</span>(ESS9_BE<span class="sc">$</span>grspnum,</span>
 <span id="cb69-2"><a href="salaire_belge_stat_desc.html#cb69-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">breaks =</span> <span class="dv">50</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-2.png" width="672" /></p>
+<p><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-47-2.png" width="672" /></p>
 <p>On peut aussi faire de graphiques plus attrayants avec les fonctions du <em>package</em> <a href="https://ggplot2.tidyverse.org/"><em>ggplot2</em></a> de l’ensemble <a href="https://www.tidyverse.org/"><em>tidyverse</em></a><a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a>:</p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="salaire_belge_stat_desc.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ESS9_BE, <span class="fu">aes</span>(<span class="at">x=</span>grspnum)) <span class="sc">+</span></span>
 <span id="cb70-2"><a href="salaire_belge_stat_desc.html#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">50</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<p><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
 <p>On voit très clairement que la plupart des valeurs sont concentrées entre <span class="math inline">\(0€\)</span> et <span class="math inline">\(5000€\)</span> et qu’au-delà de <span class="math inline">\(10000\)</span> il n’y a plus que quelques observations isolées. Celles-ci tirent la moyenne vers le haut. Un autre moyen de représenter cela est de le faire à l’aide d’une “boîte à moustache” (<em>boxplot</em>):</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="salaire_belge_stat_desc.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(ESS9_BE<span class="sc">$</span>grspnum)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+<p><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
 <p>Vous pouvez aussi la représenter à l’aide de du <em>package</em> <a href="https://ggplot2.tidyverse.org/"><em>ggplot2</em></a><a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>:</p>
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="salaire_belge_stat_desc.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ESS9_BE, <span class="fu">aes</span>(<span class="at">x=</span>grspnum)) <span class="sc">+</span></span>
 <span id="cb72-2"><a href="salaire_belge_stat_desc.html#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<p><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
 <p>Les <em>boxplots</em> indiquent aussi très clairement qu’il y a quelques valeurs “extrêmes”, très élevées, qui “tirent” la moyenne vers le haut. Par ailleurs, il y a un certain nombre d’observations avec des revenus très faibles, tels que <span class="math inline">\(0€\)</span>.</p>
 <p>Il nous semble utile de considérer seulement les personnes travaillant à temps plein. Par ailleurs, il faut contrôler que les données soient cohérentes. La Belgique ayant un salaire minimum, il n’est pas légalement possible pour un salarié de percevoir un salaire de moins de <span class="math inline">\(1000€\)</span> tout en travaillant à temps plein<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a>.</p>
 <p>Nous nous concentrons ainsi sur les Belges travaillant plus de 34 heures pas semaine (temps plein) et gagnant plus de <span class="math inline">\(1000€\)</span> par mois, mais moins de <span class="math inline">\(15000€\)</span> par mois. La variable “<em>wkhtot</em>” indique le nombre d’heures travaillées par semaine. On utilise la fonction <a href="https://dplyr.tidyverse.org/reference/filter.html"><em>filter()</em></a> pour sélectionner les observations. On crée une nouvelle base de données nommée <em>ESS9_BE_fulltime</em>:</p>
@@ -248,7 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  52  53  55  56  60  62  65  70  72  75  80  84 100 105 147 168 
 ##  19  12  13 110  18 103   9  23   9   8  67   4   3   7   1  48   1   1   8   1  24   1   6  13   2   4   3   1   1   1   1   4</code></pre>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="salaire_belge_stat_desc.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(ESS9_BE_fulltime<span class="sc">$</span>wkhtot)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+<p><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
 <pre><code>## Total hours normally worked per week in main job overtime included 
 ##       Frequency  Percent
 ## 35           19   3.6122
@@ -299,7 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb82-11"><a href="salaire_belge_stat_desc.html#cb82-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>)<span class="sc">+</span></span>
 <span id="cb82-12"><a href="salaire_belge_stat_desc.html#cb82-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Histogramme: Salaire des Belges en 2018&quot;</span>) <span class="sc">+</span></span>
 <span id="cb82-13"><a href="salaire_belge_stat_desc.html#cb82-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Salaire des Belges en €&quot;</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-53-1.png" width="50%" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-53-2.png" width="50%" />
+<p><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-54-1.png" width="50%" /><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-54-2.png" width="50%" />
 Avec des <em>boxplot</em>, la variable <em>grspnum</em> donne le résultat suivant:</p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="salaire_belge_stat_desc.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Avec R de base:</span></span>
 <span id="cb83-2"><a href="salaire_belge_stat_desc.html#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -312,7 +312,7 @@ Avec des <em>boxplot</em>, la variable <em>grspnum</em> donne le résultat suiva
 <span id="cb83-9"><a href="salaire_belge_stat_desc.html#cb83-9" aria-hidden="true" tabindex="-1"></a>ESS9_BE_fulltime <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>grspnum)) <span class="sc">+</span> </span>
 <span id="cb83-10"><a href="salaire_belge_stat_desc.html#cb83-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Boîte à moustache: Salaire des Belges en 2018&quot;</span>)<span class="sc">+</span></span>
 <span id="cb83-11"><a href="salaire_belge_stat_desc.html#cb83-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Boîte à moustache: Salaire des Belges en 2018&quot;</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-54-1.png" width="50%" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-54-2.png" width="50%" /></p>
+<p><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-55-1.png" width="50%" /><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-55-2.png" width="50%" /></p>
 <p>L’histogramme et la boîte à moustache montrent une distribution moins “écrasée”. Elle reste cependant asymétrique avec des valeurs très élevées – et une “coupure” vers le bas à <span class="math inline">\(1200€\)</span>. La distribution semble donc toujours loin d’être normale.</p>
 </div>
 <div id="comparer-une-distribution-à-une-distribution-normale" class="section level2 hasAnchor" number="4.2">
@@ -418,7 +418,7 @@ Avec des <em>boxplot</em>, la variable <em>grspnum</em> donne le résultat suiva
 <span id="cb87-12"><a href="salaire_belge_stat_desc.html#cb87-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&quot;Base R: Suite B et transformation logarithmique&quot;</span>,</span>
 <span id="cb87-13"><a href="salaire_belge_stat_desc.html#cb87-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Suite B&quot;</span>,</span>
 <span id="cb87-14"><a href="salaire_belge_stat_desc.html#cb87-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Logarithme népérien de la suite B&quot;</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-57-1.png" width="50%" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-57-2.png" width="50%" /></p>
+<p><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-58-1.png" width="50%" /><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-58-2.png" width="50%" /></p>
 <p>En abscisse, l’on voit la suite <span class="math inline">\(B\)</span> (l’objet <em>suite_B</em>) allant de 1 à 1000. En ordonné, nous avons cette même suite <span class="math inline">\(B\)</span> transformée de manière logarithmique. L’on voit, très clairement que la courbe augmente fortement lors de faibles valeurs puis s’aplanit. Cela correspond à l’augmentation de l’espacement des valeurs faibles et au rapprochement des grandes valeurs.</p>
 <p>Nous allons donc appliquer cette transformation à la variable <em>grspnum</em> reprenant les salaires. Pour effectuer cette transformation, nous utilisons la fonction <a href="https://dplyr.tidyverse.org/reference/mutate.html"><em>mutate()</em></a> du <em>package</em> <a href="https://dplyr.tidyverse.org/"><em>dplyr</em></a>: celle-ci permet de créer de nouvelles variables dans une base de données. Cette fonction s’utilise de la manière suivante: vous indiquez comme premier argument, la base de donnés dans laquelle vous souhaitez ajouter une variable. Le deuxième argument correspond au nom de cette nouvelle variable suivie du signe <span class="math inline">\(=\)</span> et de la/des valeur(s) que doit prendre cette nouvelle variable. L’on peut ainsi indiquer que cette nouvelle variable doit correspondre au <em>logarithme népérien</em> de la variable <em>grspnum</em>. Le logarithme népérien se calcule avec la fonction <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/log"><em>log()</em></a>:</p>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="salaire_belge_stat_desc.html#cb88-1" aria-hidden="true" tabindex="-1"></a>ESS9_BE_fulltime <span class="ot">&lt;-</span> <span class="fu">mutate</span>(ESS9_BE_fulltime,<span class="at">log_grspnum=</span><span class="fu">log</span>(grspnum))</span></code></pre></div>
@@ -436,7 +436,7 @@ Avec des <em>boxplot</em>, la variable <em>grspnum</em> donne le résultat suiva
 <span id="cb89-11"><a href="salaire_belge_stat_desc.html#cb89-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
 <span id="cb89-12"><a href="salaire_belge_stat_desc.html#cb89-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Histogramme: Logarithme du salaire des Belges en 2018&quot;</span>) <span class="sc">+</span></span>
 <span id="cb89-13"><a href="salaire_belge_stat_desc.html#cb89-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Logarithme du salaire des Belges&quot;</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-59-1.png" width="50%" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-59-2.png" width="50%" /></p>
+<p><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-60-1.png" width="50%" /><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-60-2.png" width="50%" /></p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="salaire_belge_stat_desc.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Avec R de base:</span></span>
 <span id="cb90-2"><a href="salaire_belge_stat_desc.html#cb90-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb90-3"><a href="salaire_belge_stat_desc.html#cb90-3" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(ESS9_BE_fulltime<span class="sc">$</span>log_grspnum,</span>
@@ -449,7 +449,7 @@ Avec des <em>boxplot</em>, la variable <em>grspnum</em> donne le résultat suiva
 <span id="cb90-10"><a href="salaire_belge_stat_desc.html#cb90-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb90-11"><a href="salaire_belge_stat_desc.html#cb90-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Boxplot: Logarithme du salaire des Belges en 2018&quot;</span>) <span class="sc">+</span></span>
 <span id="cb90-12"><a href="salaire_belge_stat_desc.html#cb90-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Logarithme du salaire des Belges&quot;</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-60-1.png" width="50%" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-60-2.png" width="50%" /></p>
+<p><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-61-1.png" width="50%" /><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-61-2.png" width="50%" /></p>
 <p>La distribution est sensiblement moins étirée. Cela ressemble plus à une distribution normale. Comparons l’histogramme avec une courbe de densité d’une distribution normale:</p>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="salaire_belge_stat_desc.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Avec R de base:</span></span>
 <span id="cb91-2"><a href="salaire_belge_stat_desc.html#cb91-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -468,7 +468,7 @@ Avec des <em>boxplot</em>, la variable <em>grspnum</em> donne le résultat suiva
 <span id="cb91-15"><a href="salaire_belge_stat_desc.html#cb91-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">size=</span><span class="fl">1.25</span>) <span class="sc">+</span></span>
 <span id="cb91-16"><a href="salaire_belge_stat_desc.html#cb91-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Histogramme: Logarithme du salaire des Belges en 2018&quot;</span>) <span class="sc">+</span></span>
 <span id="cb91-17"><a href="salaire_belge_stat_desc.html#cb91-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Logarithme du salaire des Belges&quot;</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-61-1.png" width="50%" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-61-2.png" width="50%" /></p>
+<p><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-62-1.png" width="50%" /><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-62-2.png" width="50%" /></p>
 <p>Vérifions cela à l’aide de la fonction <em>nonantecinq</em>:</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="salaire_belge_stat_desc.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nonantecinq</span>(ESS9_BE_fulltime<span class="sc">$</span>log_grspnum)</span></code></pre></div>
 <pre><code>##  Moyenne= 8.03 
@@ -593,7 +593,7 @@ Avec des <em>boxplot</em>, la variable <em>grspnum</em> donne le résultat suiva
 <span id="cb105-10"><a href="salaire_belge_stat_desc.html#cb105-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">regions=</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">2500</span>), <span class="fu">log</span>(<span class="dv">2800</span>))),</span>
 <span id="cb105-11"><a href="salaire_belge_stat_desc.html#cb105-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">col=</span><span class="fu">c</span>(<span class="st">&#39;#BEBEBE&#39;</span>, <span class="st">&#39;#BEBEBE&#39;</span>),</span>
 <span id="cb105-12"><a href="salaire_belge_stat_desc.html#cb105-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend.pos=</span><span class="st">&#39;topright&#39;</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
+<p><img src="intro_R_sciences_sociales_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
 <p>Grâce à ce graphique l’on voit visuellement où se situent les <span class="math inline">\(10\%\)</span> de probabilité de percevoir entre <span class="math inline">\(2500€\)</span> et <span class="math inline">\(2800€\)</span>.</p>
 <!-- ## Interface graphique: *R Commander* (Rcmdr) -->
 <!-- # Applications -->
@@ -703,7 +703,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-Distribtion_Belgique.Rmd",
+"link": "https://github.com/L3vL/intro_r_code/blob/main/03-Distribtion_Belgique.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -714,7 +714,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["intro_R_sciences_sociales.pdf", "intro_R_sciences_sociales.epub"],
 "search": {
 "engine": "fuse",
 "options": null

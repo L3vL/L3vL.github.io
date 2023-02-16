@@ -12,7 +12,7 @@
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Ceci est une introduction au langage de programmation R et à l’analyse statistique en sciences sociales." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="https://github.com/L3vL/intro_r_code" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapitre 2 Prise en main de R | Introduction à R et aux statistiques en sciences sociales" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Lev Lhommeau" />
 
 
-<meta name="date" content="2023-02-15" />
+<meta name="date" content="2023-02-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -296,18 +296,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="Priseenmain.html#cb22-1" aria-hidden="true" tabindex="-1"></a>ESS9</span></code></pre></div>
 <p>Dans votre console s’affichera alors un extrait de la base de données:</p>
 <pre><code>## # A tibble: 49,519 × 572
-##    name   essro…¹ edition prodd…²  idno cntry    dweight pspwght pweight anwei…³ nwspol netus…⁴ netustm ppltrst pplfair pplhlp polintr pspps…⁵ actro…⁶ psppi…⁷ cptpp…⁸ trstprl
-##    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;chr+lb&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;
-##  1 ESS9e…       9 3.1     17.02.…    27 AT [Aus…   0.581   0.218   0.302  0.0659 60     5 [Eve… 180     2 [2]   2 [2]   2 [2]  3 [Har… 3 [Som… 2 [A l… 2 [Ver… 2 [A l… 5 [5]  
-##  2 ESS9e…       9 3.1     17.02.…   137 AT [Aus…   1.06    0.413   0.302  0.125  10     5 [Eve…  20     7 [7]   8 [8]   7 [7]  2 [Qui… 3 [Som… 2 [A l… 3 [Som… 2 [A l… 7 [7]  
-##  3 ESS9e…       9 3.1     17.02.…   194 AT [Aus…   1.38    2.27    0.302  0.686  60     4 [Mos… 180     5 [5]   7 [7]   7 [7]  4 [Not… 2 [Ver… 1 [Not… 3 [Som… 2 [A l… 6 [6]  
-##  4 ESS9e…       9 3.1     17.02.…   208 AT [Aus…   0.993   0.386   0.302  0.117  45     5 [Eve… 120     3 [3]   9 [9]   5 [5]  3 [Har… 2 [Ver… 2 [A l… 3 [Som… 1 [Not… 0 [No …
-##  5 ESS9e…       9 3.1     17.02.…   220 AT [Aus…   0.377   1.03    0.302  0.312  30     1 [Nev…  NA     5 [5]   8 [8]   4 [4]  2 [Qui… 1 [Not… 1 [Not… 1 [Not… 3 [Qui… 7 [7]  
-##  6 ESS9e…       9 3.1     17.02.…   254 AT [Aus…   1.48    0.576   0.302  0.174  45     2 [Onl…  NA     8 [8]   7 [7]   6 [6]  2 [Qui… 2 [Ver… 2 [A l… 3 [Som… 2 [A l… 6 [6]  
-##  7 ESS9e…       9 3.1     17.02.…   290 AT [Aus…   0.992   0.721   0.302  0.218  60     1 [Nev…  NA     6 [6]   1 [1]   3 [3]  4 [Not… 2 [Ver… 2 [A l… 3 [Som… 2 [A l… 0 [No …
-##  8 ESS9e…       9 3.1     17.02.…   301 AT [Aus…   0.310   0.130   0.302  0.0393 30     1 [Nev…  NA     7 [7]   7 [7]   7 [7]  3 [Har… 1 [Not… 1 [Not… 1 [Not… 2 [A l… 5 [5]  
-##  9 ESS9e…       9 3.1     17.02.…   305 AT [Aus…   1.23    1.77    0.302  0.535  30     5 [Eve… 120     2 [2]   9 [9]   9 [9]  3 [Har… 1 [Not… 1 [Not… 1 [Not… 4 [Ver… 1 [1]  
-## 10 ESS9e…       9 3.1     17.02.…   400 AT [Aus…   0.459   0.743   0.302  0.224  25     4 [Mos… 360     7 [7]   4 [4]   4 [4]  4 [Not… 2 [Ver… 2 [A l… 2 [Ver… 1 [Not… 3 [3]  
+##    name  essro…¹ edition prodd…²  idno cntry    dweight pspwght pweight anwei…³ nwspol netus…⁴ netustm ppltrst pplfair pplhlp polintr pspps…⁵ actro…⁶ psppi…⁷ cptpp…⁸ trstprl
+##    &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;chr+lb&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;
+##  1 ESS9…       9 3.1     17.02.…    27 AT [Aus…   0.581   0.218   0.302  0.0659 60     5 [Eve… 180     2 [2]   2 [2]   2 [2]  3 [Har… 3 [Som… 2 [A l… 2 [Ver… 2 [A l… 5 [5]  
+##  2 ESS9…       9 3.1     17.02.…   137 AT [Aus…   1.06    0.413   0.302  0.125  10     5 [Eve…  20     7 [7]   8 [8]   7 [7]  2 [Qui… 3 [Som… 2 [A l… 3 [Som… 2 [A l… 7 [7]  
+##  3 ESS9…       9 3.1     17.02.…   194 AT [Aus…   1.38    2.27    0.302  0.686  60     4 [Mos… 180     5 [5]   7 [7]   7 [7]  4 [Not… 2 [Ver… 1 [Not… 3 [Som… 2 [A l… 6 [6]  
+##  4 ESS9…       9 3.1     17.02.…   208 AT [Aus…   0.993   0.386   0.302  0.117  45     5 [Eve… 120     3 [3]   9 [9]   5 [5]  3 [Har… 2 [Ver… 2 [A l… 3 [Som… 1 [Not… 0 [No …
+##  5 ESS9…       9 3.1     17.02.…   220 AT [Aus…   0.377   1.03    0.302  0.312  30     1 [Nev…  NA     5 [5]   8 [8]   4 [4]  2 [Qui… 1 [Not… 1 [Not… 1 [Not… 3 [Qui… 7 [7]  
+##  6 ESS9…       9 3.1     17.02.…   254 AT [Aus…   1.48    0.576   0.302  0.174  45     2 [Onl…  NA     8 [8]   7 [7]   6 [6]  2 [Qui… 2 [Ver… 2 [A l… 3 [Som… 2 [A l… 6 [6]  
+##  7 ESS9…       9 3.1     17.02.…   290 AT [Aus…   0.992   0.721   0.302  0.218  60     1 [Nev…  NA     6 [6]   1 [1]   3 [3]  4 [Not… 2 [Ver… 2 [A l… 3 [Som… 2 [A l… 0 [No …
+##  8 ESS9…       9 3.1     17.02.…   301 AT [Aus…   0.310   0.130   0.302  0.0393 30     1 [Nev…  NA     7 [7]   7 [7]   7 [7]  3 [Har… 1 [Not… 1 [Not… 1 [Not… 2 [A l… 5 [5]  
+##  9 ESS9…       9 3.1     17.02.…   305 AT [Aus…   1.23    1.77    0.302  0.535  30     5 [Eve… 120     2 [2]   9 [9]   9 [9]  3 [Har… 1 [Not… 1 [Not… 1 [Not… 4 [Ver… 1 [1]  
+## 10 ESS9…       9 3.1     17.02.…   400 AT [Aus…   0.459   0.743   0.302  0.224  25     4 [Mos… 360     7 [7]   4 [4]   4 [4]  4 [Not… 2 [Ver… 2 [A l… 2 [Ver… 1 [Not… 3 [3]  
 ## # … with 49,509 more rows, 550 more variables: trstlgl &lt;dbl+lbl&gt;, trstplc &lt;dbl+lbl&gt;, trstplt &lt;dbl+lbl&gt;, trstprt &lt;dbl+lbl&gt;, trstep &lt;dbl+lbl&gt;, trstun &lt;dbl+lbl&gt;,
 ## #   vote &lt;dbl+lbl&gt;, prtvtcat &lt;dbl+lbl&gt;, prtvtdbe &lt;dbl+lbl&gt;, prtvtdbg &lt;dbl+lbl&gt;, prtvtgch &lt;dbl+lbl&gt;, prtvtbcy &lt;dbl+lbl&gt;, prtvtecz &lt;dbl+lbl&gt;, prtvede1 &lt;dbl+lbl&gt;,
 ## #   prtvede2 &lt;dbl+lbl&gt;, prtvtddk &lt;dbl+lbl&gt;, prtvtgee &lt;dbl+lbl&gt;, prtvtees &lt;dbl+lbl&gt;, prtvtdfi &lt;dbl+lbl&gt;, prtvtdfr &lt;dbl+lbl&gt;, prtvtcgb &lt;dbl+lbl&gt;, prtvtahr &lt;dbl+lbl&gt;,
@@ -415,7 +415,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"link": "https://github.com/L3vL/intro_r_code/blob/main/01-intro.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -426,7 +426,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["intro_R_sciences_sociales.pdf", "intro_R_sciences_sociales.epub"],
 "search": {
 "engine": "fuse",
 "options": null

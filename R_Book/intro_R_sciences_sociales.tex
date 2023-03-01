@@ -142,7 +142,7 @@ breaklines=true
 
 \title{Introduction à R et aux statistiques en sciences sociales}
 \author{Lev Lhommeau}
-\date{2023-02-20}
+\date{2023-03-02}
 
 \begin{document}
 \maketitle
@@ -154,24 +154,24 @@ breaklines=true
 \hypertarget{remarques-pruxe9liminaires}{%
 \chapter{Remarques préliminaires}\label{remarques-pruxe9liminaires}}
 
-\textbf{AVERTISSEMENT:} il s'agit d'une publication en chantier (\emph{work in progress}) qui n'a pas encore été corrigé, tant au niveau orthographique, grammatical que du contenu.
+\textbf{AVERTISSEMENT:} il s'agit d'une publication en chantier (\emph{work in progress}) qui n'a pas encore été corrigée, tant au niveau orthographique et grammatical que du contenu.
 
-Ce syllabus\footnote{Ce document étant développé lors d'enseignements à l'\href{https://uclouvain.be/}{Université catholique de Louvain} en Belgique, nous utilisions le belgicisme \emph{syllabus} pour désigner ce support. Par ailleurs, nous utiliserons de nombreux exemples issues de la Belgique. Cela n'altère cependant en rien son utilité pour les lecteurs francophones d'autres pays.} est une introduction au langage de programmation R et à l'analyse statistique en sciences sociales. Il s'adresse aux étudiants en sciences sociales, telles que la science politique, la sociologie et la communication, ainsi qu'à toute personne qui souhaite découvrir les bases de l'analyse statistique des phénomènes sociaux avec R. Ce syllabus veut contribuer à combler une lacune dans les publications existantes en langue française: il existe certes de très bons ouvrages théoriques d'introduction aux statistiques à l'usage des sciences sociales, tout comme il existe d'excellent ouvrages d'introduction à la programmation avec R. En revanche, une introduction pratique à l'analyse des phénomènes sociaux avec R fait encore défaut. C'est cette lacune que vise la présente introduction.
+Ce syllabus\footnote{Ce document étant développé lors d'enseignements à l'\href{https://uclouvain.be/}{Université catholique de Louvain} en Belgique, nous utilisons le belgicisme \emph{syllabus} pour désigner ce support. Par ailleurs, nous utiliserons de nombreux exemples issus de la Belgique. Cela n'altère cependant en rien son utilité pour les lecteurs francophones d'autres pays.} est une introduction au langage de programmation R et à l'analyse statistique en sciences sociales. Il s'adresse aux étudiants en sciences sociales, telles que la science politique, la sociologie et la communication, ainsi qu'à toute personne qui souhaite découvrir les bases de l'analyse statistique des phénomènes sociaux avec R. Ce syllabus veut contribuer à combler une lacune dans les publications existantes en langue française : il existe certes de très bons ouvrages théoriques d'introduction aux statistiques à l'usage des sciences sociales, tout comme il existe d'excellents ouvrages d'introduction à la programmation avec R. En revanche, une introduction pratique à l'analyse des phénomènes sociaux avec R fait encore défaut. C'est cette lacune que comble la présente introduction.
 
-Ce syllabus se fonde sur les travaux pratiques que j'assure sous la direction de Philippe Bocquier et Bruno Schoumaker à l'UCLouvain. Au vu du public cible, les concepts mathématiques et statistiques mobilisés dans cette introduction sont tout à fait abordables. Cette introduction essayera de faire au maximum l'économie de formules mathématiques et si elles sont indispensables, elles s'efforcera de les ``traduire'' en langue française. Il est cependant préférable, si le lecteur ne dispose pas de connaissances en statistiques, d'accompagner la lecture de ce syllabus de la lecture d'un manuel de statistiques ou du suivi d'un cours de statistiques. À cette fin, l'on peut conseiller en langue française, les ressources et ouvrages suivants (liste non exhaustive):
+Ce syllabus se fonde sur les travaux pratiques que j'assure sous la direction de Philippe Bocquier et Bruno Schoumaker à l'UCLouvain. Au vu du public cible, les concepts mathématiques et statistiques mobilisés dans cette introduction sont tout à fait abordables. Cette introduction essaiera de faire au maximum l'économie de formules mathématiques et, lorsqu'elles sont indispensables, elles s'efforcera de les ``traduire'' en langue française. Il est cependant préférable, si le lecteur ne dispose pas de connaissances en statistique, d'accompagner la lecture de ce syllabus de la lecture d'un manuel de statistique ou du suivi d'un cours de statistiques. À cette fin, je conseille en langue française l'ouvrage suivant :
 
 Masuy-Stroobant \& Costa (2013): Analyser les données en sciences sociales. De la préparation des données à l'analyse multivariée, Bruxelles: P.I.E. Peter Lang.
 
-Cette introduction a vocation à être accessible à des personnes sans aucune expérience en programmation. Aucun prérequis en programmation n'est donc nécessaire pour la suivre. Elle ne prétend pas à l'exhaustivité, mais souhaite donner un premier aperçu des statistiques en sciences sociales et des possibilités qu'offre le langage de programmation R. Vu qu'il s'agit d'une introduction aux statistiques, les autres usages de R, notamment pour les présentations (avec \href{https://rmarkdown.rstudio.com/}{\emph{R Markdown}} ou \href{https://shiny.rstudio.com/}{\emph{Shiny}}) et l'automatisation de certaines tâches, ne seront pas traités. Si vous cherchez une introduction spécifique à la programmation en R en langue française, nous vous conseillons, l'ouvrage suivant:
+La présente introduction a vocation à être accessible à des personnes sans aucune expérience en programmation. Aucun prérequis en programmation n'est donc nécessaire pour la suivre. Elle ne prétend pas à l'exhaustivité, mais souhaite donner un premier aperçu des statistiques en sciences sociales et des possibilités qu'offre le langage de programmation R. Vu qu'il s'agit d'une introduction aux statistiques, les autres usages de R, notamment pour les présentations (avec \href{https://rmarkdown.rstudio.com/}{\emph{R Markdown}} ou \href{https://shiny.rstudio.com/}{\emph{Shiny}}) et l'automatisation de certaines tâches, ne seront pas traités. Si vous cherchez une introduction spécifique à la programmation en R en langue française, je vous conseille l'ouvrage suivant:
 
 Vincent Goulet: Introduction à la programmation en R, (téléchargez le \href{https://cran.r-project.org/doc/contrib/Goulet_introduction_programmation_R.pdf}{ici})
 
-Notons enfin, que nous avons fait le choix de montrer, outre le R de base, les méthodes issues du \protect\hyperlink{packages}{\emph{package}} \href{https://www.tidyverse.org/}{\emph{tydiverse}}. \href{https://www.tidyverse.org/}{\emph{Tydiverse}} est ce qu'on appelle un ``dialecte'' dans une langue de programmation. Un ``dialecte'' modifie une langue de programmation sans l'altérer fondamentalement. Pourquoi ajouter un ``dialecte'' à cette introduction? Le \href{https://www.tidyverse.org/}{\emph{tydiverse}} est très utilisé et il est donc plus qu'utile de le connaître si l'on souhaite se lancer dans R. De plus, le \href{https://www.tidyverse.org/}{\emph{tydiverse}} avec ses \protect\hyperlink{packages}{\emph{package}} tels que \href{https://dplyr.tidyverse.org/}{\emph{dplyr}} et \href{https://ggplot2.tidyverse.org/}{\emph{ggplot2}} a grandement simplifié la manipulation des données et la réalisation de graphiques de qualité\footnote{Si vous voulez lire une introduction en français plus complète au \emph{tidyverse} nous renvoyons à l'ouvrage \href{https://juba.github.io/tidyverse/}{``Introduction à R et au tidyverse''} de Julien Barnier.}.
+Notons enfin, que nous avons fait le choix de montrer, outre le logiciel R de base, les méthodes issues du \protect\hyperlink{packages}{\emph{package}} \href{https://www.tidyverse.org/}{\emph{tydiverse}}. \href{https://www.tidyverse.org/}{\emph{Tydiverse}} est ce qu'on appelle un ``dialecte''. Un ``dialecte'' modifie une langue de programmation sans l'altérer fondamentalement. Pourquoi ajouter un ``dialecte'' à cette introduction ? Le \href{https://www.tidyverse.org/}{\emph{tydiverse}} est très utilisé et il est donc plus qu'utile de le connaître si l'on souhaite se lancer dans R. De plus, le \href{https://www.tidyverse.org/}{\emph{tydiverse}} avec ses \protect\hyperlink{packages}{\emph{package}} tels que \href{https://dplyr.tidyverse.org/}{\emph{dplyr}} et \href{https://ggplot2.tidyverse.org/}{\emph{ggplot2}} a grandement simplifié la manipulation des données et la réalisation de graphiques de qualité\footnote{Si vous voulez lire une introduction en français plus complète au \emph{tidyverse} nous renvoyons à l'ouvrage \href{https://juba.github.io/tidyverse/}{``Introduction à R et au tidyverse''} de Julien Barnier.}.
 
 \hypertarget{installer-r}{%
 \section{Installer R}\label{installer-r}}
 
-Pour suivre cette introduction, veuillez installer le langage de programmation R et \emph{ensuite} l'environnement de développement \href{https://posit.co/}{\emph{RStudio}}\footnote{\href{https://posit.co/}{\emph{RStudio}} est un environnement de développement spécialisé pour R, mais il peut également exécuter le langage de programmation plus généraliste \href{https://www.python.org/}{\emph{Python}}. Vous pouvez également utiliser R sans environnement de développement ou avec un autre environnement que \href{https://posit.co/}{\emph{RStudio}}, tel que \href{https://code.visualstudio.com/}{\emph{VSCode}}. \href{https://posit.co/}{\emph{RStudio}} est cependant l'environnement le plus utilisé pour coder en R et certainement le plus adapté aux débutants.} (bien dans cet ordre-là: installez \textbf{d'abord} R et ensuite \emph{RStudio Desktop}) sur votre ordinateur. R est une langue de programmation libre, c'est-à-dire qu'elle est entièrement gratuite! Plus besoin d'acheter d'onéreuses licences pour des programmes d'analyse statistique payants tels que \href{https://www.stata.com/}{\emph{Stata}}, \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} et \href{https://www.sas.com/}{\emph{SAS}}, bien souvent moins performants que R. \href{https://posit.co/}{\emph{RStudio}} est également gratuit dans sa version de base (\emph{RStudio Desktop}), entièrement suffisante pour l'usage que nous allons en faire.
+Pour suivre cette introduction, veuillez installer le langage de programmation R et \emph{ensuite} l'environnement de développement \href{https://posit.co/}{\emph{RStudio}}\footnote{\href{https://posit.co/}{\emph{RStudio}} est un environnement de développement spécialisé pour R, mais il peut également exécuter le langage de programmation plus généraliste \href{https://www.python.org/}{\emph{Python}}. Vous pouvez également utiliser R sans environnement de développement ou avec un autre environnement que \href{https://posit.co/}{\emph{RStudio}}, tel que \href{https://code.visualstudio.com/}{\emph{VSCode}}. \href{https://posit.co/}{\emph{RStudio}} est cependant l'environnement le plus utilisé pour coder en R et certainement le plus adapté aux débutants.} (bien dans cet ordre-là: installez \textbf{d'abord} R et ensuite \emph{RStudio Desktop}) sur votre ordinateur. R est une langue de programmation libre, c'est-à-dire qu'elle est entièrement gratuite ! Plus besoin d'acheter d'onéreuses licences pour des programmes d'analyse statistique payants tels que \href{https://www.stata.com/}{\emph{Stata}}, \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} et \href{https://www.sas.com/}{\emph{SAS}}, bien souvent moins performants que R. \href{https://posit.co/}{\emph{RStudio}} est également gratuit dans sa version de base (\emph{RStudio Desktop}), entièrement suffisante pour l'usage que nous allons en faire.
 
 Pour télécharger R, rendez-vous sur le site du \href{https://cran.r-project.org/}{\emph{CRAN}} et installez la dernière version de R pour votre système d'exploitation (Linux, Windows ou macOS):
 
@@ -184,15 +184,15 @@ Pour télécharger RStudio rendez-vous sur le site de \emph{posit}, l'entreprise
 \hypertarget{se-retrouver-uxe0-lintuxe9rieur-de-ce-syllabus}{%
 \section{Se retrouver à l'intérieur de ce syllabus}\label{se-retrouver-uxe0-lintuxe9rieur-de-ce-syllabus}}
 
-Ce syllabus est composé de plusieurs chapitres qui abordent chacun des questions différentes. Le syllabus suit une progression: la complexité augmente avec les chapitres. Il est donc conseillé, surtout au début, de bien suivre l'ordre de celui-ci. Au fur et à mesure que vous avancerez, vous pourrez prendre davantage de libertés avec l'ordre dans lequel vous lisez les chapitres.
+Ce syllabus est composé de plusieurs chapitres qui abordent chacun des questions différentes. Le syllabus suit une progression : la complexité augmente avec les chapitres. Il est donc conseillé, surtout au début, de bien suivre l'ordre de celui-ci. Au fur et à mesure que vous avancerez, vous pourrez prendre davantage de libertés avec l'ordre dans lequel vous lisez les chapitres.
 
-Lorsqu'une fonction est introduite, l'on y ajoute un lien vers la documentation de cette fonction. Ainsi, vous pouvez facilement consulter les explications et des exemples. Malheureusement, la documentation ``officielle'' de R est en anglais. Si vous cherchez en ligne, vous trouverez cependant de nombreux guides en français. Si possible, nous renverrons aussi vers ces sources en français. Vous trouverez des introductions et des fiches de résumé sur R, certains de ces \protect\hyperlink{packages}{\emph{packages}} et \href{https://posit.co/}{\emph{Rstudio}} dans plusieurs langues, dont le français, sur le site de \emph{posit}:
+Lorsqu'une fonction est introduite, j'ajoute un lien vers la documentation de cette fonction. Ainsi, vous pouvez facilement consulter les explications et les exemples. Malheureusement, la documentation ``officielle'' de R est en anglais. Si vous cherchez en ligne, vous trouverez cependant de nombreux guides en français. Si possible, je renverrai aussi vers ces sources en français. Vous trouverez des introductions et des fiches de résumé sur R (ou de certains de ces \protect\hyperlink{packages}{\emph{packages}} et \href{https://posit.co/}{\emph{Rstudio}}) dans plusieurs langues, dont le français, sur le site de \emph{posit}:
 
 \url{https://posit.co/resources/cheatsheets/?type=translations/\#translation-3}
 
 Vous pouvez naviguer entre les chapitres et les sous-sections dans le volet de gauche. Vous pouvez, par ailleurs, naviguer entre les chapitres en appuyant sur les touches de gauche et de droite. Vous pouvez télécharger la version PDF et \emph{epub} de ce syllabus en cliquant sur l'icône de téléchargement en haut de la page\footnote{Notez que les fonctions ``interactives'' de ce syllabus ne pourront pas être maintenus au format PDF et epub et que des difficultés de mise en page ne sont pas exclues.}.
 
-Les codes R à introduire se trouvent dans des encadrés comme celui-ci:
+Les codes R à introduire se trouvent dans des encadrés grisés comme celui-ci :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -204,7 +204,7 @@ Les codes R à introduire se trouvent dans des encadrés comme celui-ci:
 \end{Highlighting}
 \end{Shaded}
 
-Si vous passez votre souris sur cet encadré, vous verrez apparaître, en haut à droite de l'encadré, une icône vous permettant de copier son contenu\footnote{Cette fonctionnalité n'est malheureusement pas présente dans la version PDF et epub de ce syllabus.}. Celui-ci pourra être collé dans votre \protect\hyperlink{Commandes}{\emph{R Script}} puis exécuté. Si vous copiez ce code dans votre \protect\hyperlink{Commandes}{\emph{R Script}} puis l'exécutez (ou le copiez directement dans votre console puis appuyez sur la touche ``\emph{Entrée}'' de votre clavier), voilà ce qui devrait apparaître dans votre console:
+Si vous passez votre souris sur cet encadré, vous verrez apparaître, en haut à droite de l'encadré, une icône vous permettant de copier son contenu\footnote{Cette fonctionnalité n'est malheureusement pas présente dans la version PDF et epub de ce syllabus.}. Celui-ci pourra être collé dans votre \protect\hyperlink{Commandes}{\emph{R Script}} puis exécuté. Si vous copiez ce code dans votre \protect\hyperlink{Commandes}{\emph{R Script}} puis l'exécutez (ou si vous le copiez directement dans votre console puis appuyez sur la touche ``\emph{Entrée}'' de votre clavier), voilà ce qui devrait apparaître dans votre console :
 
 \begin{verbatim}
 ## [1] "Hello world!"
@@ -222,16 +222,16 @@ Si vous avez des questions ou des remarques, n'hésitez pas à me contacter: \hr
 \hypertarget{Commandes}{%
 \section{Commandes dans R}\label{Commandes}}
 
-Vous vous demandez peut-être comment exécuter des commandes dans R. Si vous utilisez \href{https://posit.co/}{\emph{RStudio}}, vous avez deux possibilités. Vous pouvez indiquer le code directement dans la console qui se trouve dans l'onglet ``Console''. Une fois que la commande est introduite, appuyez sur la touche \emph{Entrée} de votre clavier pour la soumettre à l'\href{https://fr.wikipedia.org/wiki/Interpr\%C3\%A8te_(informatique)}{interpréteur} de R. Cependant, cette manière ne sera pas votre moyen principal de soumettre des commandes à R. Vous allez plutôt utiliser des fichiers \emph{R Script} dans lesquels vous noterez votre code: pour créer un nouveau fichier \emph{R Script}, cliquez en haut à gauche dans \href{https://posit.co/}{\emph{RStudio}} sur l'icône représentant une feuille blanche avec un signe plus (+) sur fond vert et choisissez \emph{R Script} dans le menu déroulant.
+Vous vous demandez peut-être comment exécuter des commandes dans R. Si vous utilisez \href{https://posit.co/}{\emph{RStudio}}, vous avez deux possibilités. Vous pouvez indiquer le code directement dans la console qui se trouve dans l'onglet ``Console''. Une fois que la commande est introduite, appuyez sur la touche \emph{Entrée} de votre clavier pour la soumettre à l'\href{https://fr.wikipedia.org/wiki/Interpr\%C3\%A8te_(informatique)}{interpréteur} de R. Cependant, cette manière ne sera pas votre moyen principal de soumettre des commandes à R. Vous allez plutôt utiliser des fichiers \emph{R Script} dans lesquels vous noterez votre code : pour créer un nouveau fichier \emph{R Script}, cliquez en haut à gauche dans \href{https://posit.co/}{\emph{RStudio}} sur l'icône représentant une feuille blanche avec un signe plus (+) sur fond vert et choisissez \emph{R Script} dans le menu déroulant.
 
-Un fichier \emph{R Script} est un document texte rassemblant l'ensemble des commandes que vous souhaitez soumettre à R. C'est un peu comme une ``recette'' où chaque commande correspond à un ingrédient ou une manipulation à faire pour obtenir le plat désiré. Sauf, bien entendu, que le plat désiré ne sera pas une mousse au chocolat ou un rôti de bœuf, mais le résultat d'un calcul, d'une manipulation de données, d'une analyse statistique ou une représentation graphique. Ce fichier \emph{R Script} peut être enregistré sous un nom de votre choix suivi du suffixe ``.R'' (par exemple: ``Analyse.R''). Cela vous permet de commenter et de reproduire les commandes que vous avez faites: si vous indiquiez vos commandes uniquement dans la console, vous ne pourriez que difficilement reproduire vos manipulations et analyses. Or, la reproductibilité est un critère essentiel de la scientificité. Par ailleurs, le code que vous avez écrit peut être réutilisé lors d'analyses futures. Cela vous fera gagner du temps!
+Un fichier \emph{R Script} est un document texte rassemblant l'ensemble des commandes que vous souhaitez soumettre à R. C'est un peu comme une ``recette'' où chaque commande correspond à un ingrédient ou une manipulation à faire pour obtenir le plat désiré. Sauf, bien entendu, que le plat désiré ne sera pas une mousse au chocolat ou un rôti de bœuf, mais le résultat d'un calcul, d'une manipulation de données, d'une analyse statistique ou une représentation graphique. Ce fichier \emph{R Script} peut être enregistré sous un nom de votre choix suivi du suffixe ``\emph{nom}.R'' (par exemple: ``Analyse.R''). Cela vous permet de commenter et de reproduire les commandes que vous avez écrites : si vous indiquiez vos commandes uniquement dans la console, vous ne pourriez que difficilement reproduire vos manipulations et analyses. Or, la reproductibilité est un critère essentiel de la scientificité. Par ailleurs, le code que vous avez écrit peut être réutilisé lors d'analyses futures. Cela vous fera gagner du temps!
 
-Mais comment exécuter les commandes que vous avez notées dans votre fichier de \emph{R Script}? Il suffit de placer le curseur sur une commande et d'appuyer sur la flèche verte ``\emph{Run}'' qui se situe au-dessus à droite de l'onglet où se trouve votre code. Vous pouvez aussi appuyer sur les touches ``\emph{Contrôle + Entrée}'' de votre clavier. Par ailleurs, vous pouvez sélectionner une partie de votre code, puis exécuter cette partie du code de la même manière. Notez que les commandes précédées par ``\#'' (losange/\emph{hastag}) ne seront pas exécutées par R. L'\href{https://fr.wikipedia.org/wiki/Interpr\%C3\%A8te_(informatique)}{interpréteur} de R ignore ces commandes. Cela sert à commenter son code: on explique ce que l'on fait pour se retrouver plus tard dans son code.
+Mais comment exécuter les commandes que vous avez notées dans votre fichier de \emph{R Script} ? Il suffit de placer le curseur sur une commande et d'appuyer sur la flèche verte ``\emph{Run}'' qui se situe au-dessus à droite de l'onglet où se trouve votre code. Vous pouvez aussi appuyer sur les touches ``\emph{Contrôle + Entrée}'' de votre clavier. Par ailleurs, vous pouvez sélectionner une partie de votre code, puis exécuter cette partie du code de la même manière. Notez que les commandes précédées par ``\#'' (losange/\emph{hastag}) ne seront pas exécutées par R. L'\href{https://fr.wikipedia.org/wiki/Interpr\%C3\%A8te_(informatique)}{interpréteur} de R ignore ces commandes. Cela sert à commenter son code: on explique ce que l'on fait pour se retrouver plus tard dans son code.
 
 \hypertarget{Fonctions_aides}{%
 \section{Fonctions et aide dans R}\label{Fonctions_aides}}
 
-Comme \href{https://www.microsoft.com/fr-be/microsoft-365/excel}{\emph{Excel}} (ou d'autres langues de programmation tels que \href{https://www.python.org/}{\emph{Python}} ou \emph{C}), R dispose de fonctions que vous allez pouvoir utiliser pour mener vos analyses statistiques et manipuler vos données. En informatique, une fonction est un programme qui exécute une (suite de) commande(s) dont elle retourne un résultat et que l'on peut réutiliser dans d'autres programmes. Les fonctions en R sont composées de leur nom\footnote{Attention: R est sensible à la casse: ``Mean'' est différent de ``mean''. Soyez donc toujours très attentif à la casse lorsque vous codez en R.}, suivi d'une parenthèse dans laquelle vous pourrez indiquer, le cas échéant, les arguments séparés par des virgules. Ainsi, si vous voulez connaître la moyenne de la suite \(A=\{0,1,2,3,4,5,6,7,8,9,10\}\), vous pouvez utiliser la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/mean}{\emph{mean()}}. Avant il faut créer le \emph{vecteur}\footnote{Pour savoir comment créer des vecteurs en R, nous renvoyons à la page suivante: \url{http://www.sthda.com/french/wiki/les-vecteurs-vector}.} \emph{suite\_a}:
+Comme \href{https://www.microsoft.com/fr-be/microsoft-365/excel}{\emph{Excel}} (ou d'autres langues de programmation tels que \href{https://www.python.org/}{\emph{Python}} ou \emph{C}), R dispose de \textbf{fonctions} que vous allez pouvoir utiliser pour mener vos analyses statistiques et manipuler vos données. En informatique, une fonction est un programme qui exécute une (suite de) commande(s) dont elle retourne un résultat et que l'on peut réutiliser dans d'autres programmes. Les fonctions en R sont composées de leur nom\footnote{Attention: R est sensible à la casse: ``Mean'' est différent de ``mean''. Soyez donc toujours très attentif à la casse lorsque vous codez en R.}, suivi d'une parenthèse dans laquelle vous pourrez indiquer, le cas échéant, les arguments séparés par des virgules. Ainsi, si vous voulez connaître la moyenne de la suite \(A=\{0,1,2,3,4,5,6,7,8,9,10\}\), vous pouvez utiliser la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/mean}{\emph{mean()}}. Avant il faut créer un \textbf{vecteur}\footnote{Pour savoir comment créer des vecteurs en R, nous renvoyons à la page suivante: \url{http://www.sthda.com/french/wiki/les-vecteurs-vector}.}, c'est-à-dire un objet composé d'une suite de chiffres, auquel vous devez donner un nom, par exemple \emph{suite\_a}, à l'aide de la fonction \emph{c(arg)} qui crée un vecteur en concaténant la suite de chiffres contenue entre parenthèses, qui forme ainsi l'\textbf{argument} de la fonction \emph{c()} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -247,7 +247,7 @@ Comme \href{https://www.microsoft.com/fr-be/microsoft-365/excel}{\emph{Excel}} (
 ## [1] 5
 \end{verbatim}
 
-L'\protect\hyperlink{objets_envir}{objet} suite\_a contenant la suite \(A\) est l'argument de la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/mean}{\emph{mean()}} que l'on note dans la parenthèse de la fonction. Comme vous pouvez le voir, la moyenne de cette suite \(A\) est de 5.
+L'\protect\hyperlink{objets_envir}{objet} \emph{suite\_a} contenant la suite \(A\) est l'argument de la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/mean}{\emph{mean()}} contenu dans la parenthèse de la fonction. Comme vous pouvez le voir, cette fonction ne renvoie qu'un seul résultat noté {[}1{]}, la moyenne de la suite \(A\), qui est égale à 5.
 
 Si vous avez besoin d'aide concernant une fonction dans R, écrivez la fonction précédée de ``?''. Par exemple:
 
@@ -257,22 +257,22 @@ Si vous avez besoin d'aide concernant une fonction dans R, écrivez la fonction 
 \end{Highlighting}
 \end{Shaded}
 
-Dans \emph{RStudio}, dans l'onglet ``\emph{Help}'' en bas à droite\footnote{Vous trouverez, en langue française, une explication de l'interface de \emph{RStudio} ici: \url{https://posit.co/resources/cheatsheets/?type=translations/\#translation-3}}, s'affiche alors l'aide. Vous pouvez également sélectionner une fonction et appuyer sur la touche ``\emph{F1}'' de votre clavier. Par ailleurs, de bonnes recherches \href{https://www.google.com/}{\emph{google}} et des questions pertinentes posées à \href{https://openai.com/blog/chatgpt/}{\emph{Chatgpt}} peuvent également vous éclairer sur les fonctions. N'hésitez pas à demander à \href{https://openai.com/blog/chatgpt/}{\emph{Chatgpt}} de vous donner des exemples de code\footnote{Les règles générale de référencement et de citation s'appliquent également à \href{https://openai.com/blog/chatgpt/}{\emph{Chatgpt}}. Indiquez-le donc si vous reprenez des indications \href{https://openai.com/blog/chatgpt/}{\emph{Chatgpt}} lors de vos travaux.}.
+Dans \emph{RStudio}, dans l'onglet ``\emph{Help}'' en bas à droite\footnote{Vous trouverez, en langue française, une explication de l'interface de \emph{RStudio} ici : \url{https://posit.co/resources/cheatsheets/?type=translations/\#translation-3}}, s'affiche alors l'aide. Vous pouvez également sélectionner une fonction et appuyer sur la touche ``\emph{F1}'' de votre clavier. Par ailleurs, de bonnes recherches \href{https://www.google.com/}{\emph{google}} et des questions pertinentes posées à \href{https://openai.com/blog/chatgpt/}{\emph{ChatGPT}} peuvent également vous éclairer sur les fonctions. N'hésitez pas à demander à \href{https://openai.com/blog/chatgpt/}{\emph{ChatGPT}} de vous donner des exemples de code\footnote{Les règles générales de référencement et de citation s'appliquent également à \href{https://openai.com/blog/chatgpt/}{\emph{ChatGPT}}. Indiquez-le donc si vous reprenez des indications \href{https://openai.com/blog/chatgpt/}{\emph{ChatGPT}} lors de vos travaux.}.
 
-Outre les fonctions déjà existantes dans R et ses \protect\hyperlink{packages}{\emph{packages}}, vous pouvez définir vos propres fonctions. Celles-ci vous permettent de réaliser ce dont vous avez besoin sur mesure (analyse statistique, transformation de données, graphiques, etc.). Cela peut être réalisé de manière assez simple dans R\footnote{Ce syllabus contient des exemples de créations de fonctions. Cependant, l'apprentissage de la rédaction de fonctions ne fait pas partie de ses objectifs principaux. Nous renvoyons donc à d'autres ouvrages à ce sujet.}.
+Outre les fonctions déjà existantes dans R et ses \protect\hyperlink{packages}{\emph{packages}}, vous pouvez définir vos propres fonctions. Celles-ci vous permettent de réaliser ce dont vous avez besoin sur mesure (analyse statistique, transformation de données, graphiques, etc.). Cela peut être réalisé de manière assez simple dans R\footnote{Ce syllabus contient des exemples de créations de fonctions. Cependant, l'apprentissage de la rédaction de fonctions ne fait pas partie de ses objectifs principaux.}.
 
 \hypertarget{working_directory}{%
 \section{\texorpdfstring{Espace de travail (\emph{working directory})}{Espace de travail (working directory)}}\label{working_directory}}
 
-Lorsque l'on travaille avec R, il faut définir un espace de travail. C'est le dossier où R sauvegardera et charge les fichiers et bases de données avec lesquels vous travaillez. Si vous ne le déterminez pas, R choisit un dossier par défaut. Sur un ordinateur Windows, cela sera bien souvent le dossier ``Documents''. Nous vous conseillons de créer un dossier dédié à votre travail en R et de définir celui-ci comme répertoire de travail. Si vous aviez créé un dossier ``Espace\_R'' dans un dossier ``Revisions'' sur votre disque dur C, vous soumettriez le code suivant à R pour en faire votre espace de travail:
+Lorsque l'on travaille avec R, il faut définir un espace de travail. C'est le dossier où R sauvegardera et charge les fichiers et bases de données avec lesquels vous travaillez. Si vous ne le déterminez pas, R choisit un dossier par défaut. Sur un ordinateur Windows, cela sera bien souvent le dossier ``Documents''. Nous vous conseillons de créer un dossier dédié à votre travail en R et de définir celui-ci comme répertoire de travail. Par exemple, si vous aviez créé un dossier ``Espace\_R'' dans un dossier ``Documents'' sur votre disque dur C, vous soumettriez le code suivant à R pour en faire votre espace de travail :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{setwd}\NormalTok{(}\StringTok{"C:/Revisions/Espace\_R"}\NormalTok{) }\CommentTok{\# Indiquez le chemin du dossier qui doit être votre répertoire de travail}
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"C:/Documents/Espace\_R"}\NormalTok{) }\CommentTok{\# Indiquez le chemin du dossier qui doit être votre répertoire de travail}
 \end{Highlighting}
 \end{Shaded}
 
-Vous aurez remarqué que le chemin d'accès et les dossiers en tant qu'argument de la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/getwd}{\emph{setwd()}} sont entre guillemets. Par ailleurs, dans R, les chemins d'accès entre dossiers (``Revision'') et sous-dossiers (``Espace\_R'') sont séparés par des barres obliques (/), comme pour une division. Dans Windows, les chemins d'accès sont notés par des barres obliques inversées (\textbackslash). Il faut donc corriger cela lorsque vous copiez des chemins d'accès dans R.
+Vous aurez remarqué que le chemin d'accès et les dossiers en tant qu'argument de la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/getwd}{\emph{setwd()}} sont entre guillemets. Par ailleurs, dans R, les chemins d'accès entre dossiers (``Documents'') et sous-dossiers (``Espace\_R'') sont séparés par des barres obliques (/), comme pour une division. Dans Windows, les chemins d'accès sont notés par des barres obliques inversées (\textbackslash). Il faut donc corriger cela lorsque vous copiez des chemins d'accès dans R.
 
 Sous Windows, vous pouvez aussi choisir manuellement le dossier dans lequel se trouve votre espace de travail en imbriquant la fonction \href{https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/choose.dir}{\emph{choose.dir()}} dans la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/getwd}{\emph{setwd()}}:
 
@@ -291,17 +291,17 @@ Que votre système d'exploitation soit Linux, macOS ou Windows, vous pouvez déf
 
 Comme d'autres langues de programmation, R dispose d'un grand nombre de \emph{packages}\footnote{En français, l'on parle de bibliothèques. Nous alignons cependant ce syllabus sur l'usage en anglais que l'on retrouve dans R. Nous parlerons donc de \emph{package(s)}.}. Ceux-ci enrichissent le langage de nouvelles fonctions qui n'étaient pas encore présentes dans sa version initiale. R est particulièrement riche en \emph{packages.} Sur \href{https://cran.r-project.org/}{\emph{CRAN}}, le répertoire ``officiel'' de R, \(19136\) \emph{packages} étaient répertoriés en janvier 2023.
 
-Pour installer un \emph{package}, il y a la commande générique \href{https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/install.packages}{\emph{install.packages()}}. Lors de cette formation, nous allons beaucoup utiliser des \emph{packages} issus du \href{https://www.tidyverse.org/}{\emph{tydiverse}}, un ensemble de \emph{packages}, permettant de manipuler les données et de les représenter graphiquement. Cette suite de \emph{packages} est particulièrement populaire et très largement utilisée. Nous allons donc installer cet ensemble de \emph{packages} avec la commande \href{https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/install.packages}{\emph{install.packages()}}:
+Pour installer un \emph{package}, il y a la commande générique \href{https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/install.packages}{\emph{install.packages()}}. Lors de cette formation, nous allons beaucoup utiliser des \emph{packages} issus du \href{https://www.tidyverse.org/}{\emph{tydiverse}}, un ensemble de \emph{packages}, permettant de manipuler les données et de les représenter graphiquement. Cette suite de \emph{packages} est particulièrement populaire et très largement utilisée. Nous allons donc installer cet ensemble de \emph{packages} avec la commande \href{https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/install.packages}{\emph{install.packages()}} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{install.packages}\NormalTok{(tidyverse, }\AttributeTok{dependencies=}\NormalTok{T) }\CommentTok{\#l\textquotesingle{}argument "dependencies=T" permet}
-        \CommentTok{\#d\textquotesingle{}installer automatiquement tous les packages dont à besoin le package}
+        \CommentTok{\#d\textquotesingle{}installer automatiquement tous les packages dont a besoin le package}
         \CommentTok{\#que l\textquotesingle{}on installe pour fonctionner correctement.}
 \end{Highlighting}
 \end{Shaded}
 
-Installer un \emph{package} ne suffit pas pour l'utiliser. Il doit être chargé à chaque fois que R est fermé puis redémarré. Cela se fait avec la commande \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/library}{\emph{library()}}. Lançons donc le package \emph{tidyverse}:
+Installer un \emph{package} ne suffit pas pour l'utiliser. Il doit être chargé à chaque fois que R est fermé puis redémarré. Cela se fait avec la commande \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/library}{\emph{library()}}. Lançons donc le package \emph{tidyverse} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -309,9 +309,9 @@ Installer un \emph{package} ne suffit pas pour l'utiliser. Il doit être chargé
 \end{Highlighting}
 \end{Shaded}
 
-Le \emph{package} est à présent chargé et peut être utilisé. Si R vous retourne une erreur lorsque vous chargez un \emph{package}, cela est souvent dû au fait que le \emph{package} demandé n'est pas (correctement) installé (vérifiez aussi de l'avoir orthographié correctement et d'avoir respecté la casse). Si vous lancez une fonction et que celle-ci ne s'exécute pas (et renvoie une erreur), vérifiez que le \emph{package} à laquelle elle appartient est bien chargé. Vous verrez cela dans l'onglet ``\emph{Packages}'' en bas à droite de \href{https://posit.co/}{\emph{RStudio}}: si le \emph{package} apparaît dans la liste, c'est qu'il est installé. S'il est coché, c'est qu'il est chargé. S'il n'apparaît pas dans la liste, installez-le. S'il n'est pas coché, lancez-le. Vous pouvez le lancer avec la commande \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/library}{\emph{library()}}, mais vous pouvez aussi la lancer en cochant le \emph{package} dans l'onglet.
+Le \emph{package} est à présent chargé et peut être utilisé. Si R vous retourne une erreur lorsque vous chargez un \emph{package}, cela est souvent dû au fait que le \emph{package} demandé n'est pas (correctement) installé (vérifiez aussi de l'avoir orthographié correctement et d'avoir respecté la casse, c'est-à-dire les minuscules et majuscules). Si vous lancez une fonction et que celle-ci ne s'exécute pas (et renvoie une erreur), vérifiez que le \emph{package} à laquelle elle appartient est bien chargé. Vous verrez cela dans l'onglet ``\emph{Packages}'' en bas à droite de \href{https://posit.co/}{\emph{RStudio}} : si le \emph{package} apparaît dans la liste, c'est qu'il est installé. S'il est coché, c'est qu'il est chargé. S'il n'apparaît pas dans la liste, installez-le. S'il n'est pas coché, lancez-le. Vous pouvez le lancer avec la commande \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/library}{\emph{library()}}, mais vous pouvez aussi le lancer en cochant le \emph{package} dans l'onglet.
 
-Vous pouvez aussi exécutez la commande suivante\footnote{Nous nous sommes inspiré de la discussion suivante pour cette solution: \url{https://stackoverflow.com/questions/38481980/get-the-list-of-installed-packages-by-user-in-r}} et vérifier si le \emph{package} se trouve dans la liste. Au dessus à droite du tableau qui va apparaître, vous trouverez un champ pour rechercher dans le tableau:
+Vous pouvez aussi exécutez la commande suivante\footnote{Je me suis inspiré de la discussion suivante pour cette solution : \url{https://stackoverflow.com/questions/38481980/get-the-list-of-installed-packages-by-user-in-r}} et vérifier si le \emph{package} se trouve dans la liste. Au dessus à droite du tableau qui va apparaître, vous trouverez un champ pour rechercher dans le tableau :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -325,7 +325,7 @@ Vous pouvez aussi exécutez la commande suivante\footnote{Nous nous sommes inspi
 \end{Highlighting}
 \end{Shaded}
 
-Une façon plus simple d'installer et de charger les \emph{packages} est le package \href{http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html}{\emph{pacman}}. Celui-ci permet d'installer les \emph{packages} et de les lancer en une seule commande: \href{https://www.rdocumentation.org/packages/pacman/versions/0.5.1/topics/p_load}{\emph{p\_load}}. Cette commande vérifie si un \emph{package} est installé: s'il est installé, il le lance, s'il ne l'est pas, il l'installe, puis le lance. Cela peut rendre le lancement de \emph{packages} plus facile et rapide. Par ailleurs, cela permet de plus facilement partager son code: l'interlocuteur peut exécuter votre code sans devoir vérifier s'il a installé les \emph{packages} que vous utilisez:
+Une façon plus simple d'installer et de charger les \emph{packages} est le package \href{http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html}{\emph{pacman}}. Celui-ci permet d'installer les \emph{packages} et de les lancer en une seule commande: \href{https://www.rdocumentation.org/packages/pacman/versions/0.5.1/topics/p_load}{\emph{p\_load}}. Cette commande vérifie si un \emph{package} est installé : s'il est installé, il le lance, s'il ne l'est pas, il l'installe, puis le lance. Cela peut rendre le lancement de \emph{packages} plus facile et rapide. Par ailleurs, cela permet de plus facilement partager son code : l'interlocuteur peut exécuter votre code sans devoir vérifier s'il a installé les \emph{packages} que vous utilisez :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -338,7 +338,7 @@ Une façon plus simple d'installer et de charger les \emph{packages} est le pack
 \end{Highlighting}
 \end{Shaded}
 
-Si vous voulez lancer plusieurs \emph{packages} en même temps, il suffit de les ajouter à la suite, séparés par des virgules, entre les parenthèses suivant la fonction \href{https://www.rdocumentation.org/packages/pacman/versions/0.5.1/topics/p_load}{\emph{p\_load}}. Ainsi, si nous voulions charger les \emph{packages} du \href{https://www.tidyverse.org/}{\emph{tydiverse}}, ainsi que le \emph{package} \href{https://rstudio.github.io/DT/}{\emph{DT}}\footnote{Le \emph{package} \emph{DT} permet de créer des tableaux interactifs assez pratiques pour se faire une idée des données. Attention cependant, car les bases de données avec un nombre trop important de lignes (des dizaines de milliers) peuvent faire ``crasher'' R.}.
+Si vous voulez lancer plusieurs \emph{packages} en même temps, il suffit de les ajouter à la suite, séparés par des virgules, entre les parenthèses suivant la fonction \href{https://www.rdocumentation.org/packages/pacman/versions/0.5.1/topics/p_load}{\emph{p\_load}}. Ainsi, si nous voulions charger les \emph{packages} du \href{https://www.tidyverse.org/}{\emph{tydiverse}}, ainsi que le \emph{package} \href{https://rstudio.github.io/DT/}{\emph{DT}}\footnote{Le \emph{package} \emph{DT} permet de créer des tableaux interactifs assez pratiques pour se faire une idée des données. Attention cependant, car les bases de données avec un nombre trop important de lignes (des dizaines de milliers) peuvent faire ``crasher'' R.} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -354,22 +354,22 @@ Si vous voulez lancer plusieurs \emph{packages} en même temps, il suffit de les
 
 Vous pouvez aligner à la suite autant de \emph{packages} que vous le souhaiter en les séparant par des virgules.
 
-Dans ce syllabus, nous allons utiliser cette méthode avec \href{http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html}{\emph{pacman}} pour éviter de devoir vérifier si certains \emph{packages} sont installés avant de les lancer.
+Dans ce syllabus, nous allons utiliser \href{http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html}{\emph{pacman}} pour éviter de devoir vérifier si certains \emph{packages} sont installés avant de les lancer.
 
 \hypertarget{objets_envir}{%
 \section{Objets et environnement dans R}\label{objets_envir}}
 
-R est une langue de programmation orientée objet. Cela signifie que l'on définit des objets\footnote{En programmation, l'on qualifie ce type d'objets fréquemment de ``variables''. Cependant, cela peut mener à des confusions: en statistiques, une variable est une caractéristique d'observations. Afin d'éviter ce type d'ambiguïtés, nous n'allons pas utiliser le terme variable au sens informatique, mais exclusivement au sens statistique/mathématique.} (bases de données, valeurs, fonctions, etc.) que l'on fait interagir les uns avec les autres pour obtenir le résultat escompté\footnote{Une introduction un peu technique à la programmation orientée objet (POO) se trouve ici: \url{https://hdd34.developpez.com/cours/artpoo/}}. Vous pouvez vous imaginer cela un peu comme différentes pièces de ``\emph{Légo}'' que vous assemblez pour construire un château à votre goût.
+R est une langue de programmation orientée \textbf{objet}. Cela signifie que l'on définit des objets\footnote{En programmation, l'on qualifie ce type d'objets fréquemment de ``variables''. Cependant, cela peut mener à des confusions: en statistiques, une variable est une caractéristique d'observations. Afin d'éviter ce type d'ambiguïtés, nous n'allons pas utiliser le terme variable au sens informatique, mais exclusivement au sens statistique/mathématique.} (bases de données, valeurs, fonctions, etc.) que l'on fait interagir les uns avec les autres pour obtenir le résultat escompté\footnote{Une introduction un peu technique à la programmation orientée objet (POO) se trouve ici: \url{https://hdd34.developpez.com/cours/artpoo/}}. Vous pouvez vous imaginer cela un peu comme différentes pièces de ``\emph{Légo}'' que vous assemblez pour construire un château à votre goût.
 
-Dans R, l'on crée un objet avec le symbole ``\textless-'', une flèche pointant vers la gauche\footnote{On peut aussi utiliser le signe ``='' comme dans d'autres langues de programmations telles que \href{https://www.python.org/}{python}. Cependant, notamment pour éviter des confusions avec d'autres utilisations du signe ``='' dans R (notamment en tant qu'argument de fonctions) et ainsi faciliter la lecture du code, l'on conseille vivement d'utiliser ``\textless-'' pour créer des objets.}. La flèche montre vers le nom de l'objet à créer à gauche et à droite l'on définit le contenu de cet objet (valeur, vecteur, matrice, etc.).
+Dans R, comme nous l'avons fait plus haut pour créer un vecteur de chiffre \emph{suite\_a}, on crée un objet avec le symbole ``\textless-'', une flèche pointant vers la gauche\footnote{On peut aussi utiliser le signe ``='' comme dans d'autres langues de programmations telles que \href{https://www.python.org/}{python}. Cependant, notamment pour éviter des confusions avec d'autres utilisations du signe ``='' dans R (notamment en tant qu'argument de fonctions) et ainsi faciliter la lecture du code, l'on conseille vivement d'utiliser ``\textless-'' pour créer des objets.}. La flèche montre vers le nom de l'objet à créer à gauche et à droite l'on définit le contenu de cet objet (valeur, vecteur, matrice, etc.).
 
-L'on peut ainsi créer l'objet \emph{bombe\_atomique} qui contient la valeur \(1000^2\):
+L'on peut ainsi créer l'objet \emph{bombe\_atomique} qui contient la valeur \(1000^2\) (le chiffre mille au carré) :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{bombe\_atomique }\OtherTok{\textless{}{-}} \DecValTok{1000}\SpecialCharTok{\^{}}\DecValTok{2} \CommentTok{\# À gauche: le nom de l\textquotesingle{}objet (bombe\_atomique), à droite la valeur}
-                         \CommentTok{\#qu\textquotesingle{}elle contient (1000\^{}2)}
-\NormalTok{bombe\_atomique           }\CommentTok{\#Maintenant, on se fait afficher le contenu de cet objet dans la console.}
+\NormalTok{bombe\_atomique }\OtherTok{\textless{}{-}} \DecValTok{1000}\SpecialCharTok{\^{}}\DecValTok{2} \CommentTok{\# À gauche, le nom de l\textquotesingle{}objet (bombe\_atomique), }
+                         \CommentTok{\# à droite, la valeurqu\textquotesingle{}elle contient (1000\^{}2)}
+\NormalTok{bombe\_atomique           }\CommentTok{\# Maintenant, on affiche le contenu de cet objet dans la console.}
 \end{Highlighting}
 \end{Shaded}
 
@@ -377,15 +377,15 @@ L'on peut ainsi créer l'objet \emph{bombe\_atomique} qui contient la valeur \(1
 ## [1] 1e+06
 \end{verbatim}
 
-La valeur de l'objet \emph{bombe\_atomique} apparaît dans la console. Par ailleurs, le nom de l'objet apparaît en haut à droite dans l'onglet ``\emph{Environement}'' de \emph{RStudio}. Si vous avez calculé la moyenne de la suite \(A\) dans la section \protect\hyperlink{Fonctions_aides}{Fonctions et aide dans R}, vous y verrez aussi l'objet \emph{suite\_a}. Dans R un environnement\footnote{R connaît plusieurs environnements. L'environnement où est enregistré l'objet définit sa portée, c'est-à-dire dans quelles circonstances les objets sont accessibles. Dans ce syllabus, nous utiliserons consciemment (pratiquement) exclusivement l'environnement global dénommé ``\emph{.GlobalEnv}''. Vu qu'il s'agit d'une introduction, nous ne nous attardons pas sur ce point.} est un espace où les objets sont enregistrés vous permettant de les analyser et de les manipuler.
+La valeur de l'objet \emph{bombe\_atomique} apparaît dans la console. Par ailleurs, le nom de l'objet apparaît en haut à droite dans l'onglet ``\emph{Environement}'' de \emph{RStudio}. Si vous avez calculé la moyenne de la suite \(A\) dans la section \protect\hyperlink{Fonctions_aides}{Fonctions et aide dans R}, vous y verrez aussi l'objet \emph{suite\_a}. Dans R un \textbf{environnement}\footnote{R connaît plusieurs environnements. L'environnement où est enregistré l'objet définit sa portée, c'est-à-dire dans quelles circonstances les objets sont accessibles. Dans ce syllabus, nous utiliserons consciemment (pratiquement) exclusivement l'environnement global dénommé ``\emph{.GlobalEnv}''. Vu qu'il s'agit d'une introduction, nous ne nous attardons pas sur ce point.} est un espace où les objets sont enregistrés vous permettant de les analyser et de les manipuler.
 
-Vous aurez peut-être remarqué que la valeur de l'objet \emph{bombe\_atomique} est affichée en notation scientifique:
+Vous aurez peut-être remarqué que la valeur de l'objet \emph{bombe\_atomique} est affichée en notation scientifique (qui se lit : 1 suivi de 6 zéros) :
 
 \begin{verbatim}
 ## [1] 1e+06
 \end{verbatim}
 
-Vous pouvez désactiver cet affichage avec la commande suivante:
+Vous pouvez désactiver cet affichage avec la commande suivante :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -393,7 +393,7 @@ Vous pouvez désactiver cet affichage avec la commande suivante:
 \end{Highlighting}
 \end{Shaded}
 
-Vérifiez à nouveau la valeur de l'objet \emph{bombe\_atomique}:
+Vérifiez à nouveau la valeur de l'objet \emph{bombe\_atomique} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -405,14 +405,14 @@ Vérifiez à nouveau la valeur de l'objet \emph{bombe\_atomique}:
 ## [1] 1000000
 \end{verbatim}
 
-Comme vous pouvez le voir, la notation scientifique à disparue. Cela peut vous faciliter la lecture des résultats de vos analyses!
+Comme vous pouvez le voir, la notation scientifique à disparue. Cela peut faciliter la lecture des résultats de vos analyses !
 
 \hypertarget{import_donnees}{%
 \section{Importer et enregistrer des données}\label{import_donnees}}
 
 R dispose de nombreuses fonctions intégrées pour importer des données sous différents formats (\emph{read.table}, \emph{read.delim}, \emph{read.csv}, etc.). Il y a, par ailleurs, un certain nombre de \emph{packages} qui ajoutent de nouvelles fonctions et d'autres formats de données que l'on peut intégrer.
 
-Ainsi, le package \href{https://readr.tidyverse.org/}{\emph{readr}}, appartenant à ``l'univers'' \href{https://www.tidyverse.org/}{\emph{tydiverse}} étant ainsi automatiquement chargé si vous chargez le \href{https://www.tidyverse.org/}{\emph{tydiverse}} (voir \protect\hyperlink{packages}{ici}), ajoute des fonctions assez intéressantes pour charger des données au format texte (\emph{csv}, \emph{txt}): \emph{read\_delim}, \emph{read\_csv}, \emph{read\_csv2}, etc. De même, le \emph{package} \href{https://readxl.tidyverse.org/}{\emph{readxl}} permet de charger des fichiers au format Excel dans R. Bien que ce \emph{package} appartienne également à ``l'univers'' \href{https://www.tidyverse.org/}{\emph{tydiverse}}, le \emph{package} \href{https://readr.tidyverse.org/}{\emph{readr}} doit être chargé séparément. Un troisième \emph{package} issu de cet ``univers'' est le \emph{package} \href{https://haven.tidyverse.org/}{\emph{haven}}: il permet de charger des bases de données enregistrées au format des logiciels statistiques payants \href{https://www.sas.com/}{\emph{SAS}}, \href{https://www.stata.com/}{\emph{Stata}} et \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}}. En effet, beaucoup de bases de données sont enregistrées dans l'un de ces formats qui ont l'avantage, contrairement aux formats \emph{CSV} et \emph{Excel}, de pouvoir notamment enregistrer des libellées des variables et des valeurs. Le \emph{package} \href{https://haven.tidyverse.org/}{\emph{haven}} permet de préserver ces avantages lorsque l'on importe les données dans R:
+Ainsi, le package \href{https://readr.tidyverse.org/}{\emph{readr}}, appartenant à ``l'univers'' \href{https://www.tidyverse.org/}{\emph{tydiverse}}, étant ainsi automatiquement chargé si vous chargez le \href{https://www.tidyverse.org/}{\emph{tydiverse}} (voir \protect\hyperlink{packages}{ici}), ajoute des fonctions assez intéressantes pour charger des données au format texte (\emph{csv}, \emph{txt}) : \emph{read\_delim}, \emph{read\_csv}, \emph{read\_csv2}, etc. De même, le \emph{package} \href{https://readxl.tidyverse.org/}{\emph{readxl}} permet de charger des fichiers au format Excel dans R. Bien que ce \emph{package} appartienne également à ``l'univers'' \href{https://www.tidyverse.org/}{\emph{tydiverse}}, le \emph{package} \href{https://readr.tidyverse.org/}{\emph{readr}} doit être chargé séparément. Un troisième \emph{package} issu de cet ``univers'' est le \emph{package} \href{https://haven.tidyverse.org/}{\emph{haven}} : il permet de charger des bases de données enregistrées au format des logiciels statistiques payants \href{https://www.sas.com/}{\emph{SAS}}, \href{https://www.stata.com/}{\emph{Stata}} et \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}}. En effet, beaucoup de bases de données sont enregistrées dans l'un de ces formats qui ont l'avantage, contrairement aux formats \emph{CSV} et \emph{Excel}, de pouvoir notamment enregistrer des libellées des variables et des valeurs. Le \emph{package} \href{https://haven.tidyverse.org/}{\emph{haven}} permet de préserver ces avantages lorsque l'on importe les données dans R :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -424,13 +424,13 @@ Ainsi, le package \href{https://readr.tidyverse.org/}{\emph{readr}}, appartenant
 \end{Highlighting}
 \end{Shaded}
 
-Lors de cette introduction nous allons utiliser les données issues de l'Enquête sociale européenne/\href{https://www.europeansocialsurvey.org/}{\emph{European social survey (ESS)}}\footnote{Davantage d'informations sur l'Enquête sociale européenne peuvent être trouvées sur son site: \url{https://www.europeansocialsurvey.org/about/}}. Nous allons utiliser la version 9 de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} (ESS 9), contenant des données récoltées en 2018. Les données de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} sont mises à disposition aux formats \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} (avec le suffixe ``.sav''), \href{https://www.stata.com/}{\emph{Stata}} (avec le suffixe ``.dta'') et \href{https://www.sas.com/}{\emph{SAS}} (avec le suffixe ``.sas''). Nous allons télécharger les données de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} au format \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} (avec le suffixe ``.sav'').
+Dans cette introduction nous allons utiliser les données issues de l'Enquête sociale européenne / \href{https://www.europeansocialsurvey.org/}{\emph{European social survey (ESS)}}\footnote{Davantage d'informations sur l'Enquête sociale européenne peuvent être trouvées sur son site: \url{https://www.europeansocialsurvey.org/about/}}. Nous allons utiliser la version 9 de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} (ESS 9), contenant des données collectées en 2018. Les données de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} sont mises à disposition aux formats \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} (avec le suffixe ``.sav''), \href{https://www.stata.com/}{\emph{Stata}} (avec le suffixe ``.dta'') et \href{https://www.sas.com/}{\emph{SAS}} (avec le suffixe ``.sas''). Nous allons télécharger les données de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} au format \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} (avec le suffixe ``.sav'').
 
-Pour pouvoir télécharger les données, il faut s'inscrire sur le site de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}}. Cette inscription est entièrement gratuite. Les données de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} peuvent être librement utilisées à des fins non commerciales, notamment pour la recherche et l'enseignement. Nous vous demanderons de vous inscrire sur le le \href{https://www.europeansocialsurvey.org/}{site} de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} et de télécharger les données: téléchargez les données de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} 9 (\emph{ESS Round 9}) pour tous les pays au format \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} (fichier se terminant par ``.sav'').
+Pour pouvoir télécharger les données, il faut s'inscrire sur le site de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}}. Cette inscription est entièrement gratuite. Les données de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} peuvent être librement utilisées à des fins non commerciales, notamment pour la recherche et l'enseignement. Nous vous demanderons de vous inscrire sur le \href{https://www.europeansocialsurvey.org/}{site} de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} et de télécharger les données : téléchargez les données de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} 9 (\emph{ESS Round 9}) pour tous les pays au format \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} (fichier se terminant par ``.sav'').
 
 Nous vous laissons suivre les indications sur le site (en anglais) pour vous inscrire et télécharger les données\footnote{Si vous suivez un enseignement avec \href{mailto:lhommeau@gmail.com}{Lev Lhommeau}, il se peut que ces données vous soient mises à disposition dans ce cadre.}. Il existe le \emph{package} \href{https://cran.r-project.org/web/packages/essurvey/vignettes/intro_ess.html}{\emph{esssurvey}} qui permettait de télécharger directement les données de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} dans R. Malheureusement, en raison de changements concernant l'accès aux données de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} au cours de 2022, ce \emph{package} ne fonctionne plus (janvier 2023).
 
-Une fois que vous avez téléchargé le fichier de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} 9 (2018) au format \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} (fichier se terminant par ``.sav''), il faudra charger la base de données dans R. Pour cela, copiez le fichier dans le dossier dans lequel se trouve votre \protect\hyperlink{working_directory}{espace de travail} R\footnote{Il est possible de charger des fichiers ne se trouvant pas dans votre \protect\hyperlink{working_directory}{espace de travail}. Cela nécessite cependant d'indiquer l'ensemble du chemin d'accès dans R, ce qui peut être laborieux.}. Notre fichier se nomme ``ESS9e03\_1.sav''. Adapter le nom du fichier, s'il porte un autre nom chez vous. Une fois que le fichier de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} 9 se trouve dans votre espace de travail, indiquez le code suivant\footnote{L'exécution de cette commande nécessite le chargement préalable du \emph{package} ``\emph{haven}'', comme indiqué plus haut.}:
+Une fois que vous avez téléchargé le fichier de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} 9 (2018) au format \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} (fichier se terminant par ``.sav''), il faudra charger la base de données dans R. Pour cela, copiez le fichier dans le dossier dans lequel se trouve votre \protect\hyperlink{working_directory}{espace de travail} R\footnote{Il est possible de charger des fichiers ne se trouvant pas dans votre \protect\hyperlink{working_directory}{espace de travail}. Cela nécessite cependant d'indiquer l'ensemble du chemin d'accès dans R, ce qui peut être laborieux.}. Par exemple, notre fichier pourrait se nommer ``ESS9e03\_1.sav''. Adaptez le nom du fichier, s'il porte un autre nom chez vous. Une fois que le fichier de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} 9 se trouve dans votre espace de travail, indiquez le code suivant\footnote{L'exécution de cette commande nécessite le chargement préalable du \emph{package} ``\emph{haven}'', comme indiqué plus haut.} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -441,7 +441,7 @@ Une fois que vous avez téléchargé le fichier de l'\href{https://www.europeans
 \end{Highlighting}
 \end{Shaded}
 
-Avec cette commande, vous avez chargé la base de données dans l'environnement de R. Vous l'avez nommé ``ESS9''\footnote{Vous aurez aussi pu la nommer différemment. Pour cela il suffit de changer le nom à gauche de la flèche (\textless-).}. Elle apparaît dans l'onglet ``\emph{Environement}'' en haut à droite de \href{https://posit.co/}{\emph{RStudio}}. Si vous utilisez le système d'exploitation Windows, vous pouvez aussi utiliser la commande \href{https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/choose.files}{\emph{choose.files()}} à l'intérieur de la fonction \href{https://haven.tidyverse.org/reference/read_spss.html}{\emph{read\_sav}}. Lorsque vous exécutez cette commande, une fenêtre s'ouvre vous permettant de choisir manuellement le fichier à charger:
+Avec cette commande, vous avez chargé la base de données dans l'environnement de R. Vous l'avez nommé ``ESS9''\footnote{Vous aurez aussi pu la nommer différemment. Pour cela il suffit de changer le nom à gauche de la flèche (\textless-).}. Elle apparaît dans l'onglet ``\emph{Environment}'' en haut à droite de \href{https://posit.co/}{\emph{RStudio}}. Si vous utilisez le système d'exploitation Windows, vous pouvez aussi utiliser la commande \href{https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/choose.files}{\emph{choose.files()}} à l'intérieur de la fonction \href{https://haven.tidyverse.org/reference/read_spss.html}{\emph{read\_sav}}. Lorsque vous exécutez cette commande, une fenêtre s'ouvre vous permettant de choisir manuellement le fichier à charger :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -449,7 +449,7 @@ Avec cette commande, vous avez chargé la base de données dans l'environnement 
 \end{Highlighting}
 \end{Shaded}
 
-Le fichier étant chargé dans l'environnement, vous pouvez l'étudier et le manipuler dans R. Sélectionnez l'objet et exécutez-le:
+Le fichier étant chargé dans l'environnement, vous pouvez l'étudier et le manipuler dans R. Sélectionnez l'objet et exécutez-le :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -457,32 +457,32 @@ Le fichier étant chargé dans l'environnement, vous pouvez l'étudier et le man
 \end{Highlighting}
 \end{Shaded}
 
-Dans votre console s'affichera alors un extrait de la base de données:
+Dans votre console s'affichera alors un extrait de la base de données :
 
 \begin{verbatim}
 ## # A tibble: 49,519 x 572
-##    name      essround edition prodd~1  idno cntry    dweight pspwght pweight anwei~2 nwspol netus~3 netustm ppltrst pplfair pplhlp polintr pspps~4 actro~5 psppi~6
-##    <chr>        <dbl> <chr>   <chr>   <dbl> <chr+lb>   <dbl>   <dbl>   <dbl>   <dbl> <dbl+> <dbl+l> <dbl+l> <dbl+l> <dbl+l> <dbl+> <dbl+l> <dbl+l> <dbl+l> <dbl+l>
-##  1 ESS9e03_1        9 3.1     17.02.~    27 AT [Aus~   0.581   0.218   0.302  0.0659 60     5 [Eve~ 180     2 [2]   2 [2]   2 [2]  3 [Har~ 3 [Som~ 2 [A l~ 2 [Ver~
-##  2 ESS9e03_1        9 3.1     17.02.~   137 AT [Aus~   1.06    0.413   0.302  0.125  10     5 [Eve~  20     7 [7]   8 [8]   7 [7]  2 [Qui~ 3 [Som~ 2 [A l~ 3 [Som~
-##  3 ESS9e03_1        9 3.1     17.02.~   194 AT [Aus~   1.38    2.27    0.302  0.686  60     4 [Mos~ 180     5 [5]   7 [7]   7 [7]  4 [Not~ 2 [Ver~ 1 [Not~ 3 [Som~
-##  4 ESS9e03_1        9 3.1     17.02.~   208 AT [Aus~   0.993   0.386   0.302  0.117  45     5 [Eve~ 120     3 [3]   9 [9]   5 [5]  3 [Har~ 2 [Ver~ 2 [A l~ 3 [Som~
-##  5 ESS9e03_1        9 3.1     17.02.~   220 AT [Aus~   0.377   1.03    0.302  0.312  30     1 [Nev~  NA     5 [5]   8 [8]   4 [4]  2 [Qui~ 1 [Not~ 1 [Not~ 1 [Not~
-##  6 ESS9e03_1        9 3.1     17.02.~   254 AT [Aus~   1.48    0.576   0.302  0.174  45     2 [Onl~  NA     8 [8]   7 [7]   6 [6]  2 [Qui~ 2 [Ver~ 2 [A l~ 3 [Som~
-##  7 ESS9e03_1        9 3.1     17.02.~   290 AT [Aus~   0.992   0.721   0.302  0.218  60     1 [Nev~  NA     6 [6]   1 [1]   3 [3]  4 [Not~ 2 [Ver~ 2 [A l~ 3 [Som~
-##  8 ESS9e03_1        9 3.1     17.02.~   301 AT [Aus~   0.310   0.130   0.302  0.0393 30     1 [Nev~  NA     7 [7]   7 [7]   7 [7]  3 [Har~ 1 [Not~ 1 [Not~ 1 [Not~
-##  9 ESS9e03_1        9 3.1     17.02.~   305 AT [Aus~   1.23    1.77    0.302  0.535  30     5 [Eve~ 120     2 [2]   9 [9]   9 [9]  3 [Har~ 1 [Not~ 1 [Not~ 1 [Not~
-## 10 ESS9e03_1        9 3.1     17.02.~   400 AT [Aus~   0.459   0.743   0.302  0.224  25     4 [Mos~ 360     7 [7]   4 [4]   4 [4]  4 [Not~ 2 [Ver~ 2 [A l~ 2 [Ver~
-## # ... with 49,509 more rows, 552 more variables: cptppola <dbl+lbl>, trstprl <dbl+lbl>, trstlgl <dbl+lbl>, trstplc <dbl+lbl>, trstplt <dbl+lbl>,
-## #   trstprt <dbl+lbl>, trstep <dbl+lbl>, trstun <dbl+lbl>, vote <dbl+lbl>, prtvtcat <dbl+lbl>, prtvtdbe <dbl+lbl>, prtvtdbg <dbl+lbl>, prtvtgch <dbl+lbl>,
-## #   prtvtbcy <dbl+lbl>, prtvtecz <dbl+lbl>, prtvede1 <dbl+lbl>, prtvede2 <dbl+lbl>, prtvtddk <dbl+lbl>, prtvtgee <dbl+lbl>, prtvtees <dbl+lbl>,
-## #   prtvtdfi <dbl+lbl>, prtvtdfr <dbl+lbl>, prtvtcgb <dbl+lbl>, prtvtahr <dbl+lbl>, prtvtfhu <dbl+lbl>, prtvtcie <dbl+lbl>, prtvtcis <dbl+lbl>,
-## #   prtvtcit <dbl+lbl>, prtvblt1 <dbl+lbl>, prtvblt2 <dbl+lbl>, prtvblt3 <dbl+lbl>, prtvtalv <dbl+lbl>, prtvtme <dbl+lbl>, prtvtgnl <dbl+lbl>,
-## #   prtvtbno <dbl+lbl>, prtvtdpl <dbl+lbl>, prtvtcpt <dbl+lbl>, prtvtrs <dbl+lbl>, prtvtcse <dbl+lbl>, prtvtfsi <dbl+lbl>, prtvtdsk <dbl+lbl>, contplt <dbl+lbl>,
-## #   wrkprty <dbl+lbl>, wrkorg <dbl+lbl>, badge <dbl+lbl>, sgnptit <dbl+lbl>, pbldmn <dbl+lbl>, bctprd <dbl+lbl>, pstplonl <dbl+lbl>, clsprty <dbl+lbl>, ...
+##    name   essro~1 edition prodd~2  idno cntry    dweight pspwght pweight anwei~3 nwspol netus~4 netustm
+##    <chr>    <dbl> <chr>   <chr>   <dbl> <chr+lb>   <dbl>   <dbl>   <dbl>   <dbl> <dbl+> <dbl+l> <dbl+l>
+##  1 ESS9e~       9 3.1     17.02.~    27 AT [Aus~   0.581   0.218   0.302  0.0659 60     5 [Eve~ 180    
+##  2 ESS9e~       9 3.1     17.02.~   137 AT [Aus~   1.06    0.413   0.302  0.125  10     5 [Eve~  20    
+##  3 ESS9e~       9 3.1     17.02.~   194 AT [Aus~   1.38    2.27    0.302  0.686  60     4 [Mos~ 180    
+##  4 ESS9e~       9 3.1     17.02.~   208 AT [Aus~   0.993   0.386   0.302  0.117  45     5 [Eve~ 120    
+##  5 ESS9e~       9 3.1     17.02.~   220 AT [Aus~   0.377   1.03    0.302  0.312  30     1 [Nev~  NA    
+##  6 ESS9e~       9 3.1     17.02.~   254 AT [Aus~   1.48    0.576   0.302  0.174  45     2 [Onl~  NA    
+##  7 ESS9e~       9 3.1     17.02.~   290 AT [Aus~   0.992   0.721   0.302  0.218  60     1 [Nev~  NA    
+##  8 ESS9e~       9 3.1     17.02.~   301 AT [Aus~   0.310   0.130   0.302  0.0393 30     1 [Nev~  NA    
+##  9 ESS9e~       9 3.1     17.02.~   305 AT [Aus~   1.23    1.77    0.302  0.535  30     5 [Eve~ 120    
+## 10 ESS9e~       9 3.1     17.02.~   400 AT [Aus~   0.459   0.743   0.302  0.224  25     4 [Mos~ 360    
+## # ... with 49,509 more rows, 559 more variables: ppltrst <dbl+lbl>, pplfair <dbl+lbl>,
+## #   pplhlp <dbl+lbl>, polintr <dbl+lbl>, psppsgva <dbl+lbl>, actrolga <dbl+lbl>, psppipla <dbl+lbl>,
+## #   cptppola <dbl+lbl>, trstprl <dbl+lbl>, trstlgl <dbl+lbl>, trstplc <dbl+lbl>, trstplt <dbl+lbl>,
+## #   trstprt <dbl+lbl>, trstep <dbl+lbl>, trstun <dbl+lbl>, vote <dbl+lbl>, prtvtcat <dbl+lbl>,
+## #   prtvtdbe <dbl+lbl>, prtvtdbg <dbl+lbl>, prtvtgch <dbl+lbl>, prtvtbcy <dbl+lbl>,
+## #   prtvtecz <dbl+lbl>, prtvede1 <dbl+lbl>, prtvede2 <dbl+lbl>, prtvtddk <dbl+lbl>,
+## #   prtvtgee <dbl+lbl>, prtvtees <dbl+lbl>, prtvtdfi <dbl+lbl>, prtvtdfr <dbl+lbl>, ...
 \end{verbatim}
 
-Comme pour d'autres logiciels statistiques, les colonnes représentent les variables et les lignes les observations. Ici, une vingtaine de variables sont affichées (sur \(572\)). De même, les dix premières observations (sur \(49519\)) sont affichées\footnote{Cet affichage est le réglage par défaut d'un \href{https://tibble.tidyverse.org/}{\emph{tibble}}, une forme spéciale de base données dans R. Si vous avez une base de données par défaut (\emph{data.frame}) de R, cela s'affichera un peu différemment. Pour plus de détails en français: \url{https://juba.github.io/tidyverse/06-tidyverse.html}}. Si vous voulez voir l'ensemble de la base de données, vous pouvez utiliser la fonction \emph{View()}\footnote{Mais attention, la base de données étant grande avec près de \(500000\) observations, cela peut prendre un certain temps.}:
+Comme pour d'autres logiciels statistiques, les colonnes représentent les variables et les lignes les observations. Ici, une vingtaine de variables sont affichées (sur \(572\)). De même, les dix premières observations (sur \(49519\)) sont affichées\footnote{Cet affichage est le réglage par défaut d'un \href{https://tibble.tidyverse.org/}{\emph{tibble}}, une forme spéciale de base données dans R. Si vous avez une base de données par défaut (\emph{data.frame}) de R, cela s'affichera un peu différemment. Pour plus de détails en français: \url{https://juba.github.io/tidyverse/06-tidyverse.html}}. Si vous voulez voir l'ensemble de la base de données, vous pouvez utiliser la fonction \emph{View()}\footnote{Mais attention, la base de données étant grande avec près de \(500000\) observations, cela peut prendre un certain temps.} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -490,7 +490,7 @@ Comme pour d'autres logiciels statistiques, les colonnes représentent les varia
 \end{Highlighting}
 \end{Shaded}
 
-Si vous voulez enregistrer la base de données sous un format R, utilisez le format \emph{RDS}. Celui-ci vous permet d'enregistrer un objet R. La base de données de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} étant chargé sous le nom ``\emph{ESS9}'' comme objet R dans l'\protect\hyperlink{objets_envir}{environnement global} il vous suffira d'exécuter la commande \emph{saveRDS()} pour l'enregistrer. Dans cette commande vous indiquez le nom de l'objet R à enregistrer en tant que premier argument. Ensuite, vous indiquez, séparé par une virgule, comme second argument, le nom sous lequel vous voulez enregistrer l'objet. Ce nom doit être indiqué entre guillemets. Ici, nous voulons enregistrer l'objet ``\emph{ESS9}'' sous le nom ``ESS9.RDS'', afin de le réutiliser lors du prochain chapitre. Exécutez donc le code suivant:
+Si vous voulez enregistrer la base de données sous un format R, utilisez le format \emph{RDS}. Celui-ci vous permet d'enregistrer un objet R. La base de données de l'\href{https://www.europeansocialsurvey.org/}{\emph{ESS}} étant chargé sous le nom ``\emph{ESS9}'' comme objet R dans l'\protect\hyperlink{objets_envir}{environnement global} il vous suffira d'exécuter la commande \emph{saveRDS()} pour l'enregistrer. Dans cette commande vous indiquez le nom de l'objet R à enregistrer en tant que premier argument. Ensuite, vous indiquez, séparé par une virgule, comme second argument, le nom sous lequel vous voulez enregistrer l'objet. Ce nom doit être indiqué entre guillemets. Ici, nous voulons enregistrer l'objet ``\emph{ESS9}'' sous le nom ``ESS9.RDS'', afin de le réutiliser lors du prochain chapitre. Exécutez donc le code suivant :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -503,14 +503,14 @@ Le fichier ``ESS9.RDS'' contenant votre base de données est alors enregistré d
 \hypertarget{close_R}{%
 \section{Fermer R}\label{close_R}}
 
-Lorsque vous fermez R, \href{https://posit.co/}{\emph{RStudio}} va vous proposer d'enregistrer l'\protect\hyperlink{objets_envir}{environnement global}. Si vous l'acceptez, un fichier contenant tous les objets se trouvant dans votre \protect\hyperlink{objets_envir}{environnement global} sera enregistré dans votre \protect\hyperlink{working_directory}{espace de travail}. Lorsque vous rouvrez R plus tard, tous les objets que vous aviez dans votre espace de travail au moment de la fermeture de R seront à nouveau accessibles. Cela vous permettra de reprendre votre travail où vous en étiez avant de fermer R. Si vous n'enregistrez pas l'\protect\hyperlink{working_directory}{espace de travail}, il sera vierge lorsque vous ouvrez R à nouveau. Il faudra exécuter les commandes de la dernière session pour arriver au même stade qu'avant la fermeture. \textbf{Attention:} même si vous enregistrez l'\protect\hyperlink{working_directory}{espace de travail}, il faudra relancer les \protect\hyperlink{packages}{\emph{packages}} que vous souhaitez utiliser lorsque vous rouvrez R. Lorsque vous ouvrez \href{https://posit.co/}{\emph{RStudio}} les fichier \protect\hyperlink{Commandes}{\emph{R Script}} qui étaient ouverts lorsque vous avez fermé \href{https://posit.co/}{\emph{RStudio}} s'ouvrent automatiquement.
+Lorsque vous fermez R, \href{https://posit.co/}{\emph{RStudio}} vous propose d'enregistrer l'\protect\hyperlink{objets_envir}{environnement global}. Si vous l'acceptez, un fichier contenant tous les objets se trouvant dans votre \protect\hyperlink{objets_envir}{environnement global} sera enregistré dans votre \protect\hyperlink{working_directory}{espace de travail}. Lorsque vous rouvrirez R plus tard, tous les objets que vous aviez dans votre espace de travail au moment de la fermeture de R seront à nouveau accessibles. Cela vous permettra de reprendre votre travail où vous en étiez avant de fermer R. Si vous n'enregistrez pas l'\protect\hyperlink{working_directory}{espace de travail}, il sera vierge lorsque vous ouvrez R à nouveau. Il faudra exécuter les commandes de la dernière session pour arriver au même stade qu'avant la fermeture. \textbf{Attention :} même si vous enregistrez l'\protect\hyperlink{working_directory}{espace de travail}, il faudra relancer les \protect\hyperlink{packages}{\emph{packages}} que vous souhaitez utiliser lorsque vous rouvrez R. Lorsque vous ouvrez \href{https://posit.co/}{\emph{RStudio}} les fichier \protect\hyperlink{Commandes}{\emph{R Script}} qui étaient ouverts lorsque vous avez fermé \href{https://posit.co/}{\emph{RStudio}} s'ouvrent automatiquement.
 
 \hypertarget{charge_code_filtrer}{%
 \chapter{Charger des bases de données et les filtrer}\label{charge_code_filtrer}}
 
 Dans ce chapitre, nous allons voir comment charger des bases de données, créer des \emph{Codebook} et filtrer des données. L'objectif est de créer une base de données reprenant seulement les observations belges. Cela nous sera nécessaire pour analyser les salaires en Belgique au \protect\hyperlink{salaire_belge_stat_desc}{prochain chapitre}.
 
-Si vous avez éteint R depuis le dernier chapitre, il faudra lancer les \protect\hyperlink{packages}{\emph{packages}} avant de reprendre les analyses. À cette fin, exécutez les commandes suivantes:
+Si vous avez éteint R depuis le dernier chapitre, il faudra lancer les \protect\hyperlink{packages}{\emph{packages}} avant de reprendre les analyses. À cette fin, exécutez les commandes suivantes :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -526,9 +526,9 @@ Si vous avez éteint R depuis le dernier chapitre, il faudra lancer les \protect
 \hypertarget{charger-des-donnuxe9es-au-format-r-.rds}{%
 \section{\texorpdfstring{Charger des données au format R (\emph{.RDS})}{Charger des données au format R (.RDS)}}\label{charger-des-donnuxe9es-au-format-r-.rds}}
 
-Pour commencer nos analyses, il faut charger les données. Dans le \protect\hyperlink{import_donnees}{chapitre précédent}, nous avons vu comment importer des données depuis le format \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} (suffixe \emph{.sav}) et comment les enregistrer au format ``\emph{RDS}'' de R. Nous avions enregistré la base de données de 'l'Enquête sociale européenne/\href{https://www.europeansocialsurvey.org/}{\emph{European social survey (ESS)}} ``\emph{ESS 9}'' sous le nom ``\emph{ESS9.RDS}''. Nous allons à présent charger ce fichier pour continuer nos analyses avec cette base de données.
+Pour commencer nos analyses, il faut charger les données. Dans le \protect\hyperlink{import_donnees}{chapitre précédent}, nous avons vu comment importer des données depuis le format \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} (suffixe \emph{.sav}) et comment les enregistrer au format ``\emph{RDS}'' de R. Nous avions enregistré la base de données de 'l'Enquête sociale européenne / \href{https://www.europeansocialsurvey.org/}{\emph{European social survey (ESS)}} ``\emph{ESS 9}'' sous le nom ``\emph{ESS9.RDS}''. Nous allons à présent charger ce fichier pour continuer nos analyses avec cette base de données.
 
-Assurez-vous que le fichier ``\emph{ESS9.RDS}'' se trouve dans votre \protect\hyperlink{working_directory}{espace de travail}. Si vous ne l'avez pas, effectuez les étapes décrites dans le \protect\hyperlink{import_donnees}{chapitre précédent}\footnote{Si vous suivez un enseignement de \href{mailto:lhommeau@gmail.com}{Lev Lhommeau}, il est probable que l'on vous mette le fichier à disposition}. Chargez donc le fichier à l'aide de la commande \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/readRDS}{\emph{readRDS()}}:
+Assurez-vous que le fichier ``\emph{ESS9.RDS}'' se trouve dans votre \protect\hyperlink{working_directory}{espace de travail}. S'il n'y figure pas, effectuez les étapes décrites dans le \protect\hyperlink{import_donnees}{chapitre précédent}\footnote{Si vous suivez un enseignement de \href{mailto:lhommeau@gmail.com}{Lev Lhommeau}, il est probable que ce fichier vous ait déjà été fourni}. Chargez donc le fichier à l'aide de la commande \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/readRDS}{\emph{readRDS()}} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -536,7 +536,7 @@ Assurez-vous que le fichier ``\emph{ESS9.RDS}'' se trouve dans votre \protect\hy
 \end{Highlighting}
 \end{Shaded}
 
-Lorsque vous chargez une base de données (ou un autre objet R) à l'aide de la fonction ``\emph{readRDS()}'', il faut lui attribuer un nom sous lequel le charger dans l'espace de travail. Ici nous le faisons en plaçant une flèche (\textless-) à gauche de la fonction et en indiquant le nom de l'objet au bout de cette flèche: \emph{ESS9}. Si vous ne nommez pas l'objet, et écrivez simplement la commande sans lui attribuer de nom, la base de données apparaîtra certes dans la sortie de la console, mais ne sera pas enregistrée dans l'\protect\hyperlink{objets_envir}{environnement global}. Vous ne pourrez alors pas faire d'analyse avec cette base de données. Assurez-vous que l'objet est bien chargé en vérifiant s'il apparaît dans l'onglet ``\emph{Environment}'' à droite dans \href{https://posit.co/}{\emph{RStudio}}. Par ailleurs, faites-vous afficher l'objet en exécutant le code suivant:
+Lorsque vous chargez une base de données (ou un autre objet R) à l'aide de la fonction ``\emph{readRDS()}'', il faut lui attribuer un nom sous lequel le charger dans l'espace de travail. Ici nous le faisons en plaçant une flèche (\textless-) à gauche de la fonction et en indiquant le nom de l'objet, \emph{ESS9}, au bout de cette flèche. Si vous ne nommez pas l'objet, et écrivez simplement la commande sans lui attribuer de nom, la base de données apparaîtra certes dans la sortie de la console, mais ne sera pas enregistrée dans l'\protect\hyperlink{objets_envir}{environnement global}. Vous ne pourrez alors pas faire d'analyse avec cette base de données. Assurez-vous que l'objet est bien chargé en vérifiant s'il apparaît dans l'onglet ``\emph{Environment}'' à droite dans \href{https://posit.co/}{\emph{RStudio}}. Par ailleurs, affichez l'objet en exécutant le code suivant :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -546,28 +546,28 @@ Lorsque vous chargez une base de données (ou un autre objet R) à l'aide de la 
 
 \begin{verbatim}
 ## # A tibble: 49,519 x 572
-##    name      essround edition prodd~1  idno cntry    dweight pspwght pweight anwei~2 nwspol netus~3 netustm ppltrst pplfair pplhlp polintr pspps~4 actro~5 psppi~6
-##    <chr>        <dbl> <chr>   <chr>   <dbl> <chr+lb>   <dbl>   <dbl>   <dbl>   <dbl> <dbl+> <dbl+l> <dbl+l> <dbl+l> <dbl+l> <dbl+> <dbl+l> <dbl+l> <dbl+l> <dbl+l>
-##  1 ESS9e03_1        9 3.1     17.02.~    27 AT [Aus~   0.581   0.218   0.302  0.0659 60     5 [Eve~ 180     2 [2]   2 [2]   2 [2]  3 [Har~ 3 [Som~ 2 [A l~ 2 [Ver~
-##  2 ESS9e03_1        9 3.1     17.02.~   137 AT [Aus~   1.06    0.413   0.302  0.125  10     5 [Eve~  20     7 [7]   8 [8]   7 [7]  2 [Qui~ 3 [Som~ 2 [A l~ 3 [Som~
-##  3 ESS9e03_1        9 3.1     17.02.~   194 AT [Aus~   1.38    2.27    0.302  0.686  60     4 [Mos~ 180     5 [5]   7 [7]   7 [7]  4 [Not~ 2 [Ver~ 1 [Not~ 3 [Som~
-##  4 ESS9e03_1        9 3.1     17.02.~   208 AT [Aus~   0.993   0.386   0.302  0.117  45     5 [Eve~ 120     3 [3]   9 [9]   5 [5]  3 [Har~ 2 [Ver~ 2 [A l~ 3 [Som~
-##  5 ESS9e03_1        9 3.1     17.02.~   220 AT [Aus~   0.377   1.03    0.302  0.312  30     1 [Nev~  NA     5 [5]   8 [8]   4 [4]  2 [Qui~ 1 [Not~ 1 [Not~ 1 [Not~
-##  6 ESS9e03_1        9 3.1     17.02.~   254 AT [Aus~   1.48    0.576   0.302  0.174  45     2 [Onl~  NA     8 [8]   7 [7]   6 [6]  2 [Qui~ 2 [Ver~ 2 [A l~ 3 [Som~
-##  7 ESS9e03_1        9 3.1     17.02.~   290 AT [Aus~   0.992   0.721   0.302  0.218  60     1 [Nev~  NA     6 [6]   1 [1]   3 [3]  4 [Not~ 2 [Ver~ 2 [A l~ 3 [Som~
-##  8 ESS9e03_1        9 3.1     17.02.~   301 AT [Aus~   0.310   0.130   0.302  0.0393 30     1 [Nev~  NA     7 [7]   7 [7]   7 [7]  3 [Har~ 1 [Not~ 1 [Not~ 1 [Not~
-##  9 ESS9e03_1        9 3.1     17.02.~   305 AT [Aus~   1.23    1.77    0.302  0.535  30     5 [Eve~ 120     2 [2]   9 [9]   9 [9]  3 [Har~ 1 [Not~ 1 [Not~ 1 [Not~
-## 10 ESS9e03_1        9 3.1     17.02.~   400 AT [Aus~   0.459   0.743   0.302  0.224  25     4 [Mos~ 360     7 [7]   4 [4]   4 [4]  4 [Not~ 2 [Ver~ 2 [A l~ 2 [Ver~
-## # ... with 49,509 more rows, 552 more variables: cptppola <dbl+lbl>, trstprl <dbl+lbl>, trstlgl <dbl+lbl>, trstplc <dbl+lbl>, trstplt <dbl+lbl>,
-## #   trstprt <dbl+lbl>, trstep <dbl+lbl>, trstun <dbl+lbl>, vote <dbl+lbl>, prtvtcat <dbl+lbl>, prtvtdbe <dbl+lbl>, prtvtdbg <dbl+lbl>, prtvtgch <dbl+lbl>,
-## #   prtvtbcy <dbl+lbl>, prtvtecz <dbl+lbl>, prtvede1 <dbl+lbl>, prtvede2 <dbl+lbl>, prtvtddk <dbl+lbl>, prtvtgee <dbl+lbl>, prtvtees <dbl+lbl>,
-## #   prtvtdfi <dbl+lbl>, prtvtdfr <dbl+lbl>, prtvtcgb <dbl+lbl>, prtvtahr <dbl+lbl>, prtvtfhu <dbl+lbl>, prtvtcie <dbl+lbl>, prtvtcis <dbl+lbl>,
-## #   prtvtcit <dbl+lbl>, prtvblt1 <dbl+lbl>, prtvblt2 <dbl+lbl>, prtvblt3 <dbl+lbl>, prtvtalv <dbl+lbl>, prtvtme <dbl+lbl>, prtvtgnl <dbl+lbl>,
-## #   prtvtbno <dbl+lbl>, prtvtdpl <dbl+lbl>, prtvtcpt <dbl+lbl>, prtvtrs <dbl+lbl>, prtvtcse <dbl+lbl>, prtvtfsi <dbl+lbl>, prtvtdsk <dbl+lbl>, contplt <dbl+lbl>,
-## #   wrkprty <dbl+lbl>, wrkorg <dbl+lbl>, badge <dbl+lbl>, sgnptit <dbl+lbl>, pbldmn <dbl+lbl>, bctprd <dbl+lbl>, pstplonl <dbl+lbl>, clsprty <dbl+lbl>, ...
+##    name   essro~1 edition prodd~2  idno cntry    dweight pspwght pweight anwei~3 nwspol netus~4 netustm
+##    <chr>    <dbl> <chr>   <chr>   <dbl> <chr+lb>   <dbl>   <dbl>   <dbl>   <dbl> <dbl+> <dbl+l> <dbl+l>
+##  1 ESS9e~       9 3.1     17.02.~    27 AT [Aus~   0.581   0.218   0.302  0.0659 60     5 [Eve~ 180    
+##  2 ESS9e~       9 3.1     17.02.~   137 AT [Aus~   1.06    0.413   0.302  0.125  10     5 [Eve~  20    
+##  3 ESS9e~       9 3.1     17.02.~   194 AT [Aus~   1.38    2.27    0.302  0.686  60     4 [Mos~ 180    
+##  4 ESS9e~       9 3.1     17.02.~   208 AT [Aus~   0.993   0.386   0.302  0.117  45     5 [Eve~ 120    
+##  5 ESS9e~       9 3.1     17.02.~   220 AT [Aus~   0.377   1.03    0.302  0.312  30     1 [Nev~  NA    
+##  6 ESS9e~       9 3.1     17.02.~   254 AT [Aus~   1.48    0.576   0.302  0.174  45     2 [Onl~  NA    
+##  7 ESS9e~       9 3.1     17.02.~   290 AT [Aus~   0.992   0.721   0.302  0.218  60     1 [Nev~  NA    
+##  8 ESS9e~       9 3.1     17.02.~   301 AT [Aus~   0.310   0.130   0.302  0.0393 30     1 [Nev~  NA    
+##  9 ESS9e~       9 3.1     17.02.~   305 AT [Aus~   1.23    1.77    0.302  0.535  30     5 [Eve~ 120    
+## 10 ESS9e~       9 3.1     17.02.~   400 AT [Aus~   0.459   0.743   0.302  0.224  25     4 [Mos~ 360    
+## # ... with 49,509 more rows, 559 more variables: ppltrst <dbl+lbl>, pplfair <dbl+lbl>,
+## #   pplhlp <dbl+lbl>, polintr <dbl+lbl>, psppsgva <dbl+lbl>, actrolga <dbl+lbl>, psppipla <dbl+lbl>,
+## #   cptppola <dbl+lbl>, trstprl <dbl+lbl>, trstlgl <dbl+lbl>, trstplc <dbl+lbl>, trstplt <dbl+lbl>,
+## #   trstprt <dbl+lbl>, trstep <dbl+lbl>, trstun <dbl+lbl>, vote <dbl+lbl>, prtvtcat <dbl+lbl>,
+## #   prtvtdbe <dbl+lbl>, prtvtdbg <dbl+lbl>, prtvtgch <dbl+lbl>, prtvtbcy <dbl+lbl>,
+## #   prtvtecz <dbl+lbl>, prtvede1 <dbl+lbl>, prtvede2 <dbl+lbl>, prtvtddk <dbl+lbl>,
+## #   prtvtgee <dbl+lbl>, prtvtees <dbl+lbl>, prtvtdfi <dbl+lbl>, prtvtdfr <dbl+lbl>, ...
 \end{verbatim}
 
-Si vous n'avez pas enregistré le fichier dans votre \protect\hyperlink{working_directory}{espace de travail}, mais que vous voulez malgré tout le charger, vous pouvez indiquer le sentier entier en argument comme montré dans la section \protect\hyperlink{working_directory}{Espace de travail}. Si vous utilisez Windows, vous pouvez aussi utiliser la fonction \emph{choose.files()}, comme montré dans la section \protect\hyperlink{import_donnees}{Importer et enregistrer des données}:
+Si vous n'avez pas enregistré le fichier dans votre \protect\hyperlink{working_directory}{espace de travail}, mais que vous voulez malgré tout le charger, vous pouvez indiquer le chemin entier en argument comme montré dans la section \protect\hyperlink{working_directory}{Espace de travail}. Si vous utilisez Windows, vous pouvez aussi utiliser la fonction \emph{choose.files()}, comme montré dans la section \protect\hyperlink{import_donnees}{Importer et enregistrer des données} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -580,11 +580,11 @@ Une fois les données importées, nous pouvons avancer sur les manipulations et 
 \hypertarget{explorer-les-donnuxe9es-cruxe9er-un-codebook-interactif}{%
 \section{\texorpdfstring{Explorer les données: créer un \emph{codebook} interactif}{Explorer les données: créer un codebook interactif}}\label{explorer-les-donnuxe9es-cruxe9er-un-codebook-interactif}}
 
-Nous avons la base de données de l'ensemble du ``\emph{round}'' 9 de l'Enquête sociale européenne/\href{https://www.europeansocialsurvey.org/}{\emph{European social survey (ESS)}}. Quels pays a-t-il dans cette base de données?
+Nous avons la base de données de l'ensemble du ``\emph{round}'' 9 de l'Enquête sociale européenne / \href{https://www.europeansocialsurvey.org/}{\emph{European social survey (ESS)}}. Quels pays figurent dans cette base de données?
 
-Pour répondre à cette question, il faut savoir dans quelle variable cette information est stockée. Un \emph{codebook} nous permet de répondre à cette question. Un codebook est un document résumant les variables avec leurs noms, leurs libellés et les libellés des variables. Des logiciels tels que \href{https://www.stata.com/}{\emph{Stata}} et \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} proposent d'office cette possibilité. Ainsi \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} propose l'onglet ``\emph{Variable View}'' qui permet de se faire une idée des variables. À première vue, R semble moins convivial pour afficher les variables. Cependant, rien n'est plus faux: en effet, l'on peut créer un \emph{codebook} à l'aide du \emph{package} \href{https://rubenarslan.github.io/codebook/index.html}{\emph{codebook}}. Ce \emph{codebook} devient interactif, si l'on le combine avec la fonction \href{https://www.rdocumentation.org/packages/DT/versions/0.26/topics/datatable}{\emph{datatable}} du \emph{package} \href{https://rstudio.github.io/DT/}{DT}.
+Pour répondre à cette question, il faut savoir dans quelle variable cette information est stockée. Un \textbf{codebook} nous permet de répondre à cette question. Un codebook est un document résumant les variables avec leurs noms, leurs libellés et les libellés des variables. Des logiciels tels que \href{https://www.stata.com/}{\emph{Stata}} et \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} proposent d'office cette possibilité. Ainsi \href{https://www.ibm.com/fr-fr/products/spss-statistics}{\emph{SPSS}} propose l'onglet ``\emph{Variable View}'' qui permet de se faire une idée des variables. À première vue, R semble moins convivial pour afficher les variables. Cependant, rien n'est plus faux : en effet, on peut créer un \emph{codebook} à l'aide du \emph{package} \href{https://rubenarslan.github.io/codebook/index.html}{\emph{codebook}}. Ce \emph{codebook} devient interactif, si l'on le combine avec la fonction \href{https://www.rdocumentation.org/packages/DT/versions/0.26/topics/datatable}{\emph{datatable}} du \emph{package} \href{https://rstudio.github.io/DT/}{DT}.
 
-Il faut tout d'abord créer le \emph{codebook} avec la fonction \href{https://www.rdocumentation.org/packages/codebook/versions/0.9.2/topics/codebook_table}{\emph{codebook\_table}}. Nous l'appelons \emph{codebook\_ESS9}:
+Il faut tout d'abord créer le \emph{codebook} avec la fonction \href{https://www.rdocumentation.org/packages/codebook/versions/0.9.2/topics/codebook_table}{\emph{codebook\_table}}. Nous l'appelons \emph{codebook\_ESS9} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -592,7 +592,7 @@ Il faut tout d'abord créer le \emph{codebook} avec la fonction \href{https://ww
 \end{Highlighting}
 \end{Shaded}
 
-Ensuite, vous rendez ce \emph{codebook} interactif avec la fonction \href{https://www.rdocumentation.org/packages/DT/versions/0.26/topics/datatable}{\emph{datatable()}}. Ici, vous créez l'objet \emph{codebook\_ESS9\_DT}:
+Ensuite, vous rendez ce \emph{codebook} interactif avec la fonction \href{https://www.rdocumentation.org/packages/DT/versions/0.26/topics/datatable}{\emph{datatable()}}. Ici, vous créez l'objet \emph{codebook\_ESS9\_DT} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -600,7 +600,7 @@ Ensuite, vous rendez ce \emph{codebook} interactif avec la fonction \href{https:
 \end{Highlighting}
 \end{Shaded}
 
-Notons que chez vous, il devrait suffire d'exécuter le code ainsi, sans ajouter l'option pour ajouter une barre de défilement horizontale (``\emph{options = list(scrollX = TRUE)}''):
+Notons que chez vous, il devrait suffire d'exécuter le code ainsi, sans ajouter l'option pour ajouter une barre de défilement horizontale (``\emph{options = list(scrollX = TRUE)}'') :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -608,7 +608,7 @@ Notons que chez vous, il devrait suffire d'exécuter le code ainsi, sans ajouter
 \end{Highlighting}
 \end{Shaded}
 
-Vous pouvez afficher ce \emph{codebook} de la manière suivante:
+Vous pouvez afficher ce \emph{codebook} de la manière suivante :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -616,9 +616,9 @@ Vous pouvez afficher ce \emph{codebook} de la manière suivante:
 \end{Highlighting}
 \end{Shaded}
 
-Vous pouvez chercher des termes et des expressions dans le champ ``\emph{Search}''. Si vous y cherchez ``\emph{country}'' (pays), on vous affichera les variables où ce terme apparaît: vous verrez apparaître la variable ``\emph{cntry}'' reprend les pays. Quels pays sont représentés dans cette base de données?
+Vous pouvez chercher des termes et des expressions dans le champ ``\emph{Search}''. Si vous y cherchez ``\emph{country}'' (pays), les variables où ce terme apparaît seront affichées : vous verrez apparaître la variable ``\emph{cntry}'' qui reprend les pays. Quels pays sont représentés dans cette base de données ?
 
-Pour répondre à cette question, il faut sélectionner la variable ``\emph{cntry}'' et l'analyser. Mais comment sélectionne-t-on une variable? Dans le R de base, l'on utilise le signe dollar (\$) que l'on appose au nom de la base de données. Cela extrait cette variable en tant que vecteur. Concrètement, cela se fait ainsi:
+Pour répondre à cette question, il faut sélectionner la variable ``\emph{cntry}'' et l'analyser. Mais comment sélectionne-t-on une variable ? Dans le R de base, on utilise le signe dollar (\$) apposé au nom de la base de données. Cela a pour effet d'extraire cette variable en tant que vecteur. Concrètement, cela se fait ainsi :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -628,26 +628,38 @@ Pour répondre à cette question, il faut sélectionner la variable ``\emph{cntr
 
 \begin{verbatim}
 ## <labelled<character>[49519]>: Country
-##    [1] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##   [53] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [105] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [157] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [209] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [261] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [313] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [365] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [417] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [469] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [521] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [573] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [625] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [677] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [729] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [781] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [833] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [885] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [937] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
-##  [989] AT AT AT AT AT AT AT AT AT AT AT AT
+##    [1] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##   [33] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##   [65] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##   [97] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [129] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [161] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [193] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [225] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [257] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [289] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [321] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [353] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [385] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [417] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [449] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [481] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [513] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [545] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [577] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [609] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [641] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [673] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [705] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [737] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [769] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [801] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [833] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [865] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [897] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [929] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [961] AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT AT
+##  [993] AT AT AT AT AT AT AT AT
 ##  [ reached getOption("max.print") -- omitted 48519 entries ]
 ## 
 ## Labels:
@@ -683,7 +695,7 @@ Pour répondre à cette question, il faut sélectionner la variable ``\emph{cntr
 ##     SK       Slovakia
 \end{verbatim}
 
-Pour savoir quels pays sont dans la base de données, l'on peut utiliser la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/table}{\emph{table()}}, qui résume les données sous forme de tableau:
+Pour savoir quels pays sont dans la base de données, on utilise la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/table}{\emph{table()}} qui résume les données sous forme de tableau :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -693,11 +705,13 @@ Pour savoir quels pays sont dans la base de données, l'on peut utiliser la fonc
 
 \begin{verbatim}
 ## 
-##   AT   BE   BG   CH   CY   CZ   DE   DK   EE   ES   FI   FR   GB   HR   HU   IE   IS   IT   LT   LV   ME   NL   NO   PL   PT   RS   SE   SI   SK 
-## 2499 1767 2198 1542  781 2398 2358 1572 1904 1668 1755 2010 2204 1810 1661 2216  861 2745 1835  918 1200 1673 1406 1500 1055 2043 1539 1318 1083
+##   AT   BE   BG   CH   CY   CZ   DE   DK   EE   ES   FI   FR   GB   HR   HU   IE   IS   IT   LT   LV 
+## 2499 1767 2198 1542  781 2398 2358 1572 1904 1668 1755 2010 2204 1810 1661 2216  861 2745 1835  918 
+##   ME   NL   NO   PL   PT   RS   SE   SI   SK 
+## 1200 1673 1406 1500 1055 2043 1539 1318 1083
 \end{verbatim}
 
-Si vous voulez cependant obtenir un tableau plus lisible avec un diagramme en barre, vous pouvez utiliser la fonction \href{https://www.rdocumentation.org/packages/descr/versions/1.1.5/topics/freq}{\emph{freq()}} du package \href{https://cran.r-project.org/web/packages/descr/index.html}{\emph{descr}}:
+Pour obtenir un tableau plus lisible avec un diagramme en barre, vous pouvez utiliser la fonction \href{https://www.rdocumentation.org/packages/descr/versions/1.1.5/topics/freq}{\emph{freq()}} du package \href{https://cran.r-project.org/web/packages/descr/index.html}{\emph{descr}} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -705,7 +719,7 @@ Si vous voulez cependant obtenir un tableau plus lisible avec un diagramme en ba
 \end{Highlighting}
 \end{Shaded}
 
-Cela donne le tableau très pratique suivant:
+Cela donne le tableau très pratique qui suit le graphique :
 
 \includegraphics{intro_R_sciences_sociales_files/figure-latex/unnamed-chunk-35-1.pdf}
 
@@ -744,7 +758,7 @@ Cela donne le tableau très pratique suivant:
 ## Total     49519 100.000
 \end{verbatim}
 
-On voit qu'il y a un certain nombre de pays, dont la Belgique, avec \(1767\) observations. Mais combien de pays y a-t-il exactement? R peut calculer cela pour vous. R comprend la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/unique}{\emph{unique()}} qui vous retourne les valeurs uniques sous forme de vecteur:
+On voit qu'il y a un certain nombre de pays, dont la Belgique avec \(1767\) observations. Mais combien de pays y a-t-il exactement? R peut calculer cela pour vous. R comprend la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/unique}{\emph{unique()}} qui vous retourne les valeurs uniques sous forme de vecteur :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -789,7 +803,7 @@ On voit qu'il y a un certain nombre de pays, dont la Belgique, avec \(1767\) obs
 ##     SK       Slovakia
 \end{verbatim}
 
-Cela vous donne la liste des pays (ou plutôt des valeurs uniques) sous forme d'un nouveau vecteur. Cependant, cela ne vous informe pas sur leur nombre exact. Vous pouvez obtenir ce nombre par la fonction \emph{length()} qui compte le nombre d'éléments dans un vecteur. Vous pouvez l'appliquer soit en imbriquant les deux fonctions ainsi:
+Cela vous donne la liste des pays (ou plutôt des valeurs uniques) sous forme d'un nouveau vecteur. Cependant, cela ne vous informe pas sur leur nombre exact. Vous pouvez obtenir ce nombre par la fonction \emph{length()} qui compte le nombre d'éléments dans un vecteur. Vous pouvez l'appliquer soit en imbriquant les deux fonctions ainsi :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -797,7 +811,7 @@ Cela vous donne la liste des pays (ou plutôt des valeurs uniques) sous forme d'
 \end{Highlighting}
 \end{Shaded}
 
-Vous pouvez aussi procéder en deux étapes en créant d'abord l'objet \emph{pays\_uniques}, reprenant la liste des pays sous forme de vecteur:
+Vous pouvez aussi procéder en deux étapes en créant d'abord l'objet \emph{pays\_uniques}, reprenant la liste des pays sous forme de vecteur :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -843,7 +857,7 @@ Vous pouvez aussi procéder en deux étapes en créant d'abord l'objet \emph{pay
 ##     SK       Slovakia
 \end{verbatim}
 
-Puis, vous appliquez la fonction \emph{\href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/length}{length()}} à l'objet \emph{pays\_uniques}. Cela vous donnera le nombre d'objets dans le vecteur \emph{pays\_uniques}, c'est-à-dire le nombre de pays dans la base de données \emph{ESS9}:
+Puis, vous appliquez la fonction \emph{\href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/length}{length()}} à l'objet \emph{pays\_uniques}. Cela vous donnera le nombre d'objets dans le vecteur \emph{pays\_uniques}, c'est-à-dire le nombre de pays dans la base de données \emph{ESS9} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -855,7 +869,7 @@ Puis, vous appliquez la fonction \emph{\href{https://www.rdocumentation.org/pack
 ## [1] 29
 \end{verbatim}
 
-Cela nous indique, qu'il y a 29 pays dans la base de données \emph{ESS9}. Attention cependant: la fonction \emph{\href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/length}{length()}} s'applique aux vecteurs ou listes, mais pas aux bases de données (\emph{data.frame} ou \emph{tibble}) ou matrices (\emph{matrix}). Si nous voulions connaître le nombre d'observations dans la base de données \emph{ESS9}, nous n'appliquons pas la fonction \emph{\href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/length}{length()}}, mais la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/nrow}{\emph{nrow()}}, retournant le nombre de lignes (\emph{rows}) dans la base de données, ce qui revient à nous indiquer le nombre d'observations dans la base de données (vu que chaque ligne correspond à une observation):
+Cela nous indique, qu'il y a 29 pays dans la base de données \emph{ESS9}. Attention, la fonction \emph{\href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/length}{length()}} s'applique aux vecteurs ou listes, mais pas aux bases de données (\emph{data.frame} ou \emph{tibble}) ou matrices (\emph{matrix}). Si nous voulions connaître le nombre d'observations dans la base de données \emph{ESS9}, nous n'appliquons pas la fonction \emph{\href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/length}{length()}}, mais la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/nrow}{\emph{nrow()}}. Celle-ci retourne le nombre de lignes (\emph{rows}) dans la base de données, ce qui revient à nous indiquer le nombre d'observations dans la base de données (vu que chaque ligne correspond à une observation) :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -872,7 +886,7 @@ Nous avons donc \(49519\) observations dans cette base de données. Mais comme n
 \hypertarget{filtrer-les-donnuxe9es}{%
 \section{Filtrer les données}\label{filtrer-les-donnuxe9es}}
 
-Vu que nous voulons analyser les salaires en Belgique, il faut sélectionner uniquement les observations belges. Pour sélectionner uniquement les observations belges, il faut vérifier quelle valeur dans la variable \emph{cntry} (\emph{Country}) de la base de données \emph{ESS9} (\emph{ESS9\$cntry} ) correspond à la Belgique. Nous pouvons faire cela en utilisant la fonction \href{https://www.rdocumentation.org/packages/labelled/versions/2.10.0/topics/val_labels}{\emph{val\_labels}} du \emph{package} \href{https://cran.r-project.org/web/packages/labelled/vignettes/intro_labelled.html}{\emph{labelled}}:
+Vu que nous voulons analyser les salaires en Belgique, il faut sélectionner uniquement les observations belges. Il faut vérifier quelle valeur dans la variable \emph{cntry} (\emph{Country}) de la base de données \emph{ESS9} (\emph{ESS9\$cntry} ) correspond à la Belgique. Nous pouvons faire cela en utilisant la fonction \href{https://www.rdocumentation.org/packages/labelled/versions/2.10.0/topics/val_labels}{\emph{val\_labels}} du \emph{package} \href{https://cran.r-project.org/web/packages/labelled/vignettes/intro_labelled.html}{\emph{labelled}} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -881,19 +895,23 @@ Vu que nous voulons analyser les salaires en Belgique, il faut sélectionner uni
 \end{Shaded}
 
 \begin{verbatim}
-##        Austria        Belgium       Bulgaria    Switzerland         Cyprus        Czechia        Germany        Denmark        Estonia          Spain 
-##           "AT"           "BE"           "BG"           "CH"           "CY"           "CZ"           "DE"           "DK"           "EE"           "ES" 
-##        Finland         France United Kingdom        Croatia        Hungary        Ireland        Iceland          Italy      Lithuania         Latvia 
-##           "FI"           "FR"           "GB"           "HR"           "HU"           "IE"           "IS"           "IT"           "LT"           "LV" 
-##     Montenegro    Netherlands         Norway         Poland       Portugal         Serbia         Sweden       Slovenia       Slovakia 
-##           "ME"           "NL"           "NO"           "PL"           "PT"           "RS"           "SE"           "SI"           "SK"
+##        Austria        Belgium       Bulgaria    Switzerland         Cyprus        Czechia 
+##           "AT"           "BE"           "BG"           "CH"           "CY"           "CZ" 
+##        Germany        Denmark        Estonia          Spain        Finland         France 
+##           "DE"           "DK"           "EE"           "ES"           "FI"           "FR" 
+## United Kingdom        Croatia        Hungary        Ireland        Iceland          Italy 
+##           "GB"           "HR"           "HU"           "IE"           "IS"           "IT" 
+##      Lithuania         Latvia     Montenegro    Netherlands         Norway         Poland 
+##           "LT"           "LV"           "ME"           "NL"           "NO"           "PL" 
+##       Portugal         Serbia         Sweden       Slovenia       Slovakia 
+##           "PT"           "RS"           "SE"           "SI"           "SK"
 \end{verbatim}
 
 Nous voyons que ``\emph{BE}'' correspond à la Belgique (\emph{Belgium}). Il faut donc garder uniquement les observations dont la variable \emph{cntry} (\emph{country}) est égale à ``BE''.
 
-Il y a la fonction de base de R qui s'appelle \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/subset}{\emph{subset()}} qui permet de filtrer les observations sur un ou plusieurs critères. Nous allons cependant utiliser la fonction \href{https://dplyr.tidyverse.org/reference/filter.html}{\emph{filter()}} du \emph{package} \href{https://dplyr.tidyverse.org/}{\emph{dplyr}}\footnote{La fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/subset}{\emph{subset()}} s'utilise de manière similaire à la fonction \emph{filter()}. Vous pouvez donc l'utiliser de manière analogue à la fonction \href{https://dplyr.tidyverse.org/reference/filter.html}{\emph{filter()}} présentée ici.}, faisant partie du \href{https://www.tidyverse.org/}{\emph{tidyverse}}, car celle-ci est facilement combinable avec d'autres manipulations.
+La fonction de base de R \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/subset}{\emph{subset()}} permet de filtrer les observations sur un ou plusieurs critères. Nous allons plutôt utiliser la fonction \href{https://dplyr.tidyverse.org/reference/filter.html}{\emph{filter()}} du \emph{package} \href{https://dplyr.tidyverse.org/}{\emph{dplyr}}\footnote{La fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/subset}{\emph{subset()}} s'utilise de manière similaire à la fonction \emph{filter()}. Vous pouvez donc l'utiliser de manière analogue à la fonction \href{https://dplyr.tidyverse.org/reference/filter.html}{\emph{filter()}} présentée ici.}, faisant partie du \href{https://www.tidyverse.org/}{\emph{tidyverse}}, car celle-ci est facilement combinable avec d'autres manipulations.
 
-Pour sélectionner uniquement les observations dont la variable \emph{cntry} est égale à ``\emph{BE}'', il faut utiliser la fonction \href{https://dplyr.tidyverse.org/reference/filter.html}{\emph{filter()}} de la manière suivante:
+Pour sélectionner uniquement les observations dont la variable \emph{cntry} est égale à ``\emph{BE}'', on utilise la fonction \href{https://dplyr.tidyverse.org/reference/filter.html}{\emph{filter()}} de cette manière :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -901,18 +919,18 @@ Pour sélectionner uniquement les observations dont la variable \emph{cntry} est
 \end{Highlighting}
 \end{Shaded}
 
-On crée l'objet \emph{ESS9\_BE} contenant la base de données avec uniquement les cas belges. Comme vous le voyez, le premier argument de cette fonction \href{https://dplyr.tidyverse.org/reference/filter.html}{\emph{filter()}} est la base de données \emph{ESS9}. Puis, séparé par une virgule, le second argument est la condition à respecter. Ici, la condition est que la variable (colonne) \emph{cntry} doit être égale à ``BE''.
+L'objet \emph{ESS9\_BE} contient maintenant uniquement les cas belges de la base de données. Comme vous le voyez, le premier argument de cette fonction \href{https://dplyr.tidyverse.org/reference/filter.html}{\emph{filter()}} est la base de données \emph{ESS9}. Puis, séparé par une virgule, le second argument est la condition à respecter. Ici, la condition est que la variable (colonne) \emph{cntry} doit être égale à ``BE''.
 
 En lisant ce code, vous aurez certainement remarqué deux choses:
 
 \begin{itemize}
 \item
-  La première est que ``BE'' est noté entre guillemets. En effet, lorsque vous filtrez des chaînes de caractère (\emph{string}/\emph{character}), il faut utiliser des guillemets autour des caractères que l'on souhaite filtrer. Si on n'utilise pas de guillemets, R pense qu'on lui indique un objet de nom \emph{BE}. Ne connaissant pas cet objet, R vous retournera une erreur. Entre guillemets, R sait que l'on veut dire la chaîne de caractère ``BE''. Si, en revanche, vous vouliez filtrer un nombre (par exemple: \(1\), \(1000\) ou \(1.35\)), vous n'avez pas besoin d'ajouter de guillemets (concrètement: vous ne devez \emph{pas} en mettre).
+  La première est que ``BE'' est noté entre guillemets. En effet, lorsque vous filtrez des chaînes de caractère (\emph{string}/\emph{character}), il faut utiliser des guillemets autour des caractères que l'on souhaite filtrer. Si on n'utilise pas de guillemets, R pense qu'on lui indique un objet ayant pour nom \emph{BE}. Ne connaissant pas cet objet, R vous retournera une erreur. Avec les guillemets, R sait que l'on veut dire la chaîne de caractère ``BE''. Si, en revanche, pour une autre commande, vous vouliez filtrer un nombre (par exemple: \(1\), \(1000\) ou \(1.35\)), vous n'avez pas besoin de ces guillemets.
 \item
-  la deuxième est que l'on a indiqué un double égal (``==''). En effet, si l'on indique que l'on voudrait filtrer des éléments correspondant à ce qu'on indique (ici ``BE''), il faut indiquer un double égal (``=='').
+  la deuxième est que l'on a indiqué un double égal (``==''), pour indiquer que l'on voudrait filtrer des éléments correspondant à ce qu'on indique (ici ``BE'').
 \end{itemize}
 
-R connaît ainsi un certain nombre d'opérateurs logiques:
+R connaît ainsi un certain nombre d'\textbf{opérateurs logiques} :
 
 \begin{itemize}
 \tightlist
@@ -935,7 +953,7 @@ R connaît ainsi un certain nombre d'opérateurs logiques:
 \item
   \(x \& y\) : condition x \emph{ET} condition y
 \item
-  \(x | y\) : condition x \emph{OU} condition y
+  \(x | y\) : condition x \emph{OU} condition y (le signe ``\textbar{}'', qui se prononce ``\emph{barre}'' ou ``\emph{pipe}'' en anglais, est accessible en tapant ``Atl Gr'' et la touche ``1'' sur votre clavier belge)
 \end{itemize}
 
 Prenons des exemples pour les deux derniers opérateurs de la liste ``\&'' et ``\textbar{}'' :
@@ -943,7 +961,7 @@ Prenons des exemples pour les deux derniers opérateurs de la liste ``\&'' et ``
 \begin{itemize}
 \tightlist
 \item
-  Imaginons que vous vouliez garder les observations en Belgique, mais uniquement si elles sont des femmes: dans ce cas si vous utilisiez le lien logique ``\&'' ente les conditions. Cela signifierait que les deux conditions doivent être remplies simultanément. Les observations sélectionnées doivent être en Belgique \emph{ET} des femmes. Les observations en Belgique qui ne sont pas des femmes ou les femmes qui ne sont pas en Belgique ne seront pas sélectionnées. Le code serait alors:
+  Imaginons que vous vouliez garder les observations en Belgique, mais uniquement si elles sont des femmes. Dans ce cas, si vous utilisez le lien logique ``\&'' entre les conditions, cela signifie que les deux conditions doivent être remplies simultanément. Les observations sélectionnées doivent concerner la Belgique \emph{ET} les femmes. En d'autres termes, les observations en Belgique qui ne sont pas des femmes (donc les hommes en Belgique) ou les femmes qui ne sont pas en Belgique ne seront pas sélectionnées. Le code serait alors :
 \end{itemize}
 
 \begin{Shaded}
@@ -982,7 +1000,7 @@ Prenons des exemples pour les deux derniers opérateurs de la liste ``\&'' et ``
 \begin{itemize}
 \tightlist
 \item
-  Imaginons que vous vouliez garder toutes les observations en Belgique et toutes les femmes: dans ce cas, vous devriez séparer les deux conditions par le symbole ``\textbar{}''. Les observations sélectionnées doivent être en Belgique \emph{OU} des femmes. Toutes les observations belges sont alors sélectionnées et toutes les observations ``femmes''. Les observations en Belgique qui ne sont pas des femmes seront sélectionnées tout comme les femmes qui ne sont pas en Belgique. Le code serait alors:
+  Imaginons que vous vouliez garder toutes les observations en Belgique ainsi que toutes les femmes de tous les pays : dans ce cas, vous devriez séparer les deux conditions par le symbole ``\textbar{}''. Les observations sélectionnées doivent concerner la Belgique \emph{OU} bien les femmes. Toutes les observations belges sont alors sélectionnées et toutes les observations ``femmes'' également. Les observations en Belgique qui ne sont pas des femmes seront sélectionnées, tout comme les femmes qui ne sont pas en Belgique. Le code serait alors :
 \end{itemize}
 
 \begin{Shaded}
@@ -1047,7 +1065,7 @@ Prenons des exemples pour les deux derniers opérateurs de la liste ``\&'' et ``
 ## Total     27367 100.000
 \end{verbatim}
 
-Une fois que nous avons exécuté la fonction \href{https://dplyr.tidyverse.org/reference/filter.html}{\emph{filter()}} pour garder uniquement les observations en Belgique créant la base de données nommée \emph{ESS9\_BE}, nous allons vérifier qu'elle contient plus que des observations belges avec la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/table}{\emph{table()}} et \href{https://www.rdocumentation.org/packages/descr/versions/1.1.5/topics/freq}{\emph{freq()}}:
+Revenons à notre ojectif initial qui était de sélectionner les données de la Belgique, quel que soit le sexe. Une fois que nous avons exécuté la fonction \href{https://dplyr.tidyverse.org/reference/filter.html}{\emph{filter()}} pour garder uniquement les observations en Belgique créant la base de données nommée \emph{ESS9\_BE}, nous allons vérifier qu'elle ne contient plus que des observations belges avec la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/table}{\emph{table()}} et \href{https://www.rdocumentation.org/packages/descr/versions/1.1.5/topics/freq}{\emph{freq()}} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1078,12 +1096,12 @@ Une fois que nous avons exécuté la fonction \href{https://dplyr.tidyverse.org/
 ## Total      1767     100
 \end{verbatim}
 
-Comme nous le voyons, le filtrage a fonctionné: il n'y plus que \(1767\) observations belges. Nous pouvons donc procéder à une analyse descriptive des salaires en Belgique dans le \protect\hyperlink{salaire_belge_stat_desc}{chapitre suivant}.
+Comme nous le voyons, le filtrage a fonctionné : il n'y a plus que \(1767\) observations belges. Nous pouvons donc procéder à une analyse descriptive des salaires en Belgique dans le \protect\hyperlink{salaire_belge_stat_desc}{chapitre suivant}.
 
 \hypertarget{salaire_belge_stat_desc}{%
 \chapter{Le salaire de Belges}\label{salaire_belge_stat_desc}}
 
-Si vous avez fermé R depuis le dernier chapitre, il faudra lancer les \emph{packages}. Vous pouvez le faire avec le code suivant:
+Si vous avez fermé R depuis le dernier chapitre, il faudra à nouveau lancer les \emph{packages}. Vous pouvez le faire avec le code suivant :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1099,7 +1117,7 @@ Si vous avez fermé R depuis le dernier chapitre, il faudra lancer les \emph{pac
 \hypertarget{statistiques-descriptives-et-simples-graphiques-des-salaires-des-belges}{%
 \section{Statistiques descriptives et simples graphiques des salaires des Belges}\label{statistiques-descriptives-et-simples-graphiques-des-salaires-des-belges}}
 
-Si l'on veut étudier les salaires des Belges il faut que nous continuions à travailler avec la base de données \emph{ESS9\_BE} que nous avons créée dans le \protect\hyperlink{charge_code_filtrer}{chapitre précédent} précédemment qui contient exclusivement les observations belges. Par ailleurs, il faut que nous identifiions la variable de la base de données contenant les salaires. Il s'agit de la variable \emph{grspnum}. Nous pouvons obtenir des statistiques descriptives de cette variable avec la commande \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/summary}{\emph{summary()}}:
+Si l'on veut étudier les salaires des Belges il faut continuer à travailler avec la base de données \emph{ESS9\_BE} que nous avons créée dans le \protect\hyperlink{charge_code_filtrer}{chapitre précédent} qui contient exclusivement les observations belges. Par ailleurs, il faut identifier la variable de la base de données contenant les salaires, \emph{grspnum}. Nous pouvons obtenir des statistiques descriptives de cette variable avec la commande \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/summary}{\emph{summary()}} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1112,9 +1130,9 @@ Si l'on veut étudier les salaires des Belges il faut que nous continuions à tr
 ##       0    2019    2800    3148    3700   40000    1068
 \end{verbatim}
 
-On voit que la valeur minimale est de \(0€\), la valeur maximale de \(40000€\). La moyenne s'élève à \(3148€\) tandis que la médiane est sensiblement plus basse à \(2800€\). Cela suggère qu'un nombre restreint de valeurs très élevées tirent la moyenne vers le haut. Il est à noter qu'il y a un nombre important de valeurs manquantes: \(1068\), soit \(60\%\) sur les \(1767\).
+On voit que la valeur minimale est de \(0€\), la valeur maximale de \(40000€\). La moyenne s'élève à \(3148€\) tandis que la médiane est sensiblement plus basse à \(2800€\). Cela suggère qu'un nombre restreint de valeurs très élevées tirent la moyenne vers le haut. Il est à noter qu'il y a un nombre important de valeurs manquantes : \(1068\), soit \(60\%\) sur les \(1767\).
 
-Faisons-nous une image de cette distribution. Vu qu'il s'agit d'une variable continue, nous représentons ceci sous forme d'histogramme avec la fonction de base \href{https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/hist}{\emph{hist()}} et la fonction un peu plus avancée \href{https://www.rdocumentation.org/packages/rcompanion/versions/2.4.21/topics/plotNormalHistogram}{\emph{plotNormalHistogram}} du \emph{package} \href{https://rcompanion.org/handbook/}{rcompanion} y ajoutant une courbe de distribution normale (``cloche'')\footnote{Nous définissions qu'il y a 50 barres dans l'histogramme: ``breaks = 50'' comme second argument de la fonction \href{https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/hist}{\emph{hist()}} et \href{https://www.rdocumentation.org/packages/rcompanion/versions/2.4.21/topics/plotNormalHistogram}{\emph{plotNormalHistogram}}.}:
+Faisons-nous une image de cette distribution. Vu qu'il s'agit d'une variable continue, nous la représentons sous forme d'histogramme avec la fonction de base \href{https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/hist}{\emph{hist()}} et la fonction un peu plus avancée \href{https://www.rdocumentation.org/packages/rcompanion/versions/2.4.21/topics/plotNormalHistogram}{\emph{plotNormalHistogram}} du \emph{package} \href{https://rcompanion.org/handbook/}{rcompanion} y ajoutant une courbe de distribution normale (``cloche'')\footnote{Nous définissions qu'il y a 50 barres dans l'histogramme: ``breaks = 50'' comme second argument de la fonction \href{https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/hist}{\emph{hist()}} et \href{https://www.rdocumentation.org/packages/rcompanion/versions/2.4.21/topics/plotNormalHistogram}{\emph{plotNormalHistogram}}.} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1133,7 +1151,7 @@ Faisons-nous une image de cette distribution. Vu qu'il s'agit d'une variable con
 
 \includegraphics{intro_R_sciences_sociales_files/figure-latex/unnamed-chunk-48-2.pdf}
 
-On peut aussi faire de graphiques plus attrayants avec les fonctions du \emph{package} \href{https://ggplot2.tidyverse.org/}{\emph{ggplot2}} de l'ensemble \href{https://www.tidyverse.org/}{\emph{tidyverse}}\footnote{Nous définissons qu'il y a 50 barres dans l'histogramme: ``bins=50'' comme second argument de la fonction \href{https://ggplot2.tidyverse.org/reference/geom_histogram.html}{\emph{geom\_histogram}}.}:
+On peut aussi faire de graphiques plus attrayants avec les fonctions du \emph{package} \href{https://ggplot2.tidyverse.org/}{\emph{ggplot2}} de l'ensemble \href{https://www.tidyverse.org/}{\emph{tidyverse}}\footnote{Nous définissons qu'il y a 50 barres dans l'histogramme: ``bins=50'' comme second argument de la fonction \href{https://ggplot2.tidyverse.org/reference/geom_histogram.html}{\emph{geom\_histogram}}.} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1144,7 +1162,7 @@ On peut aussi faire de graphiques plus attrayants avec les fonctions du \emph{pa
 
 \includegraphics{intro_R_sciences_sociales_files/figure-latex/unnamed-chunk-49-1.pdf}
 
-On voit très clairement que la plupart des valeurs sont concentrées entre \(0€\) et \(5000€\) et qu'au-delà de \(10000\) il n'y a plus que quelques observations isolées. Celles-ci tirent la moyenne vers le haut. Un autre moyen de représenter cela est de le faire à l'aide d'une ``boîte à moustache'' (\emph{boxplot}):
+On voit très clairement que la plupart des valeurs sont concentrées entre \(0€\) et \(5000€\) et qu'au-delà de \(10000\) il n'y a plus que quelques observations isolées. Celles-ci tirent la moyenne vers le haut. Un autre moyen de représenter cela est de faire à l'aide d'une ``boîte à moustache'' (\emph{boxplot}) :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1154,7 +1172,7 @@ On voit très clairement que la plupart des valeurs sont concentrées entre \(0�
 
 \includegraphics{intro_R_sciences_sociales_files/figure-latex/unnamed-chunk-50-1.pdf}
 
-Vous pouvez aussi la représenter à l'aide de du \emph{package} \href{https://ggplot2.tidyverse.org/}{\emph{ggplot2}}\footnote{Si vous comparer le code du \emph{boxplot} à l'histogramme avec \href{https://ggplot2.tidyverse.org/}{\emph{ggplot2}}, vous remarquerez, que seule la deuxième partie de la commande a changée. Cette similarité du code est un grand avantage du \emph{package} \href{https://ggplot2.tidyverse.org/}{\emph{ggplot2}}. Nous reviendrons plus tard sur la syntaxe et l'utilisation de \href{https://ggplot2.tidyverse.org/}{\emph{ggplot2}}.}:
+Vous pouvez aussi la représenter à l'aide de du \emph{package} \href{https://ggplot2.tidyverse.org/}{\emph{ggplot2}}\footnote{Si vous comparer le code du \emph{boxplot} à l'histogramme avec \href{https://ggplot2.tidyverse.org/}{\emph{ggplot2}}, vous remarquerez que seule la deuxième partie de la commande a changé. Cette similarité du code est un grand avantage du \emph{package} \href{https://ggplot2.tidyverse.org/}{\emph{ggplot2}}. Nous reviendrons plus tard sur la syntaxe et l'utilisation de \href{https://ggplot2.tidyverse.org/}{\emph{ggplot2}}.} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1169,7 +1187,7 @@ Les \emph{boxplots} indiquent aussi très clairement qu'il y a quelques valeurs 
 
 Il nous semble utile de considérer seulement les personnes travaillant à temps plein. Par ailleurs, il faut contrôler que les données soient cohérentes. La Belgique ayant un salaire minimum, il n'est pas légalement possible pour un salarié de percevoir un salaire de moins de \(1000€\) tout en travaillant à temps plein\footnote{Il est certainement possible qu'il y ait des cas très spécifiques où cela puisse se produire. Mais nous excluons ces cas de nos analyses.}.
 
-Nous nous concentrons ainsi sur les Belges travaillant plus de 34 heures pas semaine (temps plein) et gagnant plus de \(1000€\) par mois, mais moins de \(15000€\) par mois. La variable ``\emph{wkhtot}'' indique le nombre d'heures travaillées par semaine. On utilise la fonction \href{https://dplyr.tidyverse.org/reference/filter.html}{\emph{filter()}} pour sélectionner les observations. On crée une nouvelle base de données nommée \emph{ESS9\_BE\_fulltime}:
+Nous nous concentrons ainsi sur les Belges travaillant plus de 34 heures pas semaine (temps plein) et gagnant plus de \(1000€\) par mois, mais moins de \(15000€\) par mois. La variable ``\emph{wkhtot}'' indique le nombre d'heures travaillées par semaine. On utilise la fonction \href{https://dplyr.tidyverse.org/reference/filter.html}{\emph{filter()}} pour sélectionner les observations. On crée une nouvelle base de données nommée \emph{ESS9\_BE\_fulltime} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1180,7 +1198,7 @@ Nous nous concentrons ainsi sur les Belges travaillant plus de 34 heures pas sem
 \end{Highlighting}
 \end{Shaded}
 
-Vous pouvez vérifier cette base de données, notamment en vous assurant qu'il n'y a personne qui ravitaille moins de 35 heures et percevant moins de \(1000€\) et plus de \(15000€\). Vous pouvez utiliser la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/summary}{\emph{summary()}} pour vérifier que les variables \emph{grspnum} et \emph{wkhtot} dans la base de données \emph{ESS9\_BE\_fulltime} ne contiennent plus que des valeurs compatibles avec le filtre que l'on vient d'appliquer:
+Vous pouvez vérifier cette base de données, notamment en vous assurant qu'il n'y a personne qui travaille moins de 35 heures et perçoit moins de \(1000€\) et plus de \(15000€\). Vous pouvez utiliser la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/summary}{\emph{summary()}} pour vérifier que les variables \emph{grspnum} et \emph{wkhtot} dans la base de données \emph{ESS9\_BE\_fulltime} ne contiennent plus que des valeurs compatibles avec le filtre que l'on vient d'appliquer :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1204,7 +1222,7 @@ Vous pouvez vérifier cette base de données, notamment en vous assurant qu'il n
 ##   35.00   38.00   40.00   45.58   46.00  168.00
 \end{verbatim}
 
-Le filtrage a fonctionné: dans notre échantillon, personne ne travaille moins de 35 heures et personne ne perçoit moins de \(1000€\) (le minimum est de \(1200€\)) et plus de \(15000€\) (le maximum est \(14000€\)). Cependant, des anomalies apparaissent au niveau du temps de travail. L'on peut s'en rendre compte avec les fonctions \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/table}{\emph{table()}} et \href{https://www.rdocumentation.org/packages/descr/versions/1.1.5/topics/freq}{\emph{freq()}}:
+Le filtrage a fonctionné : dans notre échantillon, personne ne travaille moins de 35 heures et personne ne perçoit moins de \(1000€\) (le minimum est de \(1200€\)) et plus de \(15000€\) (le maximum est \(14000€\)). Cependant, des anomalies apparaissent au niveau du temps de travail. On s'en rend compte avec les fonctions \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/table}{\emph{table()}} et \href{https://www.rdocumentation.org/packages/descr/versions/1.1.5/topics/freq}{\emph{freq()}} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1214,8 +1232,10 @@ Le filtrage a fonctionné: dans notre échantillon, personne ne travaille moins 
 
 \begin{verbatim}
 ## 
-##  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  52  53  55  56  60  62  65  70  72  75  80  84 100 105 147 168 
-##  19  12  13 110  18 103   9  23   9   8  67   4   3   7   1  48   1   1   8   1  24   1   6  13   2   4   3   1   1   1   1   4
+##  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  52  53  55  56  60  62  65  70  72 
+##  19  12  13 110  18 103   9  23   9   8  67   4   3   7   1  48   1   1   8   1  24   1   6  13   2 
+##  75  80  84 100 105 147 168 
+##   4   3   1   1   1   1   4
 \end{verbatim}
 
 \begin{Shaded}
@@ -1264,9 +1284,9 @@ Le filtrage a fonctionné: dans notre échantillon, personne ne travaille moins 
 ## Total       526 100.0000
 \end{verbatim}
 
-Ainsi 4 répondants affirment travailler \(168\) heures par semaine. Vu qu'une semaine compte \(168\) heures et que l'être humain a un besoin physiologique de sommeil, ces réponses semblent aberrantes\footnote{Il faudrait analyser plus en détail ces cas anormaux: peut-être que les personnes concernées exercent des professions en tant qu'indépendants et s'estiment ``de garde'' en permanence.}. Vue que l'analyse que nous voulons mener ne porte pas sur le temps de travail, nous n'allons ni investiguer ces cas plus en détail, ni les exclure de nos analyses.
+Ainsi 4 répondants affirment travailler \(168\) heures par semaine. Vu qu'une semaine compte \(168\) heures et que l'être humain a un besoin physiologique de sommeil, ces réponses semblent aberrantes\footnote{Il faudrait analyser plus en détail ces cas anormaux: peut-être que les personnes concernées exercent des professions en tant qu'indépendants et s'estiment ``de garde'' en permanence.}. Vu que notre analyse ne porte pas sur le temps de travail, nous n'allons ni investiguer ces cas plus en détail, ni les exclure de nos analyses.
 
-La distribution de la variable dans la base de données que nous avons filtrée, se rapproche-t-elle d'une distribution normale? Analysons cela à nouveau avec les histogrammes et ``boxplots'':
+La distribution de la variable (après filtration) se rapproche-t-elle d'une distribution normale ? Analysons cela à nouveau avec les histogrammes et ``boxplots'' :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1287,7 +1307,8 @@ La distribution de la variable dans la base de données que nous avons filtrée,
 \end{Shaded}
 
 \includegraphics[width=0.5\linewidth]{intro_R_sciences_sociales_files/figure-latex/unnamed-chunk-55-1} \includegraphics[width=0.5\linewidth]{intro_R_sciences_sociales_files/figure-latex/unnamed-chunk-55-2}
-Avec des \emph{boxplot}, la variable \emph{grspnum} donne le résultat suivant:
+
+Avec des \emph{boxplot}, la variable \emph{grspnum} donne le résultat suivant :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1312,27 +1333,27 @@ L'histogramme et la boîte à moustache montrent une distribution moins ``écras
 \hypertarget{comparer-une-distribution-uxe0-une-distribution-normale}{%
 \section{Comparer une distribution à une distribution normale}\label{comparer-une-distribution-uxe0-une-distribution-normale}}
 
-Visuellement, la distribution de la variable des salaires (\emph{grspnum}) ne semble pas normale. Essayons d'objectiver cela. Nous rappelons quelques caractéristiques d'une distribution normale:
+Visuellement, la distribution de la variable des salaires (\emph{grspnum}) ne semble pas normale. Essayons d'objectiver cela. Nous rappelons quelques caractéristiques d'une distribution normale :
 
 \begin{itemize}
 \tightlist
 \item
-  la distribution est symétrique;
+  la distribution est symétrique ;
 \item
-  moyenne \(=\) médiane \(=\) mode;
+  moyenne \(=\) médiane \(=\) mode ;
 \item
-  \(\approx68\%\) des observations se trouvent dans l'intervalle entre \(-1\) écart type (\(\sigma\)) et \(+1\) écart type (\(\sigma\)) de la moyenne (\(\mu\)): \([\mu-\sigma;\mu+\sigma]\)
+  \(\approx68\%\) des observations se trouvent dans l'intervalle entre \(-1\) écart type (\(\sigma\)) et \(+1\) écart type (\(\sigma\)) de la moyenne (\(\mu\)) : \([\mu-\sigma;\mu+\sigma]\)
 \item
-  \(\approx95\%\) des observations se trouvent dans l'intervalle entre \(-1,96\) écart type (\(\sigma\)) et \(+1,96\) écart type (\(\sigma\)) de la moyenne (\(\mu\)): \([\mu-1,96\sigma;\mu+1,96\sigma]\)
+  \(\approx95\%\) des observations se trouvent dans l'intervalle entre \(-1,96\) écart type (\(\sigma\)) et \(+1,96\) écart type (\(\sigma\)) de la moyenne (\(\mu\)) : \([\mu-1,96\sigma;\mu+1,96\sigma]\)
 \item
-  \(\approx95,5\%\) des observations se trouvent dans l'intervalle entre \(-2\) écart type (\(\sigma\)) et \(+2\) écart type (\(\sigma\)) de la moyenne (\(\mu\)): \([\mu-2\sigma;\mu+2\sigma]\)
+  \(\approx95,5\%\) des observations se trouvent dans l'intervalle entre \(-2\) écart type (\(\sigma\)) et \(+2\) écart type (\(\sigma\)) de la moyenne (\(\mu\)) : \([\mu-2\sigma;\mu+2\sigma]\)
 \item
-  \(\approx2,5\%\) des observation sont supérieures à \(1,96\) écart type (\(\sigma\)) de la moyenne (\(\mu\)): \([\mu+1,96\sigma;+\infty)\)
+  \(\approx2,5\%\) des observation sont supérieures à \(1,96\) écart type (\(\sigma\)) de la moyenne (\(\mu\)) : \([\mu+1,96\sigma;+\infty)\)
 \item
-  \(\approx2,5\%\) des observation inférieurs à \(-1,96\) écart type (\(\sigma\)) de la moyenne (\(\mu\)): \([\mu-1,96\sigma;-\infty)\)
+  \(\approx2,5\%\) des observation inférieurs à \(-1,96\) écart type (\(\sigma\)) de la moyenne (\(\mu\)) : \([\mu-1,96\sigma;-\infty)\)
 \end{itemize}
 
-La fonction \emph{nonantecinq()} que nous définissions permet de comparer la distribution d'une variable avec les caractéristiques d'une distribution normale. Pour définir une nouvelle fonction, il faut utiliser la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/function}{\emph{fonction()}}\footnote{Vu qu'il ne s'agit pas d'une introduction à la programmation avec R, nous ne nous attardons pas sur l'écriture de fonctions dans R. Nous renvoyons à l'ouvrage \href{https://cran.r-project.org/doc/contrib/Goulet_introduction_programmation_R.pdf}{``Introduction à la programmation en R''} de Vincent Goulet et plus particulièrement au chapitre 5: ``Fonctions définies par l'usager''.}:
+Nous allons créer une nouvelle fonction, \emph{nonantecinq()}, pour comparer la distribution d'une variable avec les caractéristiques d'une distribution normale. Pour définir une nouvelle fonction, il faut utiliser la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/function}{\emph{fonction()}}\footnote{Vu qu'il ne s'agit pas d'une introduction à la programmation avec R, nous ne nous attardons pas sur l'écriture de fonctions dans R. Nous renvoyons à l'ouvrage \href{https://cran.r-project.org/doc/contrib/Goulet_introduction_programmation_R.pdf}{``Introduction à la programmation en R''} de Vincent Goulet et plus particulièrement au chapitre 5: ``Fonctions définies par l'usager''.} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1387,7 +1408,7 @@ La fonction \emph{nonantecinq()} que nous définissions permet de comparer la di
 \end{Highlighting}
 \end{Shaded}
 
-Une fois que vous avez exécuté le code ci-dessus, la fonction \emph{nonantecinq()} apparaîtra dans l'\protect\hyperlink{objets_envir}{environnement global} de R. Si vous fermer R et que vous n'enregistrez pas cet \protect\hyperlink{objets_envir}{environnement global}, vous devrez récréer la fonction \emph{nonantecinq()} avec le code ci-dessus. Lorsque la fonction \emph{nonantecinq()} est définie, vous pouvez la lancer comme toutes les fonctions de R de base ou des \emph{packages}. Vous indiquez simplement le nom de la fonction avec les parenthèses dans lesquelles vous ajoutez, le cas échéant le ou les arguments. La fonction \emph{nonantecinq()} ne prend qu'un seul argument qui doit être un vecteur numérique (une variable contenant des nombres). Ici, nous voulons vérifier le salaire des Belges (\emph{grspnum}):
+Une fois que vous avez exécuté le code ci-dessus, la fonction \emph{nonantecinq()} apparaîtra dans l'\protect\hyperlink{objets_envir}{environnement global} de R. Si vous fermez R et que vous n'enregistrez pas cet \protect\hyperlink{objets_envir}{environnement global}, vous devrez récréer la fonction \emph{nonantecinq()} avec le code ci-dessus. Lorsque la fonction \emph{nonantecinq()} est définie, vous pouvez la lancer comme toutes les fonctions de R de base ou des \emph{packages}. Vous indiquez simplement le nom de la fonction avec les parenthèses dans lesquelles vous ajoutez, le cas échéant le ou les arguments. La fonction \emph{nonantecinq()} ne prend qu'un seul argument qui doit être un vecteur numérique (une variable contenant des nombres). Ici, nous voulons vérifier le salaire des Belges (\emph{grspnum}) :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1412,26 +1433,26 @@ Une fois que vous avez exécuté le code ci-dessus, la fonction \emph{nonantecin
 ##  3.61 %  des valeurs se situent au-dessus de 1,96 écart types de la moyenne.
 \end{verbatim}
 
-On voit donc également de manière ``objective'' que la variable salaire (\emph{grspnum}) n'est absolument pas normale:
+On voit donc également de manière ``objective'' que la variable salaire (\emph{grspnum}) n'est absolument pas normale :
 
 \begin{itemize}
 \tightlist
 \item
-  La distribution n'est pas symétrique: \(5,51\%\) des valeurs se situent en dessous de -1 écart types de la moyenne, tandis que \(9,13\%\) des valeurs se situent au-dessus de 1 écart types de la moyenne.
+  La distribution n'est pas symétrique: \(5,51\%\) des valeurs se situent en dessous de -1 écart type de la moyenne, tandis que \(9,13\%\) des valeurs se situent au-dessus de 1 écart type de la moyenne.
 \item
   La moyenne, la médiane et le mode sont différents. En particulier, la moyenne est plus élevée que le mode et la médiane.
 \item
   \(\approx85\%\) des observations se trouvent entre -1 et +1 écart type (contre \(68\%\) pour une distribution normale)
 \item
-  \(0\%\) des observations se trouvent en dessous de \(1,96\) écart types (contre \(2,5\%\) pour une distribution normale)
+  \(0\%\) des observations se trouvent en dessous de \(1,96\) écart type (contre \(2,5\%\) pour une distribution normale)
 \item
-  \(3,6\%\) des observations se trouvent au-dessus de \(1,96\) écart types (contre \(2,5\%\) pour une distribution normale)
+  \(3,6\%\) des observations se trouvent au-dessus de \(1,96\) écart type (contre \(2,5\%\) pour une distribution normale)
 \end{itemize}
 
 \hypertarget{trans_log_grspnum}{%
 \section{Distribution normale et transformation logarithmique}\label{trans_log_grspnum}}
 
-La distribution de la variable des salaires (\emph{grspnum}) est très éloignée d'une distribution normale. Quelques observations très élevées ``tirent'' la moyenne vers le haut. Cela est habituel pour les variables de type salaire ou patrimoine. Cependant, l'on peut souvent transformer ces variables de manière à les rapprocher d'une distribution normale. Une transformation très usitée pour cela est la transformation logarithmique (on prend souvent le \href{https://fr.wikipedia.org/wiki/Logarithme_naturel}{logarithme népérien}). Cela a pour effet de davantage espacer les valeurs faibles tout en réduisant les espaces entre les valeurs élevées. Nous vous illustrons cela graphiquement à l'aide une suite \(B\) allant de \(1\) à \(1000\):
+La distribution de la variable des salaires (\emph{grspnum}) est très éloignée d'une distribution normale. Quelques observations très élevées ``tirent'' la moyenne vers le haut. Cela est habituel pour les variables de type salaire ou patrimoine. Cependant, on peut transformer ces variables de manière à les rapprocher d'une distribution normale. Une transformation très usitée pour cela est la transformation logarithmique (on prend souvent le \href{https://fr.wikipedia.org/wiki/Logarithme_naturel}{logarithme népérien}). Cela a pour effet de davantage espacer les valeurs faibles tout en réduisant les espaces entre les valeurs élevées. Illustrons cela graphiquement à l'aide une suite \(B\) allant de \(1\) à \(1000\) :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1454,9 +1475,9 @@ La distribution de la variable des salaires (\emph{grspnum}) est très éloigné
 
 \includegraphics[width=0.5\linewidth]{intro_R_sciences_sociales_files/figure-latex/unnamed-chunk-59-1} \includegraphics[width=0.5\linewidth]{intro_R_sciences_sociales_files/figure-latex/unnamed-chunk-59-2}
 
-En abscisse, l'on voit la suite \(B\) (l'objet \emph{suite\_B}) allant de 1 à 1000. En ordonné, nous avons cette même suite \(B\) transformée de manière logarithmique. L'on voit, très clairement que la courbe augmente fortement lors de faibles valeurs puis s'aplanit. Cela correspond à l'augmentation de l'espacement des valeurs faibles et au rapprochement des grandes valeurs.
+En abscisse, on voit la suite \(B\) (l'objet \emph{suite\_B}) allant de 1 à 1000. En ordonné, nous avons cette même suite \(B\) transformée de manière logarithmique. On voit très clairement que la courbe augmente fortement lors de faibles valeurs puis s'aplanit. Cela correspond à l'augmentation de l'espacement des valeurs faibles et au rapprochement des grandes valeurs.
 
-Nous allons donc appliquer cette transformation à la variable \emph{grspnum} reprenant les salaires. Pour effectuer cette transformation, nous utilisons la fonction \href{https://dplyr.tidyverse.org/reference/mutate.html}{\emph{mutate()}} du \emph{package} \href{https://dplyr.tidyverse.org/}{\emph{dplyr}}: celle-ci permet de créer de nouvelles variables dans une base de données. Cette fonction s'utilise de la manière suivante: vous indiquez comme premier argument, la base de donnés dans laquelle vous souhaitez ajouter une variable. Le deuxième argument correspond au nom de cette nouvelle variable suivie du signe \(=\) et de la/des valeur(s) que doit prendre cette nouvelle variable. L'on peut ainsi indiquer que cette nouvelle variable doit correspondre au \emph{logarithme népérien} de la variable \emph{grspnum}. Le logarithme népérien se calcule avec la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/log}{\emph{log()}}:
+Nous allons donc appliquer cette transformation à la variable \emph{grspnum} reprenant les salaires. Pour effectuer cette transformation, nous utilisons la fonction \href{https://dplyr.tidyverse.org/reference/mutate.html}{\emph{mutate()}} du \emph{package} \href{https://dplyr.tidyverse.org/}{\emph{dplyr}} : elle permet de créer de nouvelles variables dans une base de données. Cette fonction s'utilise de la manière suivante : vous indiquez en premier argument la base de donnés dans laquelle vous souhaitez ajouter une variable; et en deuxième argument le nom de cette nouvelle variable suivi du signe \(=\) et de la (des) valeur(s) que doit prendre cette nouvelle variable. On indique ainsi que cette nouvelle variable doit correspondre au \emph{logarithme népérien} de la variable \emph{grspnum}. Le logarithme népérien se calcule avec la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/log}{\emph{log()}} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1505,7 +1526,7 @@ Regardons, dans quelle mesure la distribution a changée et si l'on s'est rappro
 
 \includegraphics[width=0.5\linewidth]{intro_R_sciences_sociales_files/figure-latex/unnamed-chunk-62-1} \includegraphics[width=0.5\linewidth]{intro_R_sciences_sociales_files/figure-latex/unnamed-chunk-62-2}
 
-La distribution est sensiblement moins étirée. Cela ressemble plus à une distribution normale. Comparons l'histogramme avec une courbe de densité d'une distribution normale:
+La distribution est sensiblement moins étirée et ressemble plus à une distribution normale. Comparons l'histogramme avec une courbe de densité d'une distribution normale :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1531,7 +1552,7 @@ La distribution est sensiblement moins étirée. Cela ressemble plus à une dist
 
 \includegraphics[width=0.5\linewidth]{intro_R_sciences_sociales_files/figure-latex/unnamed-chunk-63-1} \includegraphics[width=0.5\linewidth]{intro_R_sciences_sociales_files/figure-latex/unnamed-chunk-63-2}
 
-Vérifions cela à l'aide de la fonction \emph{nonantecinq}:
+Vérifions cela à l'aide de la fonction \emph{nonantecinq} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1556,7 +1577,7 @@ Vérifions cela à l'aide de la fonction \emph{nonantecinq}:
 ##  3.61 %  des valeurs se situent au-dessus de 1,96 écart types de la moyenne.
 \end{verbatim}
 
-Les données numériques sont tout autant instructives que le diagnostic visuel:
+Les données numériques sont tout autant instructives que le diagnostic visuel :
 
 \begin{itemize}
 \tightlist
@@ -1567,34 +1588,33 @@ Les données numériques sont tout autant instructives que le diagnostic visuel:
 \item
   \(\approx95\%\) des observations se trouvent entre \(-1,96\) et \(+1,96\) écart types (comme pour une distribution normale).
 \item
-  \(2\%\) des observations se trouvent en dessous de \(-1,96\) écart types et \(4%
-  \) se trouvent au-dessus de \(+1,96\) écart types (contre \(2,5\%\) en dessous et au-dessus dans une distribution normale).
+  \(2\%\) des observations se trouvent en dessous de \(-1,96\) écart types et \(4\%\) se trouvent au-dessus de \(+1,96\) écart types (contre \(2,5\%\) en dessous et au-dessus dans une distribution normale).
 \end{itemize}
 
-Empiriquement, nous ne sommes pas face à une distribution tout à fait normale, mais nous en sommes très proches. Cela d'autant plus que le salaire (\emph{grspnum}, d'où \emph{log\_grspnum}) est une variable continue, que la réponse est une déclaration spontanée (les sondés auront tendance à donner des chiffres ``ronds'')\footnote{Si l'on avait accès aux données de revenus comme l'a l'administration fiscale (en Belgique: \href{https://finances.belgium.be/fr}{SPF Finances}) et les organismes de la sécurité sociale (en Belgique notamment par le biais de la \href{https://www.ksz-bcss.fgov.be/fr}{BCSS}), la distribution serait vraisemblablement encore plus proche de la distribution normale.} et que l'échantillon est assez grand (\(n=526\)). Il y a donc une très forte probabilité que la variable sous-jacente dans la population suive une distribution normale. L'on peut donc traiter la variable salaire transformée (\emph{log\_grspnum}) comme une distribution normale. Cela nous permet à calculer des probabilités comme nous allons le voir dans le \protect\hyperlink{distribution_normale_proba}{prochain chapitre}.
+Empiriquement, nous ne sommes pas face à une distribution tout à fait normale, mais nous en sommes très proches. Cela d'autant plus que le salaire (\emph{grspnum}, d'où \emph{log\_grspnum}) est une variable continue, que la réponse est une déclaration spontanée (les sondés auront tendance à donner des chiffres ``ronds'')\footnote{Si l'on avait accès aux données de revenus comme l'a l'administration fiscale (en Belgique: \href{https://finances.belgium.be/fr}{SPF Finances}) et les organismes de la sécurité sociale (en Belgique notamment par le biais de la \href{https://www.ksz-bcss.fgov.be/fr}{BCSS}), la distribution serait vraisemblablement encore plus proche de la distribution normale.} et que l'échantillon est assez grand (\(n=526\)). Il y a donc une très forte probabilité que le logarithme de la variable sous-jacente dans la population suive une distribution normale. On peut donc traiter la variable salaire transformée (\emph{log\_grspnum}) comme une distribution normale. Cela nous permet à calculer des probabilités comme nous allons le voir dans les \protect\hyperlink{distribution_normale_proba}{prochaines sections}.
 
 \hypertarget{distribution_normale_proba}{%
 \section{Distribution normale et probabilités}\label{distribution_normale_proba}}
 
-La distribution normale a un certain nombre de propriétés très intéressantes. L'une d'entre elles et que lorsqu'on connait la moyenne et la variance/l'écart type (ou qu'on l'estime) d'une distribution normale, l'on peut facilement connaître la probabilité d'obtenir une valeur dans un certain intervalle. On se sert de cette propriété dans la statistique inférentielle (qui vise à apporter des connaissances sur la population et pas seulement sur l'échantillon), car les moyennes d'échantillons d'assez grande taille (\(n>30\)) tirés d'une même population suivent une loi normale (même si la variable étudiée ne suit pas une distribution normale). Cela permet de calculer des intervalles de confiance et le risque de faux positifs (\emph{p-valeur}) et de tirer des conclusions sur la population dont est issu l'échantillon\footnote{Pour les concepts d'échantillon et de population, d'intervalles de confiance, de \emph{p-valeur} nous renvoyons aux ouvrages d'introduction aux statistiques. Notons que contrairement à des formulations que l'on peut trouver ça et là, les ``vraies'' valeurs dans la population sont et restent toujours inconnues. Les estimations que l'on peut obtenir par des procédés mathématiques ne permettent pas de connaître cette ``vraie'' valeur. L'on peut simplement connaître la probabilité d'obtenir une valeur dans l'intervalle calculée si l'on prend un nouvel échantillon dans la population.}.
+La distribution normale a un certain nombre de propriétés très intéressantes. L'une d'entre elles et que lorsqu'on connait la moyenne et la variance (ou l'écart type qui est la racine carrée de la variance) d'une distribution normale, on peut facilement connaître la probabilité d'obtenir une valeur dans un certain intervalle. On se sert de cette propriété dans la statistique inférentielle (qui vise à apporter des connaissances sur la population et pas seulement sur l'échantillon), car les moyennes d'échantillons d'assez grande taille (\(n>30\)) tirés d'une même population suivent une loi normale (même si la variable étudiée ne suit pas une distribution normale). Cela permet de calculer des intervalles de confiance et le risque de faux positifs (\emph{p-valeur}) et de tirer des conclusions sur la population dont est issu l'échantillon\footnote{Pour les concepts d'échantillon et de population, d'intervalles de confiance, de \emph{p-valeur} nous renvoyons aux ouvrages d'introduction aux statistiques. Notons que contrairement à des formulations que l'on peut trouver ça et là, les ``vraies'' valeurs dans la population sont et restent toujours inconnues. Les estimations que l'on peut obtenir par des procédés mathématiques ne permettent pas de connaître cette ``vraie'' valeur. L'on peut simplement connaître la probabilité d'obtenir une valeur dans l'intervalle calculée si l'on prend un nouvel échantillon dans la population.}.
 
 \hypertarget{connauxeetre-la-probabilituxe9-des-salaires}{%
 \section{Connaître la probabilité des salaires}\label{connauxeetre-la-probabilituxe9-des-salaires}}
 
-La variable \emph{log\_grspnum} que l'on a créée dans le \protect\hyperlink{trans_log_grspnum}{chapitre précédent} reprend la transformation logarithmique du revenu mensuel des Belges travaillant à temps plein (\(>34\) heures de travail), sans des valeurs aberrantes (trop faibles pour un travail à temps plein) et des revenus dépassant les \(15.000€\). Cette variable \emph{log\_grspnum} peut être considérée comme suivant une distribution normale. Par conséquent, l'on peut facilement déterminer la probabilité qu'un Belge travaillant à temps plein touche un salaire dans un certain intervalle. On peut, par exemple, déterminer quelle est la probabilité de bénéficier d'un revenu supérieur à \(3000€\), inférieur à \(1000€\) ou située entre \(1350€\) et \(1400€\).
+La variable \emph{log\_grspnum} que l'on a créée \protect\hyperlink{trans_log_grspnum}{précédemment} reprend la transformation logarithmique du revenu mensuel des Belges travaillant à temps plein (\(>34\) heures de travail), sans les valeurs aberrantes (trop faibles pour un travail à temps plein) et des revenus dépassant les \(15.000€\). Cette variable \emph{log\_grspnum} peut être considérée comme suivant une distribution normale. Par conséquent, on peut facilement déterminer la probabilité qu'un Belge travaillant à temps plein touche un salaire dans un certain intervalle. On peut, par exemple, déterminer quelle est la probabilité de bénéficier d'un revenu supérieur à \(3000€\), inférieur à \(1000€\) ou bien situé entre \(1350€\) et \(1400€\).
 
-R permet de calculer cette probabilité de manière très simple à l'aide de la fonction \href{https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/Normal}{\emph{pnorm()}}. Celle-ci permet de calculer la probabilité qu'une valeur se trouve dans un certain intervalle, en indiquant la valeur dont on veut connaitre la probabilité, la moyenne, l'écart type et si l'on cherche l'intervalle supérieur ou inférieur à la valeur recherchée. R permet, par ailleurs, de représenter graphiquement assez simples ces intervalles.
+R permet de calculer cette probabilité de manière très simple à l'aide de la fonction \href{https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/Normal}{\emph{pnorm()}}. Celle-ci permet de calculer la probabilité qu'une valeur se trouve dans un certain intervalle, en indiquant la valeur dont on veut connaitre la probabilité, la moyenne, l'écart type et si l'on cherche l'intervalle supérieur ou inférieur à la valeur recherchée. R permet, par ailleurs, de représenter graphiquement ces intervalles.
 
-Notre exemple comporte une difficulté supplémentaire, car nous avons transformé le salaire avec le logarithme népérien. En effet, nous ne pouvons pas directement indiquer l'intervalle de revenu dont nous souhaitons connaître la probabilité. Il faut que nous transformions le salaire que nous voulons tester à l'aide du logarithme népérien\footnote{Attention: Si nous travaillons avec des données qui ne sont pas transformées, il n'y pas besoin de faire une telle transformation!}. Vu que R permet d'imbriquer des fonctions, l'on peut assez facilement surmonter cette difficulté.
+Notre exemple comporte une difficulté supplémentaire, car nous avons transformé le salaire avec le logarithme népérien. En effet, nous ne pouvons pas directement indiquer l'intervalle de revenu dont nous souhaitons connaître la probabilité. Il faut que nous transformions le salaire que nous voulons tester à l'aide du logarithme népérien\footnote{Attention: Si nous travaillons avec des données qui ne sont pas transformées, il n'y pas besoin de faire une telle transformation!}. Vu que R permet d'imbriquer des fonctions, on peut assez facilement surmonter cette difficulté.
 
-Si vous nous voulons connaitre la probabilité de bénéficier d'un revenu supérieur à \(2500€\), nous pouvons le faire ainsi:
+Si vous nous voulons connaitre la probabilité de bénéficier d'un revenu supérieur à \(2500€\), nous pouvons le faire ainsi :
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{pnorm}\NormalTok{(}\FunctionTok{log}\NormalTok{(}\DecValTok{2500}\NormalTok{), }\CommentTok{\# Le logarithme népérien de 2500}
       \AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(ESS9\_BE\_fulltime}\SpecialCharTok{$}\NormalTok{log\_grspnum), }\CommentTok{\#la moyenne de la variable log\_grspnum}
       \AttributeTok{sd=}\FunctionTok{sd}\NormalTok{(ESS9\_BE\_fulltime}\SpecialCharTok{$}\NormalTok{log\_grspnum),}\CommentTok{\#l\textquotesingle{}écart type de la variable log\_grspnum}
-      \AttributeTok{lower.tail =}\NormalTok{ F }\CommentTok{\#Nous voulons connaitre la probabilité que la valeur soit au{-}dessus de 2500}
+      \AttributeTok{lower.tail =}\NormalTok{ F }\CommentTok{\# F pour "False", car nous voulons connaitre la probabilité que la valeur soit au{-}dessus de 2500}
 \NormalTok{      )}
 \end{Highlighting}
 \end{Shaded}
@@ -1605,14 +1625,14 @@ Si vous nous voulons connaitre la probabilité de bénéficier d'un revenu supé
 
 La probabilité de percevoir un salaire supérieur à \(2500€\) est exprimé en probabilité: \(0,69\), ce qui correspond à \(69\%\).
 
-Si l'on voulons calculer la probabilité de percevoir un salaire inférieur à \(2500€\), l'on indique le code suivant:
+Pour calculer la probabilité de percevoir un salaire inférieur à \(2500€\), on utilise le code suivant :
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{pnorm}\NormalTok{(}\FunctionTok{log}\NormalTok{(}\DecValTok{2500}\NormalTok{), }\CommentTok{\# Le logarithme népérien de 2500}
       \AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(ESS9\_BE\_fulltime}\SpecialCharTok{$}\NormalTok{log\_grspnum), }\CommentTok{\#la moyenne de la variable log\_grspnum}
       \AttributeTok{sd=}\FunctionTok{sd}\NormalTok{(ESS9\_BE\_fulltime}\SpecialCharTok{$}\NormalTok{log\_grspnum),}\CommentTok{\#l\textquotesingle{}écart type de la variable log\_grspnum}
-      \AttributeTok{lower.tail =}\NormalTok{ T }\CommentTok{\#Nous voulons connaitre la probabilité que la valeur soit en dessous de 2500}
+      \AttributeTok{lower.tail =}\NormalTok{ T }\CommentTok{\# T pour "True" car nous voulons connaitre la probabilité que la valeur soit en dessous de 2500}
 \NormalTok{      )}
 \end{Highlighting}
 \end{Shaded}
@@ -1621,7 +1641,7 @@ Si l'on voulons calculer la probabilité de percevoir un salaire inférieur à \
 ## [1] 0.3117817
 \end{verbatim}
 
-La probabilité de percevoir un salaire inférieur à \(2500€\) est donc de \(0,31\) soit \(31\%\). Vous aurez noté que la probabilité cumulé de percevoir un salaire inférieur à \(2500€\) et supérieur à \(2500€\) est de \(1\) (\(0,69+0,31=1\)). L'on peut utiliser cela pour calculer la probabilité e percevoir un salaire dans un certain intervalle. Si l'on voulait connaître la probabilité de percevoir un salaire supérieur à \(2500€\),mais inférieur à \(2800€\), l'on calcule simplement:
+La probabilité de percevoir un salaire inférieur à \(2500€\) est donc de \(0,31\) soit \(31\%\). Vous aurez noté que la probabilité cumulé de percevoir un salaire inférieur à \(2500€\) et supérieur à \(2500€\) est de \(1\) (\(0,69+0,31=1\)). On peut utiliser cela pour calculer la probabilité de percevoir un salaire dans un certain intervalle. Si l'on voulait connaître la probabilité de percevoir un salaire supérieur à \(2500€\), mais inférieur à \(2800€\), on calcule simplement:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1673,17 +1693,11 @@ La probabilité de percevoir un salaire inférieur à \(2500€\) est donc de \(
 ## [1] 0.1019033
 \end{verbatim}
 
-La probabilité de bénéficier d'un salaire entre \(2500€\) et \(2800€\) est donc de \(0,1\), soit \(10\%\). En effet, la probabilité de bénéficier d'un salaire de moins de \(2800€\) est de \(0,41\) (\(41\%\)). La probabilité de bénéficier d'un salaire de moins de \(2500€\) est de \(0,31\) (\(31\%\)). D'où, si l'on prend la différence entre les deux l'on trouve la probabilité de bénéficier d'un salaire entre \(2500€\) et \(2800€\) (\(0,41-0,31=0,1\)).
+La probabilité de bénéficier d'un salaire entre \(2500€\) et \(2800€\) est donc de \(0,1\) soit \(10\%\). En effet, la probabilité de bénéficier d'un salaire de moins de \(2800€\) est de \(0,41\) (\(41\%\)). La probabilité de bénéficier d'un salaire de moins de \(2500€\) est de \(0,31\) (\(31\%\)). D'où, en prenant la différence entre les deux, une probabilité de bénéficier d'un salaire entre \(2500€\) et \(2800€\) (\(0,41-0,31=0,1\)).
 
-L'on peut représenter cela de manière visuelle. Par simplicité, nous utilisions le code généré par l'interface graphique ``\emph{R Commander}'' (\href{https://cran.r-project.org/web/packages/Rcmdr/index.html}{\emph{Rcmdr}})\footnote{Ce syllabus ne s'attarde pas sur le fonctionnement de cet interface graphique. Vous trouverez des explications en ligne, notamment: \url{https://lms.fun-mooc.fr/c4x/UPSUD/42001S02/asset/introRcmdr.html}}. D'autres manière de représenter cela impliquent de combiner, voir d'imbriquer, des fonctions telles que \href{https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/polygon}{polygon()}/\href{https://ggplot2.tidyverse.org/reference/geom_polygon.html}{geom\_polygon()}, \href{https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html}{dnorm()} et éventuellement \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/rev}{rev()} et \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/rep}{rep()} qui nous semble trop complliqués à expliquer dans ce syllabus. pour utiliser les fonctions issues du \emph{package} \href{https://cran.r-project.org/web/packages/Rcmdr/index.html}{\emph{Rcmdr}}, lancez le ainsi:
+Pour représenter cela de manière visuelle, nous utiliserons le code généré par l'interface graphique ``\emph{R Commander}'' (\href{https://cran.r-project.org/web/packages/Rcmdr/index.html}{\emph{Rcmdr}})\footnote{Ce syllabus ne s'attarde pas sur le fonctionnement de cet interface graphique. Vous trouverez des explications en ligne, notamment: \url{https://lms.fun-mooc.fr/c4x/UPSUD/42001S02/asset/introRcmdr.html}}. D'autres manières de représenter cela impliquent de combiner, voir d'imbriquer, des fonctions telles que \href{https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/polygon}{polygon()}/\href{https://ggplot2.tidyverse.org/reference/geom_polygon.html}{geom\_polygon()}, \href{https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html}{dnorm()} et éventuellement \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/rev}{rev()} et \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/rep}{rep()} qui nous semble trop complliqué à expliquer dans ce syllabus. Pour utiliser les fonctions issues du \emph{package} \href{https://cran.r-project.org/web/packages/Rcmdr/index.html}{\emph{Rcmdr}}, lancez le ainsi :
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{p\_load}\NormalTok{(Rcmdr)}
-\end{Highlighting}
-\end{Shaded}
-
-Ensuite, vous pouvez soit faire les manipulations dans ``R Commander'' ou utiliser le code dans le \emph{R Script }. Si vous souhaiter utiliser le code dans le R Script, je vous conseille de fermer la fenêtre du ``R Commander'' pour que les graphiques générés n'apparaissent pas dans la fenêtre du ``R Commander'' pas à leur emplacment habituel:
+Ensuite, vous pouvez soit faire les manipulations dans ``R Commander'', soit utiliser le code dans le \emph{R Script} . Si vous souhaiter utiliser le code dans le R Script, je vous conseille de fermer la fenêtre du ``R Commander'' pour que les graphiques générés n'apparaissent pas dans la fenêtre du ``R Commander'' mais à leur emplacement habituel :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1704,18 +1718,18 @@ Ensuite, vous pouvez soit faire les manipulations dans ``R Commander'' ou utilis
 
 \includegraphics{intro_R_sciences_sociales_files/figure-latex/unnamed-chunk-69-1.pdf}
 
-Grâce à ce graphique l'on voit visuellement où se situent les \(10\%\) de probabilité de percevoir entre \(2500€\) et \(2800€\).
+Grâce à ce graphique on voit immédiatement où se situent les \(10\%\) de probabilité de percevoir entre \(2500€\) et \(2800€\).
 
-L'on peut aussi calculer le montant à partir duquel l'on perçoit un revenu supérieur à 80\% de la population et à partir duquel on appartient aux Belges percevant les 10\% de revenus les plus faibles. Cela se calcule aisément avec la fonction \href{https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/Normal}{\emph{qnorm()}}. L'on indique en tant que premier argument le pourcentage (de 0 à 1) qu'on souhaiterait connaitre, puis comme deuxième et troisième argument la moyenne et l'écart type. Par défaut, R vous retourne la probabilité de percevoir moins. Si vous voulez connaître la probabilité de percevoir plus, il faut spécifier un quatrième argument: ``\emph{lower.tail=F}''.
+Pour calculer le montant à partir duquel on perçoit un revenu supérieur à 80\% de la population, ou bien à partir duquel on appartient à la catégorie des Belges percevant les 10\% de revenus les plus faibles. Cela se calcule aisément avec la fonction \href{https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/Normal}{\emph{qnorm()}}. On indique en tant que premier argument le pourcentage (de 0 à 1) qu'on souhaiterait connaitre, puis comme deuxième et troisième argument la moyenne et l'écart type. Par défaut, R vous retourne la probabilité de percevoir moins. Si vous voulez connaître la probabilité de percevoir plus, il faut spécifier un quatrième argument: ``\emph{lower.tail=F}''.
 
-Calculons donc la probabilité de percevoir un revenu supérieur à 80\% de la population:
+Calculons donc la probabilité de percevoir un revenu supérieur à 80\% de la population :
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{qnorm}\NormalTok{(}\FloatTok{0.8}\NormalTok{, }\CommentTok{\# 80\%}
       \AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(ESS9\_BE\_fulltime}\SpecialCharTok{$}\NormalTok{log\_grspnum), }\CommentTok{\#la moyenne de la variable log\_grspnum}
       \AttributeTok{sd=}\FunctionTok{sd}\NormalTok{(ESS9\_BE\_fulltime}\SpecialCharTok{$}\NormalTok{log\_grspnum),}\CommentTok{\#l\textquotesingle{}écart type de la variable log\_grspnum}
-      \AttributeTok{lower.tail =}\NormalTok{ F }\CommentTok{\#Nous voulons connaitre la probabilité que la valeur soit au{-}dessus de 0.8 (80\%)}
+      \AttributeTok{lower.tail =}\NormalTok{ F }\CommentTok{\#Pour connaitre la probabilité que la valeur soit au{-}dessus de 0.8 (80\%)}
 \NormalTok{      )}
 \end{Highlighting}
 \end{Shaded}
@@ -1724,7 +1738,7 @@ Calculons donc la probabilité de percevoir un revenu supérieur à 80\% de la p
 ## [1] 7.678271
 \end{verbatim}
 
-Le montant à partir duquel l'on perçoit plus que 80\% de la population est de \(7.68\). Ce montant est difficilement interprétable. En effet, il s'agit du logarithme népérien du revenu. Il faut donc transformer cette valeur. On passe du logarithme népérien à la valeur d'origine en appliquant une transformation exponentielle à la valeur. Pour cela, l'on peut utiliser la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/log}{\emph{exp()}}:
+Le montant à partir duquel on perçoit plus que 80\% de la population est de \(7.68\). Ce montant est difficilement interprétable. En effet, il s'agit du logarithme népérien du revenu. Il faut donc transformer cette valeur. On passe du logarithme népérien à la valeur d'origine en appliquant une transformation exponentielle à la valeur. Pour cela, l'on peut utiliser la fonction \href{https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/log}{\emph{exp()}} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1732,7 +1746,7 @@ Le montant à partir duquel l'on perçoit plus que 80\% de la population est de 
 \NormalTok{plus\_80\_pc}\OtherTok{\textless{}{-}}\FunctionTok{qnorm}\NormalTok{(}\FloatTok{0.8}\NormalTok{, }\CommentTok{\# 80\%}
       \AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(ESS9\_BE\_fulltime}\SpecialCharTok{$}\NormalTok{log\_grspnum), }\CommentTok{\#la moyenne de la variable log\_grspnum}
       \AttributeTok{sd=}\FunctionTok{sd}\NormalTok{(ESS9\_BE\_fulltime}\SpecialCharTok{$}\NormalTok{log\_grspnum),}\CommentTok{\#l\textquotesingle{}écart type de la variable log\_grspnum}
-      \AttributeTok{lower.tail =}\NormalTok{ T }\CommentTok{\#Nous voulons connaitre la probabilité que la valeur soit en dessous de 0.8 (80\%)}
+      \AttributeTok{lower.tail=}\NormalTok{T }\CommentTok{\#Pour connaitre la probabilité que la valeur soit en dessous de 0.8 (80\%)}
 \NormalTok{      )}
 \CommentTok{\#On transforme cette valeur en euro:}
 \FunctionTok{exp}\NormalTok{(plus\_80\_pc)}
@@ -1743,7 +1757,7 @@ Le montant à partir duquel l'on perçoit plus que 80\% de la population est de 
 ## [1] 4349.057
 \end{verbatim}
 
-Il en découle que l'on doit percevoir plus de \(4349,06€\) par mois pour gagner plus de 80\% des personnes travaillant à temps plein en Belgique. L'on peut représenter cela graphiquement:
+Il en découle que l'on doit percevoir plus de \(4349,06€\) par mois pour gagner plus de 80\% des personnes travaillant à temps plein en Belgique. On peut représenter cela graphiquement :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1764,7 +1778,7 @@ Il en découle que l'on doit percevoir plus de \(4349,06€\) par mois pour gagn
 
 \includegraphics{intro_R_sciences_sociales_files/figure-latex/unnamed-chunk-72-1.pdf}
 
-Si l'on veut déterminer à partir de quelle somme l'on appartient aux 10\% des Belges travaillant à temps plein percevant le moins de revenu, il faut calculer ainsi:
+Pour déterminer à partir de quelle salaire on appartient aux 10\% des Belges travaillant à temps plein percevant le moins de revenu, le code suivant s'applique :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1793,7 +1807,7 @@ Si l'on veut déterminer à partir de quelle somme l'on appartient aux 10\% des 
 ## [1] 1799.861
 \end{verbatim}
 
-Il faut donc percevoir moins de \(1799,86€\) pour appartenir au 10\% des Belges travaillant à temps plein percevant les revenus les plus faibles. L'on peut également représenter cela graphiquement:
+Il faut donc percevoir moins de \(1799,86€\) pour appartenir au 10\% des Belges travaillant à temps plein percevant les revenus les plus faibles. On peut également représenter cela graphiquement :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1814,7 +1828,7 @@ Il faut donc percevoir moins de \(1799,86€\) pour appartenir au 10\% des Belge
 
 \includegraphics{intro_R_sciences_sociales_files/figure-latex/unnamed-chunk-74-1.pdf}
 
-On peut également faire des calculs similaires pour d'autres types de distributions que la distribution \href{https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/Normal}{normale}. Vous trouverez ici une liste non exhaustive des distributions pour lesquelles R propose des fonctions:
+On peut également faire des calculs similaires pour d'autres types de distributions que la distribution \href{https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/Normal}{normale}. Vous trouverez ici une liste non exhaustive des distributions pour lesquelles R propose des fonctions :
 
 \begin{itemize}
 \tightlist

@@ -165,7 +165,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="charge_code_filtrer.html"><a href="charge_code_filtrer.html#explorer-les-données-créer-un-codebook-interactif"><i class="fa fa-check"></i><b>3.2</b> Explorer les données: créer un <em>codebook</em> interactif</a></li>
 <li class="chapter" data-level="3.3" data-path="charge_code_filtrer.html"><a href="charge_code_filtrer.html#filtrer-les-données"><i class="fa fa-check"></i><b>3.3</b> Filtrer les données</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="salaire_belge_stat_desc.html"><a href="salaire_belge_stat_desc.html"><i class="fa fa-check"></i><b>4</b> Le salaire de Belges</a>
+<li class="chapter" data-level="4" data-path="salaire_belge_stat_desc.html"><a href="salaire_belge_stat_desc.html"><i class="fa fa-check"></i><b>4</b> Le salaire des Belges</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="salaire_belge_stat_desc.html"><a href="salaire_belge_stat_desc.html#statistiques-descriptives-et-simples-graphiques-des-salaires-des-belges"><i class="fa fa-check"></i><b>4.1</b> Statistiques descriptives et simples graphiques des salaires des Belges</a></li>
 <li class="chapter" data-level="4.2" data-path="salaire_belge_stat_desc.html"><a href="salaire_belge_stat_desc.html#comparer-une-distribution-à-une-distribution-normale"><i class="fa fa-check"></i><b>4.2</b> Comparer une distribution à une distribution normale</a></li>
@@ -304,25 +304,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="Priseenmain.html#cb23-1" aria-hidden="true" tabindex="-1"></a>ESS9</span></code></pre></div>
 <p>Dans votre console s’affichera alors un extrait de la base de données :</p>
 <pre><code>## # A tibble: 49,519 × 572
-##    name   essro…¹ edition prodd…²  idno cntry    dweight pspwght pweight anwei…³ nwspol netus…⁴ netustm
-##    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;chr+lb&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;
-##  1 ESS9e…       9 3.1     17.02.…    27 AT [Aus…   0.581   0.218   0.302  0.0659 60     5 [Eve… 180    
-##  2 ESS9e…       9 3.1     17.02.…   137 AT [Aus…   1.06    0.413   0.302  0.125  10     5 [Eve…  20    
-##  3 ESS9e…       9 3.1     17.02.…   194 AT [Aus…   1.38    2.27    0.302  0.686  60     4 [Mos… 180    
-##  4 ESS9e…       9 3.1     17.02.…   208 AT [Aus…   0.993   0.386   0.302  0.117  45     5 [Eve… 120    
-##  5 ESS9e…       9 3.1     17.02.…   220 AT [Aus…   0.377   1.03    0.302  0.312  30     1 [Nev…  NA    
-##  6 ESS9e…       9 3.1     17.02.…   254 AT [Aus…   1.48    0.576   0.302  0.174  45     2 [Onl…  NA    
-##  7 ESS9e…       9 3.1     17.02.…   290 AT [Aus…   0.992   0.721   0.302  0.218  60     1 [Nev…  NA    
-##  8 ESS9e…       9 3.1     17.02.…   301 AT [Aus…   0.310   0.130   0.302  0.0393 30     1 [Nev…  NA    
-##  9 ESS9e…       9 3.1     17.02.…   305 AT [Aus…   1.23    1.77    0.302  0.535  30     5 [Eve… 120    
-## 10 ESS9e…       9 3.1     17.02.…   400 AT [Aus…   0.459   0.743   0.302  0.224  25     4 [Mos… 360    
-## # … with 49,509 more rows, 559 more variables: ppltrst &lt;dbl+lbl&gt;, pplfair &lt;dbl+lbl&gt;, pplhlp &lt;dbl+lbl&gt;,
-## #   polintr &lt;dbl+lbl&gt;, psppsgva &lt;dbl+lbl&gt;, actrolga &lt;dbl+lbl&gt;, psppipla &lt;dbl+lbl&gt;, cptppola &lt;dbl+lbl&gt;,
-## #   trstprl &lt;dbl+lbl&gt;, trstlgl &lt;dbl+lbl&gt;, trstplc &lt;dbl+lbl&gt;, trstplt &lt;dbl+lbl&gt;, trstprt &lt;dbl+lbl&gt;,
-## #   trstep &lt;dbl+lbl&gt;, trstun &lt;dbl+lbl&gt;, vote &lt;dbl+lbl&gt;, prtvtcat &lt;dbl+lbl&gt;, prtvtdbe &lt;dbl+lbl&gt;,
-## #   prtvtdbg &lt;dbl+lbl&gt;, prtvtgch &lt;dbl+lbl&gt;, prtvtbcy &lt;dbl+lbl&gt;, prtvtecz &lt;dbl+lbl&gt;,
-## #   prtvede1 &lt;dbl+lbl&gt;, prtvede2 &lt;dbl+lbl&gt;, prtvtddk &lt;dbl+lbl&gt;, prtvtgee &lt;dbl+lbl&gt;,
-## #   prtvtees &lt;dbl+lbl&gt;, prtvtdfi &lt;dbl+lbl&gt;, prtvtdfr &lt;dbl+lbl&gt;, prtvtcgb &lt;dbl+lbl&gt;, …</code></pre>
+##    name      essround edition proddate  idno cntry    dweight pspwght pweight anwei…¹ nwspol netus…² netustm ppltrst pplfair pplhlp polintr pspps…³ actro…⁴ psppi…⁵
+##    &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt; &lt;chr+lb&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;
+##  1 ESS9e03_1        9 3.1     17.02.2…    27 AT [Aus…   0.581   0.218   0.302  0.0659 60     5 [Eve… 180     2 [2]   2 [2]   2 [2]  3 [Har… 3 [Som… 2 [A l… 2 [Ver…
+##  2 ESS9e03_1        9 3.1     17.02.2…   137 AT [Aus…   1.06    0.413   0.302  0.125  10     5 [Eve…  20     7 [7]   8 [8]   7 [7]  2 [Qui… 3 [Som… 2 [A l… 3 [Som…
+##  3 ESS9e03_1        9 3.1     17.02.2…   194 AT [Aus…   1.38    2.27    0.302  0.686  60     4 [Mos… 180     5 [5]   7 [7]   7 [7]  4 [Not… 2 [Ver… 1 [Not… 3 [Som…
+##  4 ESS9e03_1        9 3.1     17.02.2…   208 AT [Aus…   0.993   0.386   0.302  0.117  45     5 [Eve… 120     3 [3]   9 [9]   5 [5]  3 [Har… 2 [Ver… 2 [A l… 3 [Som…
+##  5 ESS9e03_1        9 3.1     17.02.2…   220 AT [Aus…   0.377   1.03    0.302  0.312  30     1 [Nev…  NA     5 [5]   8 [8]   4 [4]  2 [Qui… 1 [Not… 1 [Not… 1 [Not…
+##  6 ESS9e03_1        9 3.1     17.02.2…   254 AT [Aus…   1.48    0.576   0.302  0.174  45     2 [Onl…  NA     8 [8]   7 [7]   6 [6]  2 [Qui… 2 [Ver… 2 [A l… 3 [Som…
+##  7 ESS9e03_1        9 3.1     17.02.2…   290 AT [Aus…   0.992   0.721   0.302  0.218  60     1 [Nev…  NA     6 [6]   1 [1]   3 [3]  4 [Not… 2 [Ver… 2 [A l… 3 [Som…
+##  8 ESS9e03_1        9 3.1     17.02.2…   301 AT [Aus…   0.310   0.130   0.302  0.0393 30     1 [Nev…  NA     7 [7]   7 [7]   7 [7]  3 [Har… 1 [Not… 1 [Not… 1 [Not…
+##  9 ESS9e03_1        9 3.1     17.02.2…   305 AT [Aus…   1.23    1.77    0.302  0.535  30     5 [Eve… 120     2 [2]   9 [9]   9 [9]  3 [Har… 1 [Not… 1 [Not… 1 [Not…
+## 10 ESS9e03_1        9 3.1     17.02.2…   400 AT [Aus…   0.459   0.743   0.302  0.224  25     4 [Mos… 360     7 [7]   4 [4]   4 [4]  4 [Not… 2 [Ver… 2 [A l… 2 [Ver…
+## # … with 49,509 more rows, 552 more variables: cptppola &lt;dbl+lbl&gt;, trstprl &lt;dbl+lbl&gt;, trstlgl &lt;dbl+lbl&gt;, trstplc &lt;dbl+lbl&gt;, trstplt &lt;dbl+lbl&gt;, trstprt &lt;dbl+lbl&gt;,
+## #   trstep &lt;dbl+lbl&gt;, trstun &lt;dbl+lbl&gt;, vote &lt;dbl+lbl&gt;, prtvtcat &lt;dbl+lbl&gt;, prtvtdbe &lt;dbl+lbl&gt;, prtvtdbg &lt;dbl+lbl&gt;, prtvtgch &lt;dbl+lbl&gt;, prtvtbcy &lt;dbl+lbl&gt;,
+## #   prtvtecz &lt;dbl+lbl&gt;, prtvede1 &lt;dbl+lbl&gt;, prtvede2 &lt;dbl+lbl&gt;, prtvtddk &lt;dbl+lbl&gt;, prtvtgee &lt;dbl+lbl&gt;, prtvtees &lt;dbl+lbl&gt;, prtvtdfi &lt;dbl+lbl&gt;,
+## #   prtvtdfr &lt;dbl+lbl&gt;, prtvtcgb &lt;dbl+lbl&gt;, prtvtahr &lt;dbl+lbl&gt;, prtvtfhu &lt;dbl+lbl&gt;, prtvtcie &lt;dbl+lbl&gt;, prtvtcis &lt;dbl+lbl&gt;, prtvtcit &lt;dbl+lbl&gt;,
+## #   prtvblt1 &lt;dbl+lbl&gt;, prtvblt2 &lt;dbl+lbl&gt;, prtvblt3 &lt;dbl+lbl&gt;, prtvtalv &lt;dbl+lbl&gt;, prtvtme &lt;dbl+lbl&gt;, prtvtgnl &lt;dbl+lbl&gt;, prtvtbno &lt;dbl+lbl&gt;, prtvtdpl &lt;dbl+lbl&gt;,
+## #   prtvtcpt &lt;dbl+lbl&gt;, prtvtrs &lt;dbl+lbl&gt;, prtvtcse &lt;dbl+lbl&gt;, prtvtfsi &lt;dbl+lbl&gt;, prtvtdsk &lt;dbl+lbl&gt;, contplt &lt;dbl+lbl&gt;, wrkprty &lt;dbl+lbl&gt;, wrkorg &lt;dbl+lbl&gt;,
+## #   badge &lt;dbl+lbl&gt;, sgnptit &lt;dbl+lbl&gt;, pbldmn &lt;dbl+lbl&gt;, bctprd &lt;dbl+lbl&gt;, pstplonl &lt;dbl+lbl&gt;, clsprty &lt;dbl+lbl&gt;, prtcldat &lt;dbl+lbl&gt;, prtcldbe &lt;dbl+lbl&gt;, …</code></pre>
 <p>Comme pour d’autres logiciels statistiques, les colonnes représentent les variables et les lignes les observations. Ici, une vingtaine de variables sont affichées (sur <span class="math inline">\(572\)</span>). De même, les dix premières observations (sur <span class="math inline">\(49519\)</span>) sont affichées<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a>. Si vous voulez voir l’ensemble de la base de données, vous pouvez utiliser la fonction <em>View()</em><a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a> :</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="Priseenmain.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(ESS9)</span></code></pre></div>
 <p>Si vous voulez enregistrer la base de données sous un format R, utilisez le format <em>RDS</em>. Celui-ci vous permet d’enregistrer un objet R. La base de données de l’<a href="https://www.europeansocialsurvey.org/"><em>ESS</em></a> étant chargé sous le nom “<em>ESS9</em>” comme objet R dans l’<a href="Priseenmain.html#objets_envir">environnement global</a> il vous suffira d’exécuter la commande <em>saveRDS()</em> pour l’enregistrer. Dans cette commande vous indiquez le nom de l’objet R à enregistrer en tant que premier argument. Ensuite, vous indiquez, séparé par une virgule, comme second argument, le nom sous lequel vous voulez enregistrer l’objet. Ce nom doit être indiqué entre guillemets. Ici, nous voulons enregistrer l’objet “<em>ESS9</em>” sous le nom “ESS9.RDS”, afin de le réutiliser lors du prochain chapitre. Exécutez donc le code suivant :</p>
